@@ -26,9 +26,9 @@ body {
 
 /* Header & Nav */
 header {
-    background: var(--black-carbon);
+    bbackground: #0f0f0f;
     color: var(--white);
-    padding: 20px 0;
+    padding: 30px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -134,8 +134,87 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background: var(--black-carbon);
+    background: #111;
     color: var(--white);
     text-align: center;
     padding: 40px 0;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spațiu între imaginea logo și textul LR-SERVICE */
+}
+
+.site-logo {
+    height: 80px; /* Ajustează înălțimea logo-ului să se pupe cu textul */
+    width: auto;
+    /* Opțional: un efect fin de umbră albă ca să scoată cercul verde în evidență pe negru */
+    filter: drop-shadow(0 0 6px rgba(0,255,150,0.15));
+        height: 75px;
+    width: auto;
+    transition: 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+}
+
+/* Stil pentru Butonul de WhatsApp Plutitor */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Verdele oficial WhatsApp */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1); /* Se mărește ușor când pui mouse-ul pe el */
+}
+
+.whatsapp-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Ajustări pentru Hero (imaginea cu mașina în apă) */
+.hero {
+    height: 80vh;
+    /* Am adăugat imaginea ta hero.jpg */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+/* Footer link color */
+footer a {
+    color: var(--green-lr);
+    text-decoration: none;
+    font-weight: bold;
+}
+.navbar-brand img {
+  height: 50px;
+  width: auto;
 }
