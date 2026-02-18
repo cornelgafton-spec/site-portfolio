@@ -26,7 +26,7 @@ body {
 
 /* Header & Nav */
 header {
-    bbackground: #0f0f0f;
+    background: #0f0f0f;
     color: var(--white);
     padding: 30px 0;
     position: sticky;
@@ -80,7 +80,8 @@ nav ul li a:hover {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero.jpg'); /* Vom pune poza mai târziu */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero.jpg');
+    /* Vom pune poza mai târziu */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -128,7 +129,7 @@ nav ul li a:hover {
     background: var(--white);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-top: 5px solid var(--green-lr);
 }
 
@@ -139,25 +140,25 @@ footer {
     text-align: center;
     padding: 40px 0;
 }
+
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px; /* Spațiu între imaginea logo și textul LR-SERVICE */
+    gap: 15px;
+    /* Spațiu între imaginea logo și textul LR-SERVICE */
 }
 
+
+/* Logo Styles */
 .site-logo {
-    height: 80px; /* Ajustează înălțimea logo-ului să se pupe cu textul */
+    height: 75px;
     width: auto;
-    /* Opțional: un efect fin de umbră albă ca să scoată cercul verde în evidență pe negru */
-    filter: drop-shadow(0 0 6px rgba(0,255,150,0.15));
-        height: 75px;
-    width: auto;
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.15));
     transition: 0.3s ease;
 }
 
 .site-logo:hover {
     transform: scale(1.05);
-}
 }
 
 .logo {
@@ -168,6 +169,77 @@ footer {
     align-items: center;
 }
 
+/* Mobile Menu Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        z-index: 1002;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        /* Push below header */
+        left: 0;
+        width: 100%;
+        background-color: #0f0f0f;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 15px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content {
+        padding: 0 20px;
+    }
+
+    .logo-container img {
+        height: 60px;
+    }
+
+    /* Animate Hamburger to X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+}
+
 /* Stil pentru Butonul de WhatsApp Plutitor */
 .whatsapp-btn {
     position: fixed;
@@ -175,18 +247,20 @@ footer {
     right: 30px;
     width: 60px;
     height: 60px;
-    background-color: #25d366; /* Verdele oficial WhatsApp */
+    background-color: #25d366;
+    /* Verdele oficial WhatsApp */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 1001;
     transition: transform 0.3s ease;
 }
 
 .whatsapp-btn:hover {
-    transform: scale(1.1); /* Se mărește ușor când pui mouse-ul pe el */
+    transform: scale(1.1);
+    /* Se mărește ușor când pui mouse-ul pe el */
 }
 
 .whatsapp-btn img {
@@ -198,7 +272,7 @@ footer {
 .hero {
     height: 80vh;
     /* Am adăugat imaginea ta hero.jpg */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -213,8 +287,4 @@ footer a {
     color: var(--green-lr);
     text-decoration: none;
     font-weight: bold;
-}
-.navbar-brand img {
-  height: 50px;
-  width: auto;
 }
