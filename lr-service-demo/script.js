@@ -1,27 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('nav ul');
-    const navLinks = document.querySelectorAll('nav ul li a');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.hero-nav ul');
+  const navLinks = document.querySelectorAll('.hero-nav ul li a');
 
-    // Toggle Menu
-    menuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-    });
+  if (!menuToggle || !nav) return;
 
-    // Close menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            menuToggle.classList.remove('active');
-        });
-    });
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', menuToggle.classList.contains('active'));
+  });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-            nav.classList.remove('active');
-            menuToggle.classList.remove('active');
-        }
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+      nav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 });
+

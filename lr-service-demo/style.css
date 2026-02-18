@@ -1,290 +1,376 @@
-/* Variabile pentru culori */
+/* =========
+   LR SERVICE – CSS CURAT (Hero + Logo pe poză)
+   ========= */
+
+/* Variabile */
 :root {
-    --green-lr: #004225;
-    --black-carbon: #1a1a1a;
-    --white: #ffffff;
-    --gray: #f4f4f4;
+  --green-lr: #00ff88;        /* agresiv tech */
+  --green-deep: #004225;      /* verde brand */
+  --bg-dark: #07080a;         /* aproape negru */
+  --white: #ffffff;
+  --gray: #f4f4f4;
+  --text: #d7dde6;
 }
 
+/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background: #fff;
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
 }
 
-/* Header & Nav */
-header {
-    background: #0f0f0f;
-    color: var(--white);
-    padding: 30px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* =========
+   HERO (cu meniu transparent peste poză)
+   ========= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+      url('images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding-top: 120px; /* IMPORTANT: împinge textul sub meniu */
+  }
+/* Topbar (în loc de header clasic) */
+.hero-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero-topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
+/* Brand / Logo */
+.hero-brand{
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 14px;
+
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
 
-.logo span {
-    color: var(--green-lr);
+.hero-brand img{
+  height: 64px;  /* mai mare */
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
+/* Navigație */
+.hero-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+  align-items: center;
 }
 
-nav ul li a {
-    color: var(--white);
-    text-decoration: none;
-    padding: 0 15px;
-    transition: 0.3s;
+.hero-nav ul li a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  padding: 10px 12px;
+  transition: 0.25s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  font-size: 18px;
 }
 
-nav ul li a:hover {
-    color: var(--green-lr);
+.hero-nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--green-lr);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.25s;
+  opacity: 0.9;
+}
+
+.hero-nav ul li a:hover {
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(0,255,136,0.25);
+}
+
+.hero-nav ul li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Limbi */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .lang-switch a {
-    color: #888;
-    text-decoration: none;
-    margin-left: 10px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.4px;
 }
 
 .lang-switch a.active {
-    color: var(--white);
-    font-weight: bold;
+  color: var(--white);
 }
 
-/* Hero Section */
-.hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/hero.jpg');
-    /* Vom pune poza mai târziu */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
+/* Conținut hero */
+.hero-content {
+ max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  font-size: 3rem;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
 }
 
-.btn-main {
+.hero h2 {
+  font-size: 2.1rem;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,0.95);
+}
+
+.hero p {
+  color: rgba(255,255,255,0.80);
+  font-size: 1.1rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Buton */
+.btn-main{
     display: inline-block;
     background: var(--green-lr);
     color: var(--white);
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* Services Grid */
-.services {
-    padding: 80px 0;
-    background: var(--gray);
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--green-lr);
-}
-
-/* Footer */
-footer {
-    background: #111;
-    color: var(--white);
-    text-align: center;
-    padding: 40px 0;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* Spațiu între imaginea logo și textul LR-SERVICE */
-}
-
-
-/* Logo Styles */
-.site-logo {
-    height: 75px;
-    width: auto;
-    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.15));
+    padding: 18px 40px;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
     transition: 0.3s ease;
 }
 
-.site-logo:hover {
-    transform: scale(1.05);
+.btn-main:hover{
+    background: #016c3a;
+    transform: translateY(-2px);
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    display: flex;
-    align-items: center;
+
+/* =========
+   SERVICES
+   ========= */
+.services {
+  padding: 80px 0;
+  background: var(--gray);
 }
 
-/* Mobile Menu Button (Hidden on Desktop) */
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border-top: 5px solid var(--green-deep);
+}
+
+/* =========
+   FOOTER
+   ========= */
+footer {
+  background: #111;
+  color: var(--white);
+  text-align: center;
+  padding: 40px 0;
+}
+
+footer a {
+  color: var(--green-lr);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+/* =========
+   BUTON WHATSAPP
+   ========= */
+.whatsapp-btn{
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 74px;
+  height: 74px;
+  background: #25d366;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+  z-index: 3000;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-btn:hover{
+  transform: scale(1.06);
+}
+
+.whatsapp-btn img{
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+/* =========
+   MOBILE MENU
+   ========= */
+
+/* Buton hamburger */
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
 }
 
 .menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background-color: var(--white);
-    border-radius: 2px;
-    transition: 0.3s;
+  width: 30px;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+  transition: 0.25s;
 }
 
-/* Mobile Responsiveness */
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-brand img { height: 95px; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero h2 { font-size: 1.7rem; }
+}
+
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-        z-index: 1002;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        /* Push below header */
-        left: 0;
-        width: 100%;
-        background-color: #0f0f0f;
-        text-align: center;
-        padding: 20px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    nav ul li {
-        margin: 15px 0;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content {
-        padding: 0 20px;
-    }
-
-    .logo-container img {
-        height: 60px;
-    }
-
-    /* Animate Hamburger to X */
-    .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
-}
-
-/* Stil pentru Butonul de WhatsApp Plutitor */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    /* Verdele oficial WhatsApp */
-    border-radius: 50%;
+  .menu-toggle {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-    transition: transform 0.3s ease;
-}
+    z-index: 200;
+  }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
-    /* Se mărește ușor când pui mouse-ul pe el */
-}
-
-.whatsapp-btn img {
-    width: 35px;
-    height: 35px;
-}
-
-/* Ajustări pentru Hero (imaginea cu mașina în apă) */
-.hero {
-    height: 80vh;
-    /* Am adăugat imaginea ta hero.jpg */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  /* ascundem meniul desktop */
+  .hero-nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    background: rgba(5,6,7,0.92);
+    backdrop-filter: blur(10px);
     text-align: center;
-    color: var(--white);
+    padding: 22px 0;
+    border-bottom: 2px solid rgba(0,255,136,0.20);
+  }
+
+  /* activare din JS */
+  .hero-nav ul.active {
+    display: flex;
+  }
+
+  .hero-nav ul li { margin: 8px 0; }
+
+  /* hamburger -> X */
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .hero-topbar-inner {
+    display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 18px 28px;
+  }
+
+  .hero-brand img {
+    height: 85px;
+  }
+
+  .hero {
+    padding-top: 120px;
+  }
+}
+.hero-topbar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+}
+.hero-content h1{
+    font-size: 64px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-/* Footer link color */
-footer a {
-    color: var(--green-lr);
-    text-decoration: none;
-    font-weight: bold;
+.hero-content h2{
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.hero-content p{
+    font-size: 20px;
+    margin-top: 20px;
 }
