@@ -1,377 +1,216 @@
-/* =========
-   LR SERVICE – CSS FINAL (Hero + Logo pe poză)
-   ========= */
-
-/* Variabile */
-:root{
-  --green-lr: #00ff88;     /* agresiv tech */
-  --green-deep: #004225;   /* verde brand */
-  --bg-dark: #07080a;      /* aproape negru */
+:root {
+  --green-lr: #00ff88;
+  --green-deep: #004225;
   --white: #ffffff;
-  --gray: #f4f4f4;
-  --text: #d7dde6;
 }
 
-/* Reset */
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #111; background: #fff; overflow-x: hidden; }
 
-body{
-  font-family:'Roboto', sans-serif;
-  line-height:1.6;
-  color:#111;
-  background:#fff;
+/* --- SECTIUNEA HERO --- */
+.hero {
+  position: relative;
+  min-height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('images/hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:0 20px;
+/* DEZACTIVARE LOGO GIGANT PE HERO */
+.hero::after, .hero::before { display: none !important; content: none !important; }
+
+/* TOPBAR (Logo stanga, Meniu centru, Limba dreapta) */
+.hero-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1000;
 }
 
-/* =========
-   HERO
-   ========= */
-.hero{
-  position:relative;
-  min-height:100vh;
-  background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url('images/hero.jpg');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:var(--white);
-
-  /* IMPORTANT: spațiu suficient sub topbar ca să nu se suprapună titlul */
-  padding-top:170px;
+.hero-topbar-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
-/* Topbar peste hero */
-.hero-topbar{
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  z-index:2000;
+.hero-brand img { width: 140px; }
+
+.hero-nav ul { display: flex; list-style: none; gap: 25px; }
+.hero-nav ul li a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; }
+
+.lang-switch { display: flex; gap: 10px; }
+.lang-switch a { color: #fff; text-decoration: none; font-weight: 700; padding: 5px 10px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; font-size: 12px; }
+.lang-switch a.active { background: var(--green-lr); color: #000; border-color: var(--green-lr); }
+
+.hero-content h1 { font-size: 55px; font-weight: 900; line-height: 1; }
+.hero-content h2 { font-size: 40px; color: var(--green-lr); margin-bottom: 15px; }
+.hero-content p { font-size: 20px; margin-bottom: 25px; }
+.btn-main { background: var(--green-lr); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; border-radius: 8px; }
+
+/* --- DESPRE NOI & WATERMARK --- */
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+.about { padding: 80px 0; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+
+/* Containerul de imagini primeste Watermark-ul */
+.about-image-container, .image-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.hero-topbar-inner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:22px 28px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-
-  /* rezervă spațiu pentru logo-ul din stânga (care e absolut) */
-  padding-left:190px;
+/* LOGO WATERMARK - DREAPTA JOS PE POZE */
+.about-image-container::after, .image-box::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 110px;
+  height: 55px;
+  background: url('images/logo-invers-silueta.svg') no-repeat center;
+  background-size: contain;
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  opacity: 0.8;
+  z-index: 5;
+  pointer-events: none;
 }
 
-/* =========
-   LOGO (glass card + contrast)
-   ========= */
-.hero-brand{
-  position:absolute;
-  top:18px;
-  left:18px;
-  padding:16px 18px;
-  border-radius:18px;
+.gallery-img, .img-primary { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-  /* fundal mai contrastant ca să se citească logo-ul */
-  background: rgba(0,0,0,0.62);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+/* PATRAT VERDE 14 ANI */
+.experience-box {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  background: var(--green-lr);
+  color: #000;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: 900;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0,255,136,0.3);
+}
+.experience-box span { font-size: 32px; display: block; line-height: 1; }
 
-  border:1px solid rgba(255,255,255,0.16);
-  box-shadow:
-    0 14px 36px rgba(0,0,0,0.45),
-    inset 0 0 0 1px rgba(0,255,136,0.10);
+/* --- FLOATING CONTACT --- */
+.floating-contact { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+.contact-btn { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.contact-btn img { width: 100%; height: 100%; object-fit: cover; }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .hero-content h1 { font-size: 35px; }
+  .hero-nav { display: none; } /* Meniul mobil necesita toggle separat, dar il ascundem sa nu se suprapuna */
+}
+.services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 40px;
 }
 
-.hero-brand img{
-  height:110px;   /* logo mai mare */
-  width:auto;
-
-  /* scoatem logo-ul în față fără să schimbăm culorile originale */
-  filter:
-    drop-shadow(0 0 2px rgba(0,0,0,0.95))
-    drop-shadow(0 0 14px rgba(0,255,136,0.22))
-    drop-shadow(0 16px 26px rgba(0,0,0,0.40));
+.service-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+.lounge .about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 50px;
+    align-items: center;
 }
 
-/* =========
-   NAV
-   ========= */
-.hero-nav ul{
-  display:flex;
-  list-style:none;
-  gap:26px;
-  align-items:center;
+/* Dacă e pe mobil, să fie unul sub altul */
+@media (max-width: 992px) {
+    .lounge .about-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+.service-card::after {
+    display: none !important;
+    content: none !important;
 }
 
-.hero-nav ul li a{
-  color:rgba(255,255,255,0.90);
-  text-decoration:none;
-  padding:10px 12px;
-  transition:0.25s;
-  font-weight:700;
-  letter-spacing:0.4px;
-  position:relative;
-  font-size:19px;   /* meniu mai mare */
+/* Logoul watermark în colț dreapta-jos (doar pe poze mari) */
+.about-image-container::after, .image-box::after {
+    content: "";
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 100px;
+    height: 50px;
+    background: url('images/logo-invers-silueta.svg') no-repeat center;
+    background-size: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+    z-index: 5;
+}
+.services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* Forțăm 3 coloane pe desktop */
+    gap: 25px !important;
+    margin-top: 40px;
 }
 
-.hero-nav ul li a::after{
-  content:"";
-  position:absolute;
-  left:12px; right:12px;
-  bottom:6px;
-  height:2px;
-  background:var(--green-lr);
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:0.25s;
-  opacity:0.95;
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: 1fr !important; /* Pe mobil rămân unul sub altul */
+    }
 }
 
-.hero-nav ul li a:hover{
-  color:var(--white);
-  text-shadow:0 0 12px rgba(0,255,136,0.22);
+/* --- FIX LOUNGE (Poza la stânga, text la dreapta) --- */
+.lounge .about-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 40px;
+    align-items: center;
+}.about-image-container::before, .image-box::before {
+    display: none !important;
 }
 
-.hero-nav ul li a:hover::after{
-  transform:scaleX(1);
+/* Poziționare corectă în DREAPTA-JOS pe poze */
+.about-image-container::after, .image-box::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    left: auto !important; /* Resetăm orice aliniere pe stânga */
+    top: auto !important;
+    width: 100px !important;
+    height: 50px !important;
+    background: url('images/logo-invers-silueta.svg') no-repeat center !important;
+    background-size: contain !important;
+    filter: brightness(0) invert(1) !important;
+    opacity: 0.6 !important;
+    z-index: 5;
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    width: 100%;
 }
 
-/* Limbi */
-.lang-switch{
-  display:flex;
-  align-items:center;
-  gap:12px;
+.about-list {
+    padding-left: 20px; /* Oferă spațiu pentru bifele verzi */
+    list-style: none;
 }
 
-.lang-switch a{
-  color:rgba(255,255,255,0.60);
-  text-decoration:none;
-  font-weight:800;
-  letter-spacing:0.4px;
-  font-size:16px;
-}
-
-.lang-switch a.active{ color:var(--white); }
-
-/* =========
-   HERO CONTENT
-   ========= */
-.hero-content{
-  max-width:1000px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-.hero-content h1{
-  font-size:64px;
-  font-weight:900;
-  letter-spacing:2px;
-  line-height:1.05;
-  margin-bottom:14px;
-  text-shadow:0 10px 30px rgba(0,0,0,0.45);
-}
-
-.hero-content h2{
-  font-size:40px;
-  font-weight:800;
-  margin-top:10px;
-  margin-bottom:14px;
-  color:rgba(255,255,255,0.95);
-  text-shadow:0 10px 30px rgba(0,0,0,0.35);
-}
-
-.hero-content p{
-  font-size:20px;
-  margin-top:18px;
-  color:rgba(255,255,255,0.82);
-  max-width:760px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* Buton */
-.btn-main{
-  display:inline-block;
-  background:var(--green-lr);
-  color:#00140b;
-  padding:18px 44px;
-  font-size:18px;
-  border-radius:8px;
-  margin-top:30px;
-  font-weight:900;
-  letter-spacing:1px;
-  transition:0.25s ease;
-  box-shadow:0 18px 45px rgba(0,0,0,0.35);
-}
-
-.btn-main:hover{
-  transform:translateY(-2px);
-  background:#00e67a;
-}
-
-/* =========
-   SERVICES
-   ========= */
-.services{
-  padding:80px 0;
-  background:var(--gray);
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:40px;
-  font-size:2rem;
-}
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:20px;
-}
-
-.card{
-  background:var(--white);
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
-  border-top:5px solid var(--green-deep);
-}
-
-/* =========
-   FOOTER
-   ========= */
-footer{
-  background:#111;
-  color:var(--white);
-  text-align:center;
-  padding:40px 0;
-}
-
-footer a{
-  color:var(--green-lr);
-  text-decoration:none;
-  font-weight:900;
-}
-
-/* =========
-   WHATSAPP BUTTON
-   ========= */
-.whatsapp-btn{
-  position:fixed;
-  bottom:28px;
-  right:28px;
-  width:86px;
-  height:86px;
-  background:#25d366;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  box-shadow:0 16px 40px rgba(0,0,0,0.40);
-  z-index:3000;
-  transition:transform 0.2s ease;
-}
-
-.whatsapp-btn:hover{ transform:scale(1.06); }
-
-.whatsapp-btn img{
-  width:42px;
-  height:42px;
-  display:block;
-}
-
-/* =========
-   MOBILE MENU
-   ========= */
-.menu-toggle{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-  gap:6px;
-}
-
-.menu-toggle span{
-  width:32px;
-  height:3px;
-  background-color:var(--white);
-  border-radius:2px;
-  transition:0.25s;
-}
-
-/* =========
-   RESPONSIVE
-   ========= */
-@media (max-width: 900px){
-  .hero-content h1{ font-size:52px; }
-  .hero-content h2{ font-size:34px; }
-  .hero-brand img{ height:100px; }
-  .hero-topbar-inner{ padding-left:175px; }
-}
-
-@media (max-width: 768px){
-  .menu-toggle{
-    display:flex;
-    z-index:2100;
-  }
-
-  /* meniu mobil */
-  .hero-nav ul{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    top:95px;
-    left:0;
-    width:100%;
-    background:rgba(5,6,7,0.92);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    text-align:center;
-    padding:22px 0;
-    border-bottom:2px solid rgba(0,255,136,0.20);
-  }
-
-  .hero-nav ul.active{ display:flex; }
-  .hero-nav ul li{ margin:10px 0; }
-
-  /* hamburger -> X */
-  .menu-toggle.active span:nth-child(1){
-    transform:rotate(45deg) translate(6px, 6px);
-  }
-  .menu-toggle.active span:nth-child(2){ opacity:0; }
-  .menu-toggle.active span:nth-child(3){
-    transform:rotate(-45deg) translate(6px, -6px);
-  }
-
-  /* micșorăm topbar spacing */
-  .hero-topbar-inner{
-    padding:18px 18px;
-    padding-left:120px;
-  }
-
-  .hero-brand{ top:14px; left:14px; padding:12px 12px; border-radius:16px; }
-  .hero-brand img{ height:78px; }
-
-  .hero{
-    padding-top:150px;
-  }
-
-  .hero-content h1{ font-size:40px; }
-  .hero-content h2{ font-size:26px; }
-  .hero-content p{ font-size:16px; }
-
-  .whatsapp-btn{
-    width:74px; height:74px;
-  }
-  .whatsapp-btn img{
-    width:36px; height:36px;
-  }
+.about-list li {
+    margin-bottom: 10px;
 }
