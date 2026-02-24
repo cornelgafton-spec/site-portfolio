@@ -1,376 +1,377 @@
 /* =========
-   LR SERVICE – CSS CURAT (Hero + Logo pe poză)
+   LR SERVICE – CSS FINAL (Hero + Logo pe poză)
    ========= */
 
 /* Variabile */
-:root {
-  --green-lr: #00ff88;        /* agresiv tech */
-  --green-deep: #004225;      /* verde brand */
-  --bg-dark: #07080a;         /* aproape negru */
+:root{
+  --green-lr: #00ff88;     /* agresiv tech */
+  --green-deep: #004225;   /* verde brand */
+  --bg-dark: #07080a;      /* aproape negru */
   --white: #ffffff;
   --gray: #f4f4f4;
   --text: #d7dde6;
 }
 
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Roboto', sans-serif;
+  line-height:1.6;
+  color:#111;
+  background:#fff;
 }
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: #111;
-  background: #fff;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 20px;
 }
 
 /* =========
-   HERO (cu meniu transparent peste poză)
+   HERO
    ========= */
-
-.hero {
-  position: relative;
-  min-height: 100vh;
+.hero{
+  position:relative;
+  min-height:100vh;
   background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-      url('images/hero.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--white);
-  padding-top: 120px; /* IMPORTANT: împinge textul sub meniu */
-  }
-/* Topbar (în loc de header clasic) */
-.hero-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('images/hero.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--white);
+
+  /* IMPORTANT: spațiu suficient sub topbar ca să nu se suprapună titlul */
+  padding-top:170px;
 }
 
-.hero-topbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 22px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+/* Topbar peste hero */
+.hero-topbar{
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  z-index:2000;
 }
 
-/* Brand / Logo */
+.hero-topbar-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:22px 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+
+  /* rezervă spațiu pentru logo-ul din stânga (care e absolut) */
+  padding-left:190px;
+}
+
+/* =========
+   LOGO (glass card + contrast)
+   ========= */
 .hero-brand{
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 14px;
+  position:absolute;
+  top:18px;
+  left:18px;
+  padding:16px 18px;
+  border-radius:18px;
 
-  background: rgba(0,0,0,0.35);
+  /* fundal mai contrastant ca să se citească logo-ul */
+  background: rgba(0,0,0,0.62);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.16);
+  box-shadow:
+    0 14px 36px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(0,255,136,0.10);
 }
 
 .hero-brand img{
-  height: 64px;  /* mai mare */
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+  height:110px;   /* logo mai mare */
+  width:auto;
+
+  /* scoatem logo-ul în față fără să schimbăm culorile originale */
+  filter:
+    drop-shadow(0 0 2px rgba(0,0,0,0.95))
+    drop-shadow(0 0 14px rgba(0,255,136,0.22))
+    drop-shadow(0 16px 26px rgba(0,0,0,0.40));
 }
 
-/* Navigație */
-.hero-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 26px;
-  align-items: center;
+/* =========
+   NAV
+   ========= */
+.hero-nav ul{
+  display:flex;
+  list-style:none;
+  gap:26px;
+  align-items:center;
 }
 
-.hero-nav ul li a {
-  color: rgba(255,255,255,0.88);
-  text-decoration: none;
-  padding: 10px 12px;
-  transition: 0.25s;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  position: relative;
-  font-size: 18px;
+.hero-nav ul li a{
+  color:rgba(255,255,255,0.90);
+  text-decoration:none;
+  padding:10px 12px;
+  transition:0.25s;
+  font-weight:700;
+  letter-spacing:0.4px;
+  position:relative;
+  font-size:19px;   /* meniu mai mare */
 }
 
-.hero-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 6px;
-  height: 2px;
-  background: var(--green-lr);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.25s;
-  opacity: 0.9;
+.hero-nav ul li a::after{
+  content:"";
+  position:absolute;
+  left:12px; right:12px;
+  bottom:6px;
+  height:2px;
+  background:var(--green-lr);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:0.25s;
+  opacity:0.95;
 }
 
-.hero-nav ul li a:hover {
-  color: var(--white);
-  text-shadow: 0 0 10px rgba(0,255,136,0.25);
+.hero-nav ul li a:hover{
+  color:var(--white);
+  text-shadow:0 0 12px rgba(0,255,136,0.22);
 }
 
-.hero-nav ul li a:hover::after {
-  transform: scaleX(1);
+.hero-nav ul li a:hover::after{
+  transform:scaleX(1);
 }
 
 /* Limbi */
-.lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.lang-switch a {
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+.lang-switch a{
+  color:rgba(255,255,255,0.60);
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:0.4px;
+  font-size:16px;
 }
 
-.lang-switch a.active {
-  color: var(--white);
+.lang-switch a.active{ color:var(--white); }
+
+/* =========
+   HERO CONTENT
+   ========= */
+.hero-content{
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 20px;
 }
 
-/* Conținut hero */
-.hero-content {
- max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+.hero-content h1{
+  font-size:64px;
+  font-weight:900;
+  letter-spacing:2px;
+  line-height:1.05;
+  margin-bottom:14px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.45);
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 14px;
-  letter-spacing: 1px;
+.hero-content h2{
+  font-size:40px;
+  font-weight:800;
+  margin-top:10px;
+  margin-bottom:14px;
+  color:rgba(255,255,255,0.95);
+  text-shadow:0 10px 30px rgba(0,0,0,0.35);
 }
 
-.hero h2 {
-  font-size: 2.1rem;
-  margin-bottom: 14px;
-  color: rgba(255,255,255,0.95);
-}
-
-.hero p {
-  color: rgba(255,255,255,0.80);
-  font-size: 1.1rem;
-  max-width: 720px;
-  margin: 0 auto;
+.hero-content p{
+  font-size:20px;
+  margin-top:18px;
+  color:rgba(255,255,255,0.82);
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /* Buton */
 .btn-main{
-    display: inline-block;
-    background: var(--green-lr);
-    color: var(--white);
-    padding: 18px 40px;
-    font-size: 18px;
-    border-radius: 6px;
-    margin-top: 30px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
+  display:inline-block;
+  background:var(--green-lr);
+  color:#00140b;
+  padding:18px 44px;
+  font-size:18px;
+  border-radius:8px;
+  margin-top:30px;
+  font-weight:900;
+  letter-spacing:1px;
+  transition:0.25s ease;
+  box-shadow:0 18px 45px rgba(0,0,0,0.35);
 }
 
 .btn-main:hover{
-    background: #016c3a;
-    transform: translateY(-2px);
+  transform:translateY(-2px);
+  background:#00e67a;
 }
-
 
 /* =========
    SERVICES
    ========= */
-.services {
-  padding: 80px 0;
-  background: var(--gray);
+.services{
+  padding:80px 0;
+  background:var(--gray);
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:2rem;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:20px;
 }
 
-.card {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  border-top: 5px solid var(--green-deep);
+.card{
+  background:var(--white);
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border-top:5px solid var(--green-deep);
 }
 
 /* =========
    FOOTER
    ========= */
-footer {
-  background: #111;
-  color: var(--white);
-  text-align: center;
-  padding: 40px 0;
+footer{
+  background:#111;
+  color:var(--white);
+  text-align:center;
+  padding:40px 0;
 }
 
-footer a {
-  color: var(--green-lr);
-  text-decoration: none;
-  font-weight: 800;
+footer a{
+  color:var(--green-lr);
+  text-decoration:none;
+  font-weight:900;
 }
 
 /* =========
-   BUTON WHATSAPP
+   WHATSAPP BUTTON
    ========= */
 .whatsapp-btn{
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 74px;
-  height: 74px;
-  background: #25d366;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
-  z-index: 3000;
-  transition: transform 0.2s ease;
+  position:fixed;
+  bottom:28px;
+  right:28px;
+  width:86px;
+  height:86px;
+  background:#25d366;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  box-shadow:0 16px 40px rgba(0,0,0,0.40);
+  z-index:3000;
+  transition:transform 0.2s ease;
 }
 
-.whatsapp-btn:hover{
-  transform: scale(1.06);
-}
+.whatsapp-btn:hover{ transform:scale(1.06); }
 
 .whatsapp-btn img{
-  width: 36px;
-  height: 36px;
-  display: block;
+  width:42px;
+  height:42px;
+  display:block;
 }
+
 /* =========
    MOBILE MENU
    ========= */
-
-/* Buton hamburger */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 6px;
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:6px;
 }
 
-.menu-toggle span {
-  width: 30px;
-  height: 3px;
-  background-color: var(--white);
-  border-radius: 2px;
-  transition: 0.25s;
+.menu-toggle span{
+  width:32px;
+  height:3px;
+  background-color:var(--white);
+  border-radius:2px;
+  transition:0.25s;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .hero-brand img { height: 95px; }
-  .hero h1 { font-size: 2.4rem; }
-  .hero h2 { font-size: 1.7rem; }
+/* =========
+   RESPONSIVE
+   ========= */
+@media (max-width: 900px){
+  .hero-content h1{ font-size:52px; }
+  .hero-content h2{ font-size:34px; }
+  .hero-brand img{ height:100px; }
+  .hero-topbar-inner{ padding-left:175px; }
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-    z-index: 200;
+@media (max-width: 768px){
+  .menu-toggle{
+    display:flex;
+    z-index:2100;
   }
 
-  /* ascundem meniul desktop */
-  .hero-nav ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 95px;
-    left: 0;
-    width: 100%;
-    background: rgba(5,6,7,0.92);
-    backdrop-filter: blur(10px);
-    text-align: center;
-    padding: 22px 0;
-    border-bottom: 2px solid rgba(0,255,136,0.20);
+  /* meniu mobil */
+  .hero-nav ul{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:95px;
+    left:0;
+    width:100%;
+    background:rgba(5,6,7,0.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    text-align:center;
+    padding:22px 0;
+    border-bottom:2px solid rgba(0,255,136,0.20);
   }
 
-  /* activare din JS */
-  .hero-nav ul.active {
-    display: flex;
-  }
-
-  .hero-nav ul li { margin: 8px 0; }
+  .hero-nav ul.active{ display:flex; }
+  .hero-nav ul li{ margin:10px 0; }
 
   /* hamburger -> X */
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+  .menu-toggle.active span:nth-child(1){
+    transform:rotate(45deg) translate(6px, 6px);
   }
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+  .menu-toggle.active span:nth-child(2){ opacity:0; }
+  .menu-toggle.active span:nth-child(3){
+    transform:rotate(-45deg) translate(6px, -6px);
   }
 
-  .hero-topbar-inner {
-    display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding: 18px 28px;
+  /* micșorăm topbar spacing */
+  .hero-topbar-inner{
+    padding:18px 18px;
+    padding-left:120px;
   }
 
-  .hero-brand img {
-    height: 85px;
+  .hero-brand{ top:14px; left:14px; padding:12px 12px; border-radius:16px; }
+  .hero-brand img{ height:78px; }
+
+  .hero{
+    padding-top:150px;
   }
 
-  .hero {
-    padding-top: 120px;
+  .hero-content h1{ font-size:40px; }
+  .hero-content h2{ font-size:26px; }
+  .hero-content p{ font-size:16px; }
+
+  .whatsapp-btn{
+    width:74px; height:74px;
   }
-}
-.hero-topbar{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-}
-.hero-content h1{
-    font-size: 64px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.hero-content h2{
-    font-size: 40px;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-.hero-content p{
-    font-size: 20px;
-    margin-top: 20px;
+  .whatsapp-btn img{
+    width:36px; height:36px;
+  }
 }

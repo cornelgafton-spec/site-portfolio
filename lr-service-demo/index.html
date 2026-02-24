@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LR-SERVICE | Specialist Land Rover</title>
 
-  <!-- Font (dacă deja ai în proiect, poți păstra/șterge) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
@@ -22,17 +21,18 @@
     <div class="hero-topbar">
       <div class="hero-topbar-inner">
 
-        <!-- LOGO (doar imagine, fara text LR SERVICE) -->
+        <!-- LOGO (doar imagine) -->
         <a class="hero-brand" href="#home" aria-label="LR Service - Acasă">
-          <img src="images/logo.png" alt="LR Service logo" />
+          <img src="images/logo.svg" alt="LR Service logo">
         </a>
 
-        <!-- MENIU -->
-        <button class="menu-toggle" aria-label="Meniu" aria-expanded="false">
+        <!-- MENIU (hamburger - mobil) -->
+        <button class="menu-toggle" aria-label="Meniu" aria-expanded="false" aria-controls="primary-nav">
           <span></span><span></span><span></span>
         </button>
 
-        <nav class="hero-nav" aria-label="Navigație principală">
+        <!-- NAV -->
+        <nav class="hero-nav" id="primary-nav" aria-label="Navigație principală">
           <ul>
             <li><a href="#home">Acasă</a></li>
             <li><a href="#services">Servicii</a></li>
@@ -41,8 +41,8 @@
         </nav>
 
         <!-- LIMBI -->
-        <div class="lang-switch">
-          <a href="#" class="active">RO</a>
+        <div class="lang-switch" aria-label="Schimbare limbă">
+          <a href="#" class="active" aria-current="true">RO</a>
           <a href="#">RU</a>
         </div>
 
@@ -56,6 +56,7 @@
       <p>Servicii premium de mentenanță și reparații în Chișinău.</p>
       <a href="#contact" class="btn-main">PROGRAMEAZĂ O VIZITĂ</a>
     </div>
+
   </section>
 
   <!-- SERVICES -->
@@ -87,14 +88,22 @@
     <div class="container">
       <h2 class="section-title">Contact</h2>
       <p>Sună-ne sau scrie pe WhatsApp pentru programare.</p>
-      <!-- aici pui datele tale -->
+
+      <!-- exemplu (poți înlocui) -->
+      <!--
+      <p>
+        Tel: <a href="tel:+373XXXXXXXX">+373 XX XXX XXX</a><br>
+        Adresă: Chișinău, ...<br>
+        Email: <a href="mailto:...">...</a>
+      </p>
+      -->
     </div>
   </section>
 
   <!-- WHATSAPP FLOAT BUTTON -->
- <a class="whatsapp-btn" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <img src="images/whatsapp.svg" alt="WhatsApp">
-</a>
+  <a class="whatsapp-btn" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="images/whatsapp.svg" alt="WhatsApp">
+  </a>
 
   <!-- FOOTER -->
   <footer>
@@ -103,10 +112,27 @@
     </div>
   </footer>
 
+  <!-- An automat -->
   <script>
-    // an automat in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <!-- Script menu (păstrează-l pe al tău, dar asigură aria-expanded) -->
   <script src="script.js"></script>
+  <script>
+    // mic fix pentru accesibilitate (nu strică nimic)
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.hero-nav ul');
+
+      if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+          const expanded = menuToggle.classList.contains('active');
+          menuToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
