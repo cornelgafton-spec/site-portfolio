@@ -2,312 +2,275 @@
   --green-lr: #00ff88;
   --green-deep: #004225;
   --white: #ffffff;
+  --text-dark: #333;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #111; background: #fff; overflow-x: hidden; }
-body {
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body { 
+  font-family: 'Roboto', sans-serif; 
+  line-height: 1.6; 
+  color: var(--text-dark); 
+  background: #fff; 
+  overflow-x: hidden; 
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 section {
-    padding: 60px 0; /* Oferă spațiu între blocuri */
+  padding: 80px 0;
 }
 
-/* --- SECTIUNEA HERO --- */
-.hero {
-  position: relative;
-  min-height: 85vh;
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('images/hero.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.section-title {
   text-align: center;
-  color: #fff;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 900;
+  width: 100%;
 }
 
-/* DEZACTIVARE LOGO GIGANT PE HERO */
-.hero::after, .hero::before { display: none !important; content: none !important; }
+/* ==========================================================================
+   2. HERO SECTION (MAȘINA ȘI MENIUL)
+   ========================================================================== */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
 
-/* TOPBAR (Logo stanga, Meniu centru, Limba dreapta) */
+/* Blocăm orice logo gigant care apărea pe fundalul mașinii */
+.hero::after, .hero::before { display: none !important; content: none !important; }
 .hero-topbar {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
   z-index: 1000;
 }
 
 .hero-topbar-inner {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aliniere verticală perfectă */
+    padding: 10px 20px;
 }
 
-.hero-brand img { width: 140px; }
+.hero-brand img {
+  max-height: 80px; /* Limitează înălțimea pentru responsive */
+  height: auto;
+  width: auto;
+  display: block;
+  margin-top: -20px;
+}
 
-.hero-nav ul { display: flex; list-style: none; gap: 25px; }
-.hero-nav ul li a { color: #fff; text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: 14px; }
+.hero-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Spațiu între link-uri */
+    margin: 0;
+    padding: 0;
+}
 
-.lang-switch { display: flex; gap: 10px; }
-.lang-switch a { color: #fff; text-decoration: none; font-weight: 700; padding: 5px 10px; border: 1px solid rgba(255,255,255,0.4); border-radius: 4px; font-size: 12px; }
-.lang-switch a.active { background: var(--green-lr); color: #000; border-color: var(--green-lr); }
+.hero-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 1000;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.0px;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+.hero-nav ul li a:hover {
+    color: var(--green-lr); /* Schimbă culoarea la hover */
+}
 
-.hero-content h1 { font-size: 55px; font-weight: 900; line-height: 1; }
+.lang-switch {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.lang-switch a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 15px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+}
+
+.lang-switch a.active {
+    background: var(--green-lr);
+    color: #000;
+    border-color: var(--green-lr);
+}
+
+.hero-content h1 { font-size: 55px; font-weight: 900; line-height: 1.1; }
 .hero-content h2 { font-size: 40px; color: var(--green-lr); margin-bottom: 15px; }
-.hero-content p { font-size: 20px; margin-bottom: 25px; }
-.btn-main { background: var(--green-lr); color: #000; padding: 15px 35px; text-decoration: none; font-weight: 900; border-radius: 8px; }
 
-/* --- DESPRE NOI & WATERMARK --- */
-.container { max-width: 1100px; margin: auto; padding: 0 20px; }
-.about { padding: 80px 0; }
+.btn-main { 
+  background: var(--green-lr); 
+  color: #000; 
+  padding: 15px 35px; 
+  text-decoration: none; 
+  font-weight: 900; 
+  border-radius: 8px; 
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   3. DESPRE NOI & LOUNGE (GRID PE 2 COLOANE)
+   ========================================================================== */
 .about-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr; /* Două coloane egale */
-    gap: 40px;
-    align-items: center;
-}
-/* Dacă ești pe mobil, pune-le una sub alta */
-@media (max-width: 850px) {
-    .about-grid {
-        grid-template-columns: 1fr !important;
-    }
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 50px;
+  align-items: center;
 }
 
-/* Containerul de imagini primeste Watermark-ul */
+.about-list { list-style: none; padding: 0; margin-top: 20px; }
+.about-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+
+.gallery-img, .img-primary { 
+  width: 100%; 
+  border-radius: 15px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+}
+
+/* ==========================================================================
+   4. SERVICII (3 COLOANE ORIZONTALE)
+   ========================================================================== */
+.services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 30px !important;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.service-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+
+/* Eliminăm logo-urile accidentale de pe cardurile de servicii */
+.service-card::after { display: none !important; content: none !important; }
+
+/* ==========================================================================
+   5. COMPONENTE SPECIALE (WATERMARK & INSIGNĂ)
+   ========================================================================== */
 .about-image-container, .image-box {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
-/* LOGO WATERMARK - DREAPTA JOS PE POZE */
+/* Watermark fixat discret în DREAPTA-JOS pe imagini */
 .about-image-container::after, .image-box::after {
-  content: "";
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 110px;
-  height: 55px;
-  background: url('images/logo-invers-silueta.svg') no-repeat center;
-  background-size: contain;
-  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-  opacity: 0.8;
+  content: "" !important;
+  position: absolute !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100px !important;
+  height: 50px !important;
+  background: url('images/logo-invers-silueta.svg') no-repeat center !important;
+  background-size: contain !important;
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.5 !important;
   z-index: 5;
   pointer-events: none;
 }
 
-.gallery-img, .img-primary { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+/* Eliminăm orice alt logo pus prin "before" */
+.about-image-container::before, .image-box::before { display: none !important; }
 
-/* PATRAT VERDE 14 ANI */
+/* Insigna verde 14 ani */
 .experience-box {
-    position: absolute;
-    top: 50%;
-    left: -15px;
-    transform: translateY(-50%);
-    background-color: #00ff88;
-    color: #000;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-weight: 900;
-    z-index: 10;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  background: var(--green-lr);
+  color: #000;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: 900;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.experience-box span {
-    font-size: 24px;
-    display: block;
+.experience-box span { font-size: 30px; display: block; line-height: 1; }
+
+/* ==========================================================================
+   6. CONTACT PLUTITOR & FOOTER
+   ========================================================================== */
+.floating-contact { 
+  position: fixed; 
+  bottom: 25px; 
+  right: 25px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+  z-index: 9999; 
 }
-/* --- FLOATING CONTACT --- */
-.floating-contact { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+
 .contact-btn { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 .contact-btn img { width: 100%; height: 100%; object-fit: cover; }
 
-/* RESPONSIVE */
-@media (max-width: 992px) {
-  .about-grid { grid-template-columns: 1fr; }
-  .hero-content h1 { font-size: 35px; }
-  .hero-nav { display: none; } /* Meniul mobil necesita toggle separat, dar il ascundem sa nu se suprapuna */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
 }
-.services-grid {
-    display: flex !important;
-    flex-wrap: wrap;
+
+/* ==========================================================================
+   7. RESPONSIVE (MOBIL)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-nav { display: none; }
+  .about-grid, .services-grid { grid-template-columns: 1fr !important; }
+  .hero-content h1 { font-size: 38px; }
+  .experience-box { left: 10px; padding: 10px; }
+}
+/* Creează zona pentru logo (Stânga) */
+.hero-brand {
+    flex: 1; /* Ocupă 1/3 din spațiu în stânga */
+    display: flex;
+    justify-content: flex-start;
+}
+.hero-nav {
+    flex: 2; /* Ocupă spațiul central (mai mare) */
+    display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
 }
 
-.service-card {
-    background: #ffffff;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
-    padding: 30px;
-    flex: 1 1 300px; /* Le face să se micșoreze pe mobil */
-    max-width: 350px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-.service-icon {
-    font-size: 35px;
-    margin-bottom: 15px;
-    display: block;
-}
-
-/* Dacă e pe mobil, să fie unul sub altul */
-@media (max-width: 992px) {
-    .lounge .about-grid {
-        grid-template-columns: 1fr !important;
-    }
-}
-.service-card::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* Logoul watermark în colț dreapta-jos (doar pe poze mari) */
-.about-image-container::after, .image-box::after {
-    content: "";
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 100px;
-    height: 50px;
-    background: url('images/logo-invers-silueta.svg') no-repeat center;
-    background-size: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.7;
-    z-index: 5;
-}
-.services-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* Forțăm 3 coloane pe desktop */
-    gap: 25px !important;
-    margin-top: 40px;
-}
-
-@media (max-width: 992px) {
-    .services-grid {
-        grid-template-columns: 1fr !important; /* Pe mobil rămân unul sub altul */
-    }
-}
-
-/* --- FIX LOUNGE (Poza la stânga, text la dreapta) --- */
-.lounge .about-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 40px;
-    align-items: center;
-}.about-image-container::before, .image-box::before {
-    display: none !important;
-}
-
-/* Poziționare corectă în DREAPTA-JOS pe poze */
-.about-image-container::after, .image-box::after {
-    content: "" !important;
-    position: absolute !important;
-    bottom: 15px !important;
-    right: 15px !important;
-    left: auto !important; /* Resetăm orice aliniere pe stânga */
-    top: auto !important;
-    width: 100px !important;
-    height: 50px !important;
-    background: url('images/logo-invers-silueta.svg') no-repeat center !important;
-    background-size: contain !important;
-    filter: brightness(0) invert(1) !important;
-    opacity: 0.6 !important;
-    z-index: 5;
-}
-.section-title {
-    text-align: center;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.about-list {
-    padding-left: 20px; /* Oferă spațiu pentru bifele verzi */
-    list-style: none;
-}
-
-.about-list li {
-    margin-bottom: 10px;
-}
-/* --- FIX SERVICII (Coloane orizontale) --- */
-.services-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* Forțăm 3 coloane pe desktop */
-    gap: 25px !important;
-    margin-top: 40px;
-}
-
-@media (max-width: 992px) {
-    .services-grid {
-        grid-template-columns: 1fr !important; /* Pe mobil rămân unul sub altul */
-    }
-}
-
-/* --- FIX LOUNGE (Poza la stânga, text la dreapta) --- */
-.lounge .about-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 40px;
-    align-items: center;
-}
-/* Eliminăm logoul de unde a apărut greșit (colț stânga-sus) */
-.about-image-container::before, .image-box::before {
-    display: none !important;
-}
-
-/* Poziționare corectă în DREAPTA-JOS pe poze */
-.about-image-container::after, .image-box::after {
-    content: "" !important;
-    position: absolute !important;
-    bottom: 15px !important;
-    right: 15px !important;
-    left: auto !important; /* Resetăm orice aliniere pe stânga */
-    top: auto !important;
-    width: 100px !important;
-    height: 50px !important;
-    background: url('images/logo-invers-silueta.svg') no-repeat center !important;
-    background-size: contain !important;
-    filter: brightness(0) invert(1) !important;
-    opacity: 0.6 !important;
-    z-index: 5;
-}
-/* Elimină logoul gigant sau pus greșit */
-.hero::after, .hero::before, .about-image-container::before {
-    display: none !important;
-    content: none !important;
-}
-
-/* Watermark curat pe poze */
-.about-image-container, .image-box {
-    position: relative;
-}
-
-.about-image-container::after, .image-box::after {
-    content: "";
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 80px;
-    height: 40px;
-    background: url('images/logo-invers-silueta.svg') no-repeat center;
-    background-size: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.4; /* Îl facem discret */
-    z-index: 5;
-}
