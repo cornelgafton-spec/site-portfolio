@@ -42,8 +42,9 @@ section {
    ========================================================================== */
 .hero {
     position: relative;
-    min-height: 85vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/hero.jpg') center/cover no-repeat;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                url('images/hero.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +60,8 @@ section {
   left: 0;
   width: 100%;
   padding: 10px 0;
-  z-index: 1000;
+  z-index: 9999;
+  height: 250px;
 }
 
 .hero-topbar-inner {
@@ -69,20 +71,22 @@ section {
     justify-content: space-between;
     align-items: center; /* Aliniere verticală perfectă */
     padding: 10px 20px;
+    position: relative;
+    height: 100%;
 }
 
 .hero-brand img {
-  max-height: 80px; /* Limitează înălțimea pentru responsive */
+  max-height: 250px; /* Limitează înălțimea pentru responsive */
   height: auto;
   width: auto;
   display: block;
-  margin-top: -20px;
-}
+  margin-top: -80px;
+  }
 
 .hero-nav ul {
     display: flex;
     list-style: none;
-    gap: 20px; /* Spațiu între link-uri */
+    gap: 40px; /* Spațiu între link-uri */
     margin: 0;
     padding: 0;
 }
@@ -90,12 +94,13 @@ section {
 .hero-nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 1000;
-    font-size: 18px;
+    font-weight: 900;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 1.0px;
     transition: color 0.3s;
     white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 .hero-nav ul li a:hover {
     color: var(--green-lr); /* Schimbă culoarea la hover */
@@ -106,25 +111,41 @@ section {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    margin-top: -10px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 10;
 }
 
 .lang-switch a {
     color: #ffffff;
     text-decoration: none;
-    font-weight: 700;
-    padding: 8px 15px;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 4px;
+    font-weight: 800;
+    padding: 8px 16px;
+    border: 2px solid #00ff88;
+    border-radius: 5px;
+    font-size: 14px;
+    background: rgba(0,0,0,0.3);
+}
+.lang-switch a:hover {
+    background: #00ff88; /* Se umple cu verde */
+    color: #000;         /* Textul se face negru ca să poată fi citit pe verde */
+    box-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88; /* Efectul de neon/glow */
+    transform: translateY(-2px); /* Butonul se ridică puțin */
 }
 
 .lang-switch a.active {
-    background: var(--green-lr);
+    background: #00ff88;
     color: #000;
     border-color: var(--green-lr);
 }
 
-.hero-content h1 { font-size: 55px; font-weight: 900; line-height: 1.1; }
+.hero-content h1 { font-size: 65px; font-weight: 900; line-height: 1.1; margin-bottom: 5px;}
 .hero-content h2 { font-size: 40px; color: var(--green-lr); margin-bottom: 15px; }
+.hero-content {
+    padding-top: 80px; /* Împinge "SPECIALIȘTI INDEPENDENȚI" sub logo-ul de 250px */
+}
 
 .btn-main { 
   background: var(--green-lr); 
@@ -136,20 +157,147 @@ section {
   display: inline-block;
   margin-top: 20px;
 }
+.btn-main:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+    filter: brightness(1.1);
+    transform: scale(1.05); /* Se mărește foarte puțin */
+    transition: all 0.3s ease;
+}
 
 /* ==========================================================================
    3. DESPRE NOI & LOUNGE (GRID PE 2 COLOANE)
    ========================================================================== */
 .about-grid {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 50px;
-  align-items: center;
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important; /* Textul ocupă puțin mai mult spațiu */
+    gap: 50px !important;
+    align-items: flex-start !important; /* TEXTUL ÎNCEPE DE SUS, LA NIVELUL POZEI */
+    margin-top: -30px !important; 
 }
 
-.about-list { list-style: none; padding: 0; margin-top: 20px; }
-.about-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
+/* Stiluri pentru textul din stânga */
+.about-content {
+    text-align: left !important;
+    color: #333;
+    line-height: 1.6;
+}
 
+.section-title {
+    font-size: 36px !important;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.main-paragraph {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.about-content h3 {
+    font-size: 22px;
+    color: var(--green-lr); /* Verdele tău specific */
+    margin: 25px 0 15px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Stil pentru lista de beneficii */
+.about-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.about-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.check-icon {
+    color: #00ff88;
+    font-size: 20px;
+    min-width: 25px;
+}
+.feature-title {
+    min-width: 140px; /* Forțează descrierea să înceapă mereu din același punct */
+    font-weight: 800;
+    font-size: 17px;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Coloana pentru descriere */
+.feature-desc {
+    flex: 1;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.about-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--green-lr);
+    font-weight: bold;
+}
+
+/* Secțiunea Angajament */
+.commitment-section {
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid var(--green-lr);
+    margin-top: 30px;
+}
+
+.commitment-section p {
+    font-style: italic;
+    margin: 0;
+}
+/* Lista de beneficii stilizată */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.features-list li {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.features-list .icon {
+    background: var(--green-lr);
+    color: #000;
+    font-weight: 900;
+    min-width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.commitment {
+    margin-top: 30px;
+    padding-left: 15px;
+    border-left: 3px solid var(--green-lr);
+    font-style: italic;
+    color: #333;
+}
+.about-list { list-style: none; padding: 0; margin-top: 20px; }
+.about-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px; list-style: none;}
 .gallery-img, .img-primary { 
   width: 100%; 
   border-radius: 15px; 
@@ -195,12 +343,12 @@ section {
 .about-image-container::after, .image-box::after {
   content: "" !important;
   position: absolute !important;
-  bottom: 20px !important;
-  right: 20px !important;
+  bottom: 15px !important;
+  right: 15px !important;
   left: auto !important;
   top: auto !important;
-  width: 100px !important;
-  height: 50px !important;
+  width: 90px !important;
+  height: 45px !important;
   background: url('images/logo-invers-silueta.svg') no-repeat center !important;
   background-size: contain !important;
   filter: brightness(0) invert(1) !important;
@@ -215,7 +363,7 @@ section {
 /* Insigna verde 14 ani */
 .experience-box {
   position: absolute;
-  top: 50%;
+  top: 260px;
   left: -20px;
   transform: translateY(-50%);
   background: var(--green-lr);
@@ -267,10 +415,109 @@ footer {
     flex: 1; /* Ocupă 1/3 din spațiu în stânga */
     display: flex;
     justify-content: flex-start;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    z-index: 10;
 }
 .hero-nav {
     flex: 2; /* Ocupă spațiul central (mai mare) */
     display: flex;
     justify-content: center;
+    margin-top: -10px;
+    left: 50%;
+    top: 30px; /* Aici reglezi cât de sus să stea textul */
+    transform: translateX(-50%);
+    position: absolute;
+    z-index: 10;
+}
+.about-image-container img, 
+.image-box img {
+    width: 100%;       
+    height: auto;      
+    display: block;    
+    border-radius: 15px;
+    object-fit: cover; 
+    }
+    .about-list li span {
+    font-size: 24px; /* Mărește iconița/emoji-ul */
+}
+.about-image-container::after, 
+.image-box::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -15px !important; /* Distanță de margini */
+    right: -55px !important;
+    left: auto !important;
+    top: auto !important;
+    width: 280px !important; /* Mărit de la 80px la 140px pentru vizibilitate */
+    height: 120px !important;
+    background: url('images/logo-invers-silueta.svg') no-repeat center/contain !important;
+    filter: brightness(0) invert(1) drop-shadow(2px 2px 5px rgba(0,0,0,0.5)) !important;
+    opacity: 0.8 !important; /* Mai puțin transparent pentru a fi lizibil */
+    z-index: 5;
+    transform: none !important;
+}
+.lounge-section .about-grid {
+    align-items: flex-start !important; /* Aliniere la "tavanul" pozei */
+    gap: 70px !important;
+}
+
+/* Titlu și Subtitlu */
+.lounge-content h2 {
+    font-size: 42px !important;
+    font-weight: 900;
+    margin-bottom: 5px !important;
+    color: #1a1a1a;
+}
+
+.lounge-subtitle {
+    color: var(--green-lr);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Lista de Facilități (Cafea, Wi-Fi) */
+.lounge-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 35px;
+}
+
+.lounge-list li {
+    display: grid;
+    grid-template-columns: 40px 120px 1fr; /* Aranjare pe coloane pentru aliniere perfectă */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.lounge-list li:hover {
+    transform: translateX(10px); /* Efect discret la mouse */
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.lounge-list .icon {
+    font-size: 24px;
+    color: var(--green-lr);
+}
+
+.lounge-list strong {
+    font-size: 17px;
+    color: #1a1a1a;
+}
+
+.lounge-list span.desc {
+    font-size: 15px;
+    color: #666;
 }
 
