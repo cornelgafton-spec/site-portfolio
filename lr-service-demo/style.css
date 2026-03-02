@@ -1,523 +1,824 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap');
+
 :root {
-  --green-lr: #00ff88;
-  --green-deep: #004225;
-  --white: #ffffff;
-  --text-dark: #333;
+  --green-lr: #00e87a;
+  --green-glow: rgba(0, 232, 122, 0.25);
+  --dark: #111111;
+  --dark-2: #1a1a1a;
+  --gray: #555;
+  --light-gray: #f4f4f4;
+  --border: #e8e8e8;
+  --shadow-sm: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-body { 
-  font-family: 'Roboto', sans-serif; 
-  line-height: 1.6; 
-  color: var(--text-dark); 
-  background: #fff; 
-  overflow-x: hidden; 
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--dark-2);
+  background: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
-section {
-  padding: 80px 0;
+section { padding: 72px 0; }
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.15;
+  color: var(--dark);
 }
 
 .section-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 32px;
-  font-weight: 900;
-  width: 100%;
+  font-size: 15px;
+  color: var(--gray);
+  max-width: 480px;
+  margin: 0 auto 48px;
 }
 
 /* ==========================================================================
-   2. HERO SECTION (MAȘINA ȘI MENIUL)
+   HERO — 75vh, conținut centrat vertical corect
    ========================================================================== */
+
 .hero {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                url('images/hero.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
+  position: relative;
+  height: 82vh;           /* Fix — nu mai e 100vh */
+  min-height: 580px;
+  max-height: 860px;
+  background: linear-gradient(160deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%),
+              url('images/hero.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  color: #fff;
 }
 
-/* Blocăm orice logo gigant care apărea pe fundalul mașinii */
 .hero::after, .hero::before { display: none !important; content: none !important; }
+
+/* NAVBAR */
 .hero-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 10px 0;
-  z-index: 9999;
-  height: 250px;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
+  padding: 0;
 }
 
 .hero-topbar-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Aliniere verticală perfectă */
-    padding: 10px 20px;
-    position: relative;
-    height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px 10px 30px;
+  min-height: 110px;   /* forțează bara să fie destul de înaltă */
+}
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .hero-brand img {
-  max-height: 250px; /* Limitează înălțimea pentru responsive */
-  height: auto;
+  height: 180px;
   width: auto;
   display: block;
-  margin-top: -80px;
-  }
+  transition: var(--transition);
+}
+
+.hero-brand img:hover { opacity: 0.85; }
+
+.hero-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .hero-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px; /* Spațiu între link-uri */
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  gap: 36px;
+  align-items: center;
+  margin: 0; padding: 0;
 }
 
 .hero-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 900;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.0px;
-    transition: color 0.3s;
-    white-space: nowrap;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-.hero-nav ul li a:hover {
-    color: var(--green-lr); /* Schimbă culoarea la hover */
+  color: rgba(255,255,255,0.92);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
+  position: relative;
+  padding-bottom: 4px;
 }
 
+.hero-nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--green-lr);
+  transition: width 0.3s ease;
+}
+
+.hero-nav ul li a:hover { color: var(--green-lr); }
+.hero-nav ul li a:hover::after { width: 100%; }
+
 .lang-switch {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: -10px;
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    z-index: 10;
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .lang-switch a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 800;
-    padding: 8px 16px;
-    border: 2px solid #00ff88;
-    border-radius: 5px;
-    font-size: 14px;
-    background: rgba(0,0,0,0.3);
-}
-.lang-switch a:hover {
-    background: #00ff88; /* Se umple cu verde */
-    color: #000;         /* Textul se face negru ca să poată fi citit pe verde */
-    box-shadow: 0 0 15px #00ff88, 0 0 30px #00ff88; /* Efectul de neon/glow */
-    transform: translateY(-2px); /* Butonul se ridică puțin */
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 7px 16px;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 6px;
+  transition: var(--transition);
+  background: rgba(255,255,255,0.05);
 }
 
+.lang-switch a:hover,
 .lang-switch a.active {
-    background: #00ff88;
-    color: #000;
-    border-color: var(--green-lr);
+  background: var(--green-lr);
+  border-color: var(--green-lr);
+  color: #000;
+  box-shadow: 0 0 20px var(--green-glow);
 }
 
-.hero-content h1 { font-size: 65px; font-weight: 900; line-height: 1.1; margin-bottom: 5px;}
-.hero-content h2 { font-size: 40px; color: var(--green-lr); margin-bottom: 15px; }
+/* Hero content — centrat în spațiul rămas */
 .hero-content {
-    padding-top: 80px; /* Împinge "SPECIALIȘTI INDEPENDENȚI" sub logo-ul de 250px */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px 40px;  /* padding-bottom ca să nu stea lipit de margine */
 }
 
-.btn-main { 
-  background: var(--green-lr); 
-  color: #000; 
-  padding: 15px 35px; 
-  text-decoration: none; 
-  font-weight: 900; 
-  border-radius: 8px; 
-  display: inline-block;
-  margin-top: 20px;
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
 }
+
+.hero-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--green-lr);
+  margin-bottom: 18px;
+  letter-spacing: 5px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.btn-main {
+  display: inline-block;
+  background: var(--green-lr);
+  color: #000;
+  padding: 15px 44px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: var(--transition);
+  box-shadow: 0 8px 28px var(--green-glow);
+}
+
 .btn-main:hover {
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
-    filter: brightness(1.1);
-    transform: scale(1.05); /* Se mărește foarte puțin */
-    transition: all 0.3s ease;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,232,122,0.45);
+  background: #00f584;
 }
 
 /* ==========================================================================
-   3. DESPRE NOI & LOUNGE (GRID PE 2 COLOANE)
+   DESPRE NOI — spațiu redus față de hero
    ========================================================================== */
+
+.about {
+  background: #fff;
+  padding: 64px 0;   /* mai puțin față de default 96px */
+}
+
 .about-grid {
-    display: grid !important;
-    grid-template-columns: 1.1fr 0.9fr !important; /* Textul ocupă puțin mai mult spațiu */
-    gap: 50px !important;
-    align-items: flex-start !important; /* TEXTUL ÎNCEPE DE SUS, LA NIVELUL POZEI */
-    margin-top: -30px !important; 
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: flex-start;
 }
 
-/* Stiluri pentru textul din stânga */
-.about-content {
-    text-align: left !important;
-    color: #333;
-    line-height: 1.6;
-}
-
-.section-title {
-    font-size: 36px !important;
-    font-weight: 800;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    line-height: 1.2;
+.about-content .section-title {
+  text-align: left;
+  font-size: 42px;
+  margin-bottom: 28px;
+  line-height: 1.85;
 }
 
 .main-paragraph {
-    font-size: 18px;
-    margin-bottom: 25px;
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 28px;
+  line-height: 1.8;
 }
+
+.specialist-box { margin-bottom: 24px; }
 
 .about-content h3 {
-    font-size: 22px;
-    color: var(--green-lr); /* Verdele tău specific */
-    margin: 25px 0 15px 0;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--green-lr);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Stil pentru lista de beneficii */
-.about-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
+.about-content h3::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 2px;
+  background: var(--green-lr);
+  flex-shrink: 0;
 }
+
+.specialist-box > p {
+  font-size: 15.5px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.about-list { list-style: none; padding: 0; margin-top: 6px; }
 
 .about-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-.check-icon {
-    color: #00ff88;
-    font-size: 20px;
-    min-width: 25px;
-}
-.feature-title {
-    min-width: 140px; /* Forțează descrierea să înceapă mereu din același punct */
-    font-weight: 800;
-    font-size: 17px;
-    color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 17px;
+  color: #444;
+  line-height: 1.65;
 }
 
-/* Coloana pentru descriere */
-.feature-desc {
-    flex: 1;
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
+.about .about-list li::before {
+  content: "✓";
+  color: var(--green-lr);
+  font-weight: 900;
+  font-size: 12px;
+  background: rgba(0,232,122,0.12);
+  min-width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
-.about-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--green-lr);
-    font-weight: bold;
-}
+.about-list li strong { color: var(--dark); }
 
-/* Secțiunea Angajament */
 .commitment-section {
-    padding: 20px;
-    background: #f9f9f9;
-    border-left: 4px solid var(--green-lr);
-    margin-top: 30px;
+  padding: 20px 24px;
+  background: var(--light-gray);
+  border-left: 3px solid var(--green-lr);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-top: 24px;
 }
+
+.commitment-section h3 { margin-bottom: 8px; }
 
 .commitment-section p {
-    font-style: italic;
-    margin: 0;
-}
-/* Lista de beneficii stilizată */
-.features-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+  font-style: italic;
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.75;
+  margin: 0;
 }
 
-.features-list li {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-    font-size: 16px;
-    line-height: 1.5;
+.about-visuals { position: sticky; top: 80px; }
+
+.about-image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.features-list .icon {
-    background: var(--green-lr);
-    color: #000;
-    font-weight: 900;
-    min-width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    font-size: 14px;
+.gallery-img, .img-primary {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
 }
 
-.commitment {
-    margin-top: 30px;
-    padding-left: 15px;
-    border-left: 3px solid var(--green-lr);
-    font-style: italic;
-    color: #333;
+.gallery-img:hover { transform: scale(1.015); box-shadow: var(--shadow-lg); }
+
+.experience-box {
+  position: absolute;
+  top: 210px;
+  left: -20px;
+  background: var(--green-lr);
+  color: #000;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 10px 28px rgba(0,232,122,0.4);
 }
-.about-list { list-style: none; padding: 0; margin-top: 20px; }
-.about-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 15px; list-style: none;}
-.gallery-img, .img-primary { 
-  width: 100%; 
-  border-radius: 15px; 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+
+.experience-box span { font-size: 28px; display: block; line-height: 1; }
+.experience-box p { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+.about-image-container::after,
+.image-box::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 12px !important; right: 12px !important;
+  left: auto !important; top: auto !important;
+  width: 90px !important; height: 44px !important;
+  background: url('images/logo-invers-silueta.svg') no-repeat center/contain !important;
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.38 !important;
+  z-index: 5; pointer-events: none;
 }
+
+.about-image-container::before,
+.image-box::before { display: none !important; }
 
 /* ==========================================================================
-   4. SERVICII (3 COLOANE ORIZONTALE)
+   SERVICII
    ========================================================================== */
+
+.services { background: var(--light-gray); position: relative; padding: 64px 0; }
+
+.services .section-title { text-align: center; }
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--green-lr), transparent);
+}
+
 .services-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 30px !important;
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .service-card {
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 15px;
-  padding: 40px 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px 36px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
   position: relative;
+  overflow: hidden;
 }
 
-.service-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--green-lr);
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+  transform-origin: left;
+}
 
-/* Eliminăm logo-urile accidentale de pe cardurile de servicii */
 .service-card::after { display: none !important; content: none !important; }
 
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon { font-size: 42px; margin-bottom: 18px; display: block; }
+
+.service-card h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+.service-card p { font-size: 16px; color: var(--gray); line-height: 1.7; }
+
 /* ==========================================================================
-   5. COMPONENTE SPECIALE (WATERMARK & INSIGNĂ)
+   LOUNGE
    ========================================================================== */
-.about-image-container, .image-box {
-  position: relative;
+
+.lounge { background: #fff; padding: 64px 0; }
+
+.lounge .about-grid {
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.image-box { position: relative; }
+
+.lounge .about-content .section-title { text-align: left; font-size: 34px; margin-bottom: 6px; }
+
+.lounge .about-list li {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--light-gray);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+  transition: var(--transition);
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+.lounge .about-list li::before { display: none !important; }
+
+.lounge .about-list li:hover {
+  background: #fff;
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(5px);
+}
+
+.lounge-icon { font-size: 20px; flex-shrink: 0; line-height: 1.3; }
+
+.lounge-text { flex: 1; color: #444; }
+
+.lounge-text strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+/* ==========================================================================
+   FLOATING CONTACT
+   ========================================================================== */
+
+.floating-contact {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  display: flex; flex-direction: column; gap: 10px;
+  z-index: 9999;
+}
+
+.contact-btn {
+  width: 54px; height: 54px;
+  border-radius: 50%; overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  display: block; transition: var(--transition);
+}
+
+.contact-btn:hover { transform: scale(1.1); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+.contact-btn img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.45);
+  padding: 32px 0;
+  text-align: center;
+  font-size: 13.5px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .about-grid,
+  .lounge .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-visuals { position: relative; top: auto; }
+  .experience-box { left: 10px; top: 200px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero { height: 70vh; }
+  .hero-topbar-inner { padding: 14px 20px; }
+  .hero-nav { display: none; }
+  .hero-brand img { height: 70px; }
+  .hero-content h1 { font-size: 36px; }
+  .hero-content h2 { font-size: 26px; letter-spacing: 2px; }
+  section { padding: 52px 0; }
+  .section-title { font-size: 28px; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+/* ==========================================================================
+   GALERIE STYLE
+   ========================================================================== */
+
+/* Containerul de filtre (butoanele de sus) */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border: 1px solid var(--border);
+  background: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+  background: var(--green-lr);
+  border-color: var(--green-lr);
+  color: #000;
+  box-shadow: 0 4px 15px var(--green-glow);
+}
+
+/* Grila de imagini */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* Watermark fixat discret în DREAPTA-JOS pe imagini */
-.about-image-container::after, .image-box::after {
-  content: "" !important;
-  position: absolute !important;
-  bottom: 15px !important;
-  right: 15px !important;
-  left: auto !important;
-  top: auto !important;
-  width: 90px !important;
-  height: 45px !important;
-  background: url('images/logo-invers-silueta.svg') no-repeat center !important;
-  background-size: contain !important;
-  filter: brightness(0) invert(1) !important;
-  opacity: 0.5 !important;
-  z-index: 5;
-  pointer-events: none;
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 250px; /* Înălțime fixă pentru aliniere perfectă */
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  cursor: zoom-in;
 }
 
-/* Eliminăm orice alt logo pus prin "before" */
-.about-image-container::before, .image-box::before { display: none !important; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Imaginile se vor decupa automat să umple spațiul */
+  transition: transform 0.6s ease;
+}
 
-/* Insigna verde 14 ani */
-.experience-box {
+/* Efectul negru care apare peste poză la hover */
+.gallery-overlay {
   position: absolute;
-  top: 260px;
-  left: -20px;
-  transform: translateY(-50%);
-  background: var(--green-lr);
-  color: #000;
-  padding: 20px;
-  border-radius: 12px;
-  font-weight: 900;
-  text-align: center;
-  z-index: 10;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
 }
 
-.experience-box span { font-size: 30px; display: block; line-height: 1; }
-
-/* ==========================================================================
-   6. CONTACT PLUTITOR & FOOTER
-   ========================================================================== */
-.floating-contact { 
-  position: fixed; 
-  bottom: 25px; 
-  right: 25px; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 15px; 
-  z-index: 9999; 
-}
-
-.contact-btn { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-.contact-btn img { width: 100%; height: 100%; object-fit: cover; }
-
-footer {
-  background: #111;
+.gallery-overlay span {
   color: #fff;
-  padding: 40px 0;
-  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--green-lr);
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
 }
 
 /* ==========================================================================
-   7. RESPONSIVE (MOBIL)
+   LIGHTBOX (Fereastra de mărire)
    ========================================================================== */
-@media (max-width: 992px) {
-  .hero-nav { display: none; }
-  .about-grid, .services-grid { grid-template-columns: 1fr !important; }
-  .hero-content h1 { font-size: 38px; }
-  .experience-box { left: 10px; padding: 10px; }
-}
-/* Creează zona pentru logo (Stânga) */
-.hero-brand {
-    flex: 1; /* Ocupă 1/3 din spațiu în stânga */
-    display: flex;
-    justify-content: flex-start;
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    z-index: 10;
-}
-.hero-nav {
-    flex: 2; /* Ocupă spațiul central (mai mare) */
-    display: flex;
-    justify-content: center;
-    margin-top: -10px;
-    left: 50%;
-    top: 30px; /* Aici reglezi cât de sus să stea textul */
-    transform: translateX(-50%);
-    position: absolute;
-    z-index: 10;
-}
-.about-image-container img, 
-.image-box img {
-    width: 100%;       
-    height: auto;      
-    display: block;    
-    border-radius: 15px;
-    object-fit: cover; 
-    }
-    .about-list li span {
-    font-size: 24px; /* Mărește iconița/emoji-ul */
-}
-.about-image-container::after, 
-.image-box::after {
-    content: "" !important;
-    position: absolute !important;
-    bottom: -15px !important; /* Distanță de margini */
-    right: -55px !important;
-    left: auto !important;
-    top: auto !important;
-    width: 280px !important; /* Mărit de la 80px la 140px pentru vizibilitate */
-    height: 120px !important;
-    background: url('images/logo-invers-silueta.svg') no-repeat center/contain !important;
-    filter: brightness(0) invert(1) drop-shadow(2px 2px 5px rgba(0,0,0,0.5)) !important;
-    opacity: 0.8 !important; /* Mai puțin transparent pentru a fi lizibil */
-    z-index: 5;
-    transform: none !important;
-}
-.lounge-section .about-grid {
-    align-items: flex-start !important; /* Aliniere la "tavanul" pozei */
-    gap: 70px !important;
+
+.lightbox {
+  display: none; /* Ascuns implicit din JS */
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
 }
 
-/* Titlu și Subtitlu */
-.lounge-content h2 {
-    font-size: 42px !important;
-    font-weight: 900;
-    margin-bottom: 5px !important;
-    color: #1a1a1a;
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.lounge-subtitle {
-    color: var(--green-lr);
-    font-size: 16px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-    display: block;
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* Lista de Facilități (Cafea, Wi-Fi) */
-.lounge-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 35px;
+/* Ajustări pentru Mobil */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .gallery-item {
+    height: 180px;
+  }
 }
 
-.lounge-list li {
-    display: grid;
-    grid-template-columns: 40px 120px 1fr; /* Aranjare pe coloane pentru aliniere perfectă */
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* BOOKING SECTION */
+.booking-section {
+  padding: 80px 0;
+  background-color: #f9f9f9;
+}
+
+.booking-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.booking-info h2 {
+  margin-bottom: 20px;
+}
+
+.contact-details {
+  margin-top: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.contact-item span {
+  font-size: 24px;
+}
+
+/* FORM STYLING */
+.booking-form-container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.booking-form input, 
+.booking-form select, 
+.booking-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.booking-form input:focus, 
+.booking-form select:focus, 
+.booking-form textarea:focus {
+  border-color: #005a2b; /* Verdele Land Rover */
+  box-shadow: 0 0 8px rgba(0,90,43,0.1);
+}
+
+@media (max-width: 768px) {
+  .booking-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .booking-form-container {
+    padding: 25px;
+  }
+}
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Zona pentru buton */
+.map-action {
     padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    background: #ffffff;
+    text-align: center;
 }
 
-.lounge-list li:hover {
-    transform: translateX(10px); /* Efect discret la mouse */
-    background: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+/* Butonul propriu-zis */
+.btn-directions {
+    display: inline-block;
+    background-color: #1a73e8; /* Albastru Google */
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.lounge-list .icon {
-    font-size: 24px;
-    color: var(--green-lr);
+.btn-directions:hover {
+    background-color: #1557b0;
+    transform: translateY(-2px);
+    color: white;
 }
 
-.lounge-list strong {
-    font-size: 17px;
-    color: #1a1a1a;
+.btn-directions:active {
+    transform: translateY(0);
 }
-
-.lounge-list span.desc {
-    font-size: 15px;
-    color: #666;
-}
-
