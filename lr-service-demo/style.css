@@ -1006,30 +1006,37 @@ footer {
     box-shadow: 0 4px 15px rgba(0, 255, 133, 0.3);
 }
 
-/* Forțare Meniu Mobil */
 @media screen and (max-width: 768px) {
     nav {
         display: block !important;
-        position: relative !important;
+        background: #111 !important; /* Fundal negru solid pentru contrast */
+        padding: 10px 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Fundal semi-transparent pentru lizibilitate */
     }
     
     nav ul {
         display: flex !important;
-        visibility: visible !important;
-        flex-direction: row !important;
+        flex-wrap: wrap; /* Permite trecerea pe rândul următor dacă sunt multe link-uri */
         justify-content: center !important;
         gap: 15px !important;
-        list-style: none !important;
-        padding: 10px 0 !important;
-        margin: 0 !important;
+        padding: 0 10px !important;
     }
 
     nav ul li a {
-        color: #fff !important;
-        font-size: 14px !important;
-        text-decoration: none !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        color: #00ff85 !important; /* Verde pentru vizibilitate */
         text-transform: uppercase;
     }
+
+    /* Mutăm butoanele RO/RU mai sus să nu încurce */
+    .language-switcher {
+        position: relative !important;
+        text-align: right;
+        padding-right: 15px;
+        margin-bottom: 5px;
+    }
+    .hero {
+    padding-top: 60px !important; /* Împinge conținutul sub meniu */
+}
 }
