@@ -783,42 +783,179 @@ footer {
     padding: 25px;
   }
 }
-.map-container {
+.map-wrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: 600px; /* Se aliniază cu lățimea iframe-ului tău */
     margin: 20px auto;
     border: 1px solid #ddd;
     border-radius: 12px;
     overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
 }
 
-/* Zona pentru buton */
-.map-action {
+.map-bar {
     padding: 15px;
     background: #ffffff;
     text-align: center;
 }
 
-/* Butonul propriu-zis */
-.btn-directions {
+.btn-gps {
     display: inline-block;
-    background-color: #1a73e8; /* Albastru Google */
-    color: white;
-    padding: 12px 24px;
+    background-color: #1a73e8; /* Albastru Google Maps */
+    color: white !important;
+    padding: 14px 28px;
     text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
 }
 
-.btn-directions:hover {
+.btn-gps:hover {
     background-color: #1557b0;
-    transform: translateY(-2px);
-    color: white;
+    text-decoration: none;
 }
 
-.btn-directions:active {
-    transform: translateY(0);
+/* Ajustare pentru ecrane mici (telefoane) */
+@media (max-width: 480px) {
+    .btn-gps {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+.contact-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite așezarea pe rânduri noi pe mobil */
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Stil pentru cutia hărții */
+.map-wrapper {
+    flex: 1 1 500px; /* Harta ocupă spațiu prioritar */
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Stil pentru cutia cu informații */
+.company-info {
+    flex: 1 1 350px; /* Datele ocupă restul spațiului */
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    border-left: 5px solid #1a73e8; /* Linie decorativă albastră */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.company-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a73e8;
+    margin-bottom: 15px;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+}
+
+.details-list li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 8px;
+}
+
+/* Stil pentru butoane și coduri */
+.btn-gps {
+    display: inline-block;
+    background: #1a73e8;
+    color: white !important;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-gps:hover { background: #1557b0; }
+
+#iban-text {
+    background: #eee;
+    padding: 2px 5px;
+    font-weight: bold;
+}
+.brands-section {
+    max-width: 1100px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.brands-section h3 {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.brands-section h3::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #1a73e8;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.brands-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Spațiu între logo-uri */
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px; /* Lățime fixă pentru aliniere */
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.brand-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Păstrează proporțiile fără să deformeze imaginea */
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-50px);
+}
+
+.brand-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Ajustare pentru mobil */
+@media (max-width: 600px) {
+    .brand-item {
+        width: 120px;
+    }
 }

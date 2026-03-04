@@ -108,3 +108,26 @@ document.querySelector('.map-container').onclick = function() {
 document.querySelector('.map-container').onmouseleave = function() {
     this.querySelector('iframe').style.pointerEvents = 'none';
 };
+const wrapper = document.querySelector('.map-wrapper iframe');
+
+// Dezactivează scroll-ul pe hartă la început
+wrapper.style.pointerEvents = 'none';
+
+// Activează harta doar când se dă click pe ea
+document.querySelector('.map-wrapper').onclick = function() {
+    wrapper.style.pointerEvents = 'auto';
+};
+
+// Dezactivează la loc când mouse-ul pleacă
+document.querySelector('.map-wrapper').onmouseleave = function() {
+    wrapper.style.pointerEvents = 'none';
+};
+document.addEventListener("DOMContentLoaded", function() {
+    const iframe = document.querySelector('.map-wrapper iframe');
+    if(iframe) {
+        iframe.style.pointerEvents = 'none';
+        document.querySelector('.map-wrapper').onclick = () => {
+            iframe.style.pointerEvents = 'auto';
+        };
+    }
+});
