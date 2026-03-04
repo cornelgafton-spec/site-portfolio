@@ -959,3 +959,38 @@ footer {
         width: 120px;
     }
 }
+/* Face textul de sub Land Rover lizibil pe mobil */
+.hero p {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.2); /* Adaugă un strat discret de fundal */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Forțează afișarea meniului pe mobil dacă acesta dispare */
+@media (max-width: 768px) {
+    nav ul {
+        display: flex !important; /* Asigură-te că lista e vizibilă */
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+    }
+    
+    .logo img {
+        max-width: 80px; /* Ajustează logo-ul să nu fie prea mare pe mobil */
+    }
+}
+.language-switcher {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 9999;
+}
+
+.language-switcher a {
+    padding: 5px 10px;
+    font-size: 12px;
+}
