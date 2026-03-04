@@ -1040,3 +1040,38 @@ footer {
     padding-top: 60px !important; /* Împinge conținutul sub meniu */
 }
 }
+/* Pe calculatoare ascundem butonul hamburger */
+.menu-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Apare doar pe mobil */
+        font-size: 28px;
+        color: #00ff85;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .hero-nav ul {
+        display: none; /* Ascundem meniul implicit */
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    /* Clasa care se activează la click prin JS */
+    .hero-nav ul.active {
+        display: flex;
+    }
+
+    .hero-nav ul li {
+        margin: 10px 0;
+    }
+}
