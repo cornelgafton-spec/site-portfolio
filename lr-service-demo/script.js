@@ -135,3 +135,6 @@ function toggleMenu() {
     const menu = document.getElementById('nav-menu');
     menu.classList.toggle('active');
 }
+document.getElementById('mobile-menu').addEventListener('click', function() {
+    document.querySelector('.nav-list').classList.toggle('active');
+});

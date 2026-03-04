@@ -1045,33 +1045,37 @@ footer {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Apare doar pe mobil */
-        font-size: 28px;
-        color: #00ff85;
-        cursor: pointer;
-        padding: 10px;
-    }
+/* Stil butoane navigație sub Sună Acum */
+.nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+.btn-map { padding: 10px 20px; border-radius: 5px; color: white; text-decoration: none; font-weight: bold; font-size: 14px; }
+.google { background: #4285F4; }
+.waze { background: #33CCFF; }
 
-    .hero-nav ul {
-        display: none; /* Ascundem meniul implicit */
+/* REPARARE MENIU MOBIL */
+@media screen and (max-width: 768px) {
+    .nav-list {
+        display: none; /* Ascuns până la click */
         flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
         position: absolute;
         top: 60px;
         left: 0;
-        text-align: center;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
         padding: 20px 0;
+        z-index: 9999;
     }
 
-    /* Clasa care se activează la click prin JS */
-    .hero-nav ul.active {
-        display: flex;
-    }
+    .nav-list.active { display: flex; } /* Apare la click */
 
-    .hero-nav ul li {
-        margin: 10px 0;
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: #00ff85;
+        margin: 5px;
     }
 }
