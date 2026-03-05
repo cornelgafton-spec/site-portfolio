@@ -8,47 +8,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10.0">
+  <link rel="stylesheet" href="style.css?v=11.1">
 </head>
 
 <body>
 
   <!-- HERO -->
-  <header class="hero" id="home">
+ <header class="hero" id="home">
+      <div class="hero-logo-float">
+        <img src="images/logo.svg" alt="LR SERVICE LOGO">
+    </div>
     <div class="hero-topbar">
-      <div class="hero-topbar-inner">
-
-        <a class="hero-brand" href="#home">
-          <img src="images/logo-invers-silueta.svg" alt="LR Service logo">
-        </a>
-
-        <nav class="hero-nav" id="primary-nav">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
-    <ul id="nav-menu">
-        <li><a href="#home">Acasă</a></li>
-        <li><a href="#about">Despre noi</a></li>
-        <li><a href="#services">Servicii</a></li>
-        <li><a href="#gallery">Galerie</a></li>
-        <li><a href="#contact">Contacte</a></li>
-    </ul>
-</nav>
-        <div class="lang-switch">
-          <a href="index.html" class="active">RO</a>
-          <a href="ru.html">RU</a>
         </div>
+    <div class="hero-topbar">
+        <div class="hero-topbar-inner">
+            <div class="logo-spacer" style="width: 250px;"></div>
 
-      </div>
+            <nav class="hero-nav">
+                <ul>
+                    <li><a href="#home">Acasă</a></li>
+                    <li><a href="#about">Despre noi</a></li>
+                    <li><a href="#services">Servicii</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#contact">Contacte</a></li>
+                </ul>
+            </nav>
+
+            <div class="lang-switch">
+                <a href="#" class="active">RO</a>
+                <a href="#">RU</a>
+            </div>
+        </div>
     </div>
 
     <div class="hero-content">
-      <h1>SPECIALIȘTI INDEPENDENȚI</h1>
-      <h2>LAND ROVER</h2>
-      <p>Servicii premium de mentenanță și reparații în Chișinău.</p>
-      <a href="tel:+37360400400" class="btn-main">SUNĂ ACUM</a>
+      
+        <h1>SPECIALIȘTI INDEPENDENȚI</h1>
+        <h2>LAND ROVER</h2>
+        <p>Servicii premium de mentenanță și reparații în Chișinău.</p>
+        <a href="tel:+37360400400" class="btn-main">SUNĂ ACUM</a>
     </div>
-  </header>
-
+</header>
   <!-- DESPRE NOI -->
   <section class="about" id="about">
     <div class="container">
@@ -296,41 +296,40 @@
     </div>
   </div>
 </section>
-<div class="contact-section">
-    <nav class="main-nav">
-    <div class="nav-container">
-        <div class="logo">LR SERVICE</div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
+<section id="contact" class="contact-wrapper">
+    <div class="contact-grid">
+        
+        <div class="map-box">
+            <div class="nav-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps">GOOGLE MAPS</a>
+                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze">WAZE</a>
+            </div>
+            <div class="iframe-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ro&z=16&output=embed" 
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
         </div>
-        <ul class="nav-list">
-            <li><a href="#home">Acasă</a></li>
-            <li><a href="#about">Despre noi</a></li>
-            <li><a href="#services">Servicii</a></li>
-            <li><a href="#contact">Contacte</a></li>
-        </ul>
-    </div>
-</nav>
 
-<div class="nav-buttons">
-    <a href="https://www.google.com/maps/dir/?api=1&destination=46.950405,28.718895" class="btn-map google">Google Maps</a>
-    <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" class="btn-map waze">Waze</a>
-</div>
-
-    <div class="company-info">
-        <h3>Informații Contact</h3>
-        <p class="company-name">SRL „SEROM AUTO GRUP”</p>
-        <ul class="details-list">
-            <li><strong>📍 Adresa:</strong> șos. Hîncești 160, mun. Chișinău</li>
-            <li><strong>📞 Tel:</strong> <a href="tel:+373280048">+373 28-00-48</a></li>
-            <li><strong>🏦 Banca:</strong> Moldova Agroindbank</li>
-            <li><strong>💳 IBAN:</strong> <code id="iban-text">MD30AG000000022512741488</code></li>
-            <li><strong>🆔 Cod fiscal:</strong> 1010600024969</li>
-            <li><strong>🧾 Cod TVA:</strong> 0506576</li>
-        </ul>
+        <div class="info-box">
+            <div class="info-content">
+                <h2>Informații Contact</h2>
+                <p class="company-title">SRL „SEROM AUTO GRUP”</p>
+                
+                <ul class="contact-details">
+                    <li><strong>📍 Adresa:</strong> șos. Hîncești 160, mun. Chișinău</li>
+                    <li><strong>📞 Tel:</strong> <a href="tel:+373280048">+373 28-00-48</a></li>
+                    <li><strong>🏦 Banca:</strong> Moldova Agroindbank</li>
+                    <li><strong>💳 IBAN:</strong> <code>MD30AG000000022512741488</code></li>
+                    <li><strong>🆔 Cod fiscal:</strong> 1010600024969</li>
+                    <li><strong>📑 Cod TVA:</strong> 0506576</li>
+                </ul>
+            </div>
+        </div>
+        
     </div>
+</section>
 <section class="brands-section">
     <h3>Parteneri și Branduri de Încredere</h3>
     <div class="brands-grid">

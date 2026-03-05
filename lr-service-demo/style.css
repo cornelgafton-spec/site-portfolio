@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap');
-
+body, h1, h2, h3, p, a {
+    font-family: 'Montserrat', sans-serif !important;
+    text-rendering: optimizeLegibility;
+}
 :root {
   --green-lr: #00e87a;
   --green-glow: rgba(0, 232, 122, 0.25);
@@ -59,41 +62,48 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   HERO — 75vh, conținut centrat vertical corect
+   HERO 
    ========================================================================== */
 
 .hero {
-  position: relative;
-  height: 82vh;           /* Fix — nu mai e 100vh */
-  min-height: 580px;
-  max-height: 860px;
-  background: linear-gradient(160deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%),
-              url('images/hero.jpg') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  color: #fff;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Reducem opacitatea gradientului pentru claritate maximă a pozei */
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), 
+                url('images/hero-nou.png') center/cover no-repeat;
+    
+    /* Forțăm browserul să randeze imaginea clar (fără blur) */
+    image-rendering: -webkit-optimize-contrast;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Mută textul jos, sub botul mașinii */
+    padding-bottom: 80px;      /* Distanța butonului față de marginea de jos */
 }
-
 .hero::after, .hero::before { display: none !important; content: none !important; }
 
 /* NAVBAR */
 .hero-topbar {
-  width: 100%;
-  flex-shrink: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
-  padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Adăugăm un fundal negru transparent implicit care devine mai solid la scroll */
+    background: rgba(0, 0, 0, 0.85); 
+    padding: 15px 0;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-topbar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 40px 10px 30px;
-  min-height: 110px;   /* forțează bara să fie destul de înaltă */
+    max-width: 100%;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .hero-brand {
@@ -101,13 +111,11 @@ h1, h2, h3, h4 {
   align-items: center;
   text-decoration: none;
   flex-shrink: 0;
+  width: 180px; /* Păstrăm lățimea pentru a nu "fugi" meniul din centru */
 }
 
 .hero-brand img {
-  height: 180px;
-  width: auto;
-  display: block;
-  transition: var(--transition);
+  display: none !important; /* Ascunde logo-ul SVG complet */
 }
 
 .hero-brand img:hover { opacity: 0.85; }
@@ -122,22 +130,17 @@ h1, h2, h3, h4 {
 .hero-nav ul {
   display: flex;
   list-style: none;
-  gap: 36px;
+  gap: 40px;
   align-items: center;
   margin: 0; padding: 0;
 }
 
 .hero-nav ul li a {
-  color: rgba(255,255,255,0.92);
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 12.5px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: var(--transition);
-  position: relative;
-  padding-bottom: 4px;
+    color: #ffffff !important; /* Forțează culoarea albă și elimină movul */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .hero-nav ul li a::after {
@@ -149,7 +152,9 @@ h1, h2, h3, h4 {
   transition: width 0.3s ease;
 }
 
-.hero-nav ul li a:hover { color: var(--green-lr); }
+.h.hero-nav ul li a:hover {
+    color: #00e87a !important; /* Se face verde la trecerea mouse-ului */
+}
 .hero-nav ul li a:hover::after { width: 100%; }
 
 .lang-switch {
@@ -182,61 +187,75 @@ h1, h2, h3, h4 {
 
 /* Hero content — centrat în spațiul rămas */
 .hero-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 24px 40px;  /* padding-bottom ca să nu stea lipit de margine */
+    text-align: center;
+    color: #ffffff !important;
+    z-index: 10;
+    width: 100%;
 }
 
 .hero-content h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 64px;
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -1px;
-  color: #fff;
-  margin-bottom: 6px;
-  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    font-size: clamp(30px, 6vw, 60px);
+    font-weight: 900;
+    color: #ffffff !important;
+    text-shadow: 0 2px 15px rgba(0,0,0,0.9); /* Umbră pentru contrast pe alb */
+    margin: 0;
 }
 
 .hero-content h2 {
-  font-size: 42px;
-  font-weight: 800;
-  color: var(--green-lr);
-  margin-bottom: 18px;
-  letter-spacing: 5px;
+    font-size: clamp(20px, 4vw, 35px);
+    color: #00e87a;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
-  font-size: 18px;
-  color: rgba(255,255,255,0.78);
-  font-weight: 300;
-  margin-bottom: 32px;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
 }
 
 .btn-main {
-  display: inline-block;
-  background: var(--green-lr);
-  color: #000;
-  padding: 15px 44px;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-radius: 8px;
-  transition: var(--transition);
-  box-shadow: 0 8px 28px var(--green-glow);
+    /* Folosim Montserrat pentru claritate maximă */
+    font-family: 'Montserrat', sans-serif !important;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #00e87a;
+    color: #000000 !important;
+    
+    /* Mărim spațiul lateral ca litera Ă să nu mai fie înghesuită */
+    padding: 18px 60px; 
+    
+    font-size: 16px;
+    font-weight: 800; /* Foarte gros pentru impact vizual */
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    
+    /* MODIFICARE CHEIE: Resetăm letter-spacing la 0 pentru a repara litera Ă */
+    letter-spacing: 0px !important;
+    
+    /* Îmbunătățește claritatea textului pe ecrane Retina/4K */
+    -webkit-font-smoothing: antialiased;
+    
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-main:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(0,232,122,0.45);
-  background: #00f584;
+    background-color: #00ff87;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 232, 122, 0.4);
+}
+.hero-car-image img {
+    max-width: 1000px; /* Am mărit de la 650px la 1000px */
+    width: 95%;       /* Ocupă aproape tot ecranul pe lățime */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+    margin-bottom: 40px; /* Spațiu până la butonul Sună Acum */
 }
 
 /* ==========================================================================
@@ -611,19 +630,28 @@ footer {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  height: 250px; /* Înălțime fixă pentru aliniere perfectă */
+  /* În loc de height fix, poți folosi raport de aspect (ex: 4:3) */
+  aspect-ratio: 4 / 3; 
+  height: auto; 
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   cursor: zoom-in;
+  min-height: 250px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Imaginile se vor decupa automat să umple spațiul */
+  width: 100% !important;
+  height: 100% !important;
+  /* 'cover' păstrează proporția și umple spațiul de 250px */
+  object-fit: cover !important; 
+  /* 'center' asigură că vedem mijlocul pozei, nu doar un colț */
+  object-position: center !important; 
   transition: transform 0.6s ease;
+  display: block; /* Elimină micul spațiu gol de sub imagine */
 }
-
 /* Efectul negru care apare peste poză la hover */
 .gallery-overlay {
   position: absolute;
@@ -792,6 +820,8 @@ footer {
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .map-bar {
@@ -1046,10 +1076,19 @@ footer {
 }
 
 /* Stil butoane navigație sub Sună Acum */
-.nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
-.btn-map { padding: 10px 20px; border-radius: 5px; color: white; text-decoration: none; font-weight: bold; font-size: 14px; }
+.nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; width: 100%;}
+.btn-map { flex: 1;
+    padding: 15px;
+    text-align: center;
+    color: white !important;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase; }
 .google { background: #4285F4; }
 .waze { background: #33CCFF; }
+.map-container iframe {
+    display: block; /* Elimină spațiul mic de sub iframe */
+}
 
 /* REPARARE MENIU MOBIL */
 @media screen and (max-width: 768px) {
@@ -1079,3 +1118,105 @@ footer {
         margin: 5px;
     }
 }
+.hero-logo-float {
+    position: fixed;
+    top: -75px; /* Îl coborâm sub bara de meniu (care are aprox 70-80px) */
+    left: 50px;  /* Distanța de marginea din stânga */
+    z-index: 1001; /* Sub meniu, dar peste imaginea hero */
+}
+
+.hero-logo-float img {
+    width: 320px; /* Ajustează dimensiunea logo-ului aici */
+    height: auto;
+    /* Adăugăm o umbră neagră fină sub SVG pentru contrast maxim pe fundal complex */
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1))
+            drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.9))
+            drop-shadow(0px 0px 30px rgba(255, 255, 255, 0.6));
+           transition: all 0.3s ease;  
+}
+
+/* Ajustare pentru ecrane mici (Mobil) */
+@media (max-width: 768px) {
+    .hero-logo-float {
+        top: 80px;
+        left: 20px;
+    }
+    .hero-logo-float img {
+        width: 140px;
+    }
+}
+.contact-wrapper {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+}
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap; /* Pentru a fi responsiv pe mobil */
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+}
+
+.map-box, .info-box {
+    flex: 1;
+    min-width: 320px; /* Lățime minimă pentru mobil */
+}
+
+/* BUTOANELE DE SUS */
+.nav-links {
+    display: flex;
+}
+
+.map-btn {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    color: white !important;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.g-maps { background-color: #4285F4; }
+.w-waze { background-color: #33CCFF; }
+.map-btn:hover { filter: brightness(1.1); }
+
+/* SECȚIUNEA DE INFORMAȚII */
+.info-box {
+    padding: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.info-content h2 {
+    color: #4285F4;
+    margin-bottom: 5px;
+}
+
+.company-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.contact-details {
+    list-style: none; /* Ne asigurăm că nu apar punctele de listă aici */
+    padding: 0;
+}
+
+.contact-details li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.contact-details code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px; }

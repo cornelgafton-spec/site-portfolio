@@ -132,9 +132,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
+    const navMenu = document.getElementById('nav-menu');
+    // Verificăm dacă meniul există înainte de a-i pune clasa 'active'
+    if (navMenu) {
+        navMenu.classList.toggle('active');
+    }
 }
 document.getElementById('mobile-menu').addEventListener('click', function() {
     document.querySelector('.nav-list').classList.toggle('active');
+});
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        const navMenu = document.getElementById('nav-menu');
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+    });
 });
