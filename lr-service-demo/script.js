@@ -149,3 +149,20 @@ document.querySelectorAll('#nav-menu a').forEach(link => {
         }
     });
 });
+const menu = document.querySelector('#mobile-menu');
+    const navLinks = document.querySelector('nav');
+
+    menu.addEventListener('click', function() {
+        // Toggle clasa "active" pe meniu
+        navLinks.classList.toggle('active');
+        
+        // Opțional: animație pentru butonul hamburger (se transformă în X)
+        menu.classList.toggle('is-active');
+    });
+    
+    // Închide meniul când dai click pe un link (pentru single-page apps)
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });

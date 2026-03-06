@@ -1038,12 +1038,32 @@ footer {
 
 @media screen and (max-width: 768px) {
     nav {
-        display: block !important;
-        background: #111 !important; /* Fundal negru solid pentru contrast */
-        padding: 10px 0;
+        /* Schimbăm din block în column pentru aliniere verticală */
+        display: flex !important; 
+        flex-direction: column;
+        
+        /* Îl poziționăm sub header */
+        position: absolute;
+        top: 60px; /* Ajustează această valoare după înălțimea logo-ului tău */
+        left: 0;
         width: 100%;
+        
+        background: #111 !important;
+        z-index: 999; /* Îl aducem în față */
+        
+        /* Opțional: Adăugăm o tranziție fină sau un border jos */
+        border-bottom: 2px solid #00ff88; 
+        padding-bottom: 20px;
+        
+            }
+            nav a {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #222;
+        width: 100%;
+        display: block;
     }
-    
+}
     nav ul {
         display: flex !important;
         flex-wrap: wrap; /* Permite trecerea pe rândul următor dacă sunt multe link-uri */
@@ -1063,18 +1083,60 @@ footer {
     .language-switcher {
         position: relative !important;
         text-align: right;
-        padding-right: 15px;
-        margin-bottom: 5px;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
     }
     .hero {
     padding-top: 60px !important; /* Împinge conținutul sub meniu */
 }
-}
 /* Pe calculatoare ascundem butonul hamburger */
 .menu-toggle {
     display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
 }
+.bar {
+    width: 28px;
+    height: 3px;
+    background-color: #00ff88; /* Verdele tău de pe buton */
+    border-radius: 2px;
+    transition: 0.3s;
+}
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Apare doar pe mobil */
+        padding: 10px;
+    }
+    
 
+    nav {
+        display: none !important; /* Ascuns implicit */
+        position: absolute;
+        top: 70px; /* Ajustează după înălțimea headerului tău */
+        left: 0;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    /* Clasa care se activează la click */
+    nav.active {
+        display: flex !important;
+    }
+
+    nav a {
+        padding: 20px;
+        border-bottom: 1px solid #222;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+    }
+}
 /* Stil butoane navigație sub Sună Acum */
 .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; width: 100%;}
 .btn-map { flex: 1;
