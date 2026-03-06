@@ -1106,35 +1106,47 @@ footer {
     border-radius: 2px;
     transition: 0.3s;
 }
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Apare doar pe mobil */
-        padding: 10px;
-    }
-    
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
 
-    nav {
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+@media screen and (max-width: 768px) {
+    /* Butonul Hamburger */
+    .menu-toggle {
+        display: flex !important;
+        position: relative;
+        z-index: 1002;
+    }
+
+    /* Meniul propriu-zis */
+    .hero-nav {
         display: none !important; /* Ascuns implicit */
         position: absolute;
-        top: 70px; /* Ajustează după înălțimea headerului tău */
+        top: 70px;
         left: 0;
         width: 100%;
-        background: #111;
+        background: rgba(17, 17, 17, 0.95);
         flex-direction: column;
-        z-index: 1000;
+        z-index: 1001;
+        padding: 20px 0;
     }
 
-    /* Clasa care se activează la click */
-    nav.active {
+    /* Starea activă (declanșată de JS) */
+    .hero-nav.active {
         display: flex !important;
     }
 
-    nav a {
-        padding: 20px;
-        border-bottom: 1px solid #222;
-        text-align: center;
-        color: white;
-        text-decoration: none;
+    .hero-nav ul {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 20px !important;
     }
 }
 /* Stil butoane navigație sub Sună Acum */
