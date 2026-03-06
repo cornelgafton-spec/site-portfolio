@@ -103,3 +103,7 @@ if (bookingForm) {
         setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
     });
 }
+const yearSpan = document.getElementById("year");
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
