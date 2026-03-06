@@ -1149,18 +1149,35 @@ footer {
         gap: 20px !important;
     }
    .hero {
-        /* background-size: contain face poza să se micșoreze până încape toată lățimea */
-        background-size: contain !important; 
-        background-position: center top !important;
-        background-repeat: no-repeat !important;
-        background-color: #000 !important; /* Spațiul rămas va fi negru, ca restul site-ului */
+        /* 1. Revenim la cover pentru a umple ecranul, dar limităm înălțimea */
+        min-height: 70vh !important; 
+        background-image: url('images/hero-nou.png') !important;
+        background-size: cover !important;
         
-        /* Ajustăm înălțimea ca să nu avem spațiu gol prea mare sub mașină */
-        min-height: 55vh !important; 
-        height: auto !important;
-        padding-top: 100px !important; 
-    } 
+        /* 2. Mutăm poza ca să vedem mașina (focalizăm pe partea stângă) */
+        background-position: 25% center !important; 
+        background-repeat: no-repeat !important;
+
+        /* 3. Organizăm conținutul să nu sufoce poza */
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-end; /* Împingem textul spre baza pozei */
+        padding-bottom: 40px !important;
+        padding-top: 100px !important;
+    }
+    .hero-content {
+        background: rgba(0, 0, 0, 0.4); /* Adăugăm un fundal discret textului pentru lizibilitate */
+        padding: 15px !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem !important; /* Dimensiune echilibrată */
+        margin-bottom: 10px !important;
+    }
 }
+
 /* Stil butoane navigație sub Sună Acum */
 .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; width: 100%;}
 .btn-map { flex: 1;
