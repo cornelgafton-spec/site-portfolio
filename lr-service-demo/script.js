@@ -107,3 +107,24 @@ const yearSpan = document.getElementById("year");
 if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
+function acceptCookies() {
+    // Salvează în memoria browserului că utilizatorul a acceptat
+    localStorage.setItem('lr_cookies_accepted', 'true');
+    
+    // Ascunde bannerul cu un efect vizual (opțional)
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+        banner.style.display = 'none';
+    }
+}
+
+// Verificăm la încărcarea paginii dacă trebuie să afișăm bannerul
+window.addEventListener('load', function() {
+    const banner = document.getElementById('cookie-banner');
+    const isAccepted = localStorage.getItem('lr_cookies_accepted');
+
+    // Dacă NU a fost acceptat anterior și bannerul există în HTML, îl afișăm
+    if (!isAccepted && banner) {
+        banner.style.display = 'flex'; // Folosim 'flex' pentru alinierea elementelor din interior
+    }
+});
