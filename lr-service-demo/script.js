@@ -166,3 +166,15 @@ const menu = document.querySelector('#mobile-menu');
             navLinks.classList.remove('active');
         });
     });
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('#mobile-menu');
+    const navMenu = document.querySelector('.hero-nav');
+
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            // Linie opțională pentru animația butonului
+            menuBtn.classList.toggle('is-active');
+        });
+    }
+});
