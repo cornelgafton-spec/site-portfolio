@@ -1150,9 +1150,9 @@ footer {
     }
    .hero {
         /* 1. Revenim la cover pentru a umple ecranul, dar limităm înălțimea */
-        min-height: 70vh !important; 
+        min-height: 85vh !important; 
         background-image: url('images/hero-nou.png') !important;
-        background-size: cover !important;
+        background-size: 160% auto !important;
         
         /* 2. Mutăm poza ca să vedem mașina (focalizăm pe partea stângă) */
         background-position: 25% center !important; 
@@ -1162,14 +1162,13 @@ footer {
         display: flex !important;
         flex-direction: column;
         justify-content: flex-end; /* Împingem textul spre baza pozei */
-        padding-bottom: 40px !important;
+        padding-bottom: 30px !important;
         padding-top: 100px !important;
     }
     .hero-content {
-        background: rgba(0, 0, 0, 0.4); /* Adăugăm un fundal discret textului pentru lizibilitate */
-        padding: 15px !important;
-        width: 100% !important;
-        margin: 0 !important;
+        margin-top: 20px !important; 
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        padding: 20px 10px !important;
     }
 
     .hero-content h1 {
