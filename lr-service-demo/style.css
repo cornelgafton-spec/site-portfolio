@@ -1148,6 +1148,18 @@ footer {
         align-items: center;
         gap: 20px !important;
     }
+   .hero {
+        /* background-size: contain face poza să se micșoreze până încape toată lățimea */
+        background-size: contain !important; 
+        background-position: center top !important;
+        background-repeat: no-repeat !important;
+        background-color: #000 !important; /* Spațiul rămas va fi negru, ca restul site-ului */
+        
+        /* Ajustăm înălțimea ca să nu avem spațiu gol prea mare sub mașină */
+        min-height: 55vh !important; 
+        height: auto !important;
+        padding-top: 100px !important; 
+    } 
 }
 /* Stil butoane navigație sub Sună Acum */
 .nav-buttons { display: flex; gap: 10px; justify-content: center; margin-top: 15px; width: 100%;}
