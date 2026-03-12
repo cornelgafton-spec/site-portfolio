@@ -88,50 +88,66 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- 6. FORMULAR PROGRAMARE ---
-const bookingForm = document.getElementById('appointment-form');
-const formStatus = document.getElementById('form-status');
-
-if (bookingForm) {
-    bookingForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        formStatus.style.display = 'block';
-        formStatus.style.color = '#00ff85';
-        formStatus.textContent = `Mulțumim, ${name}! Te contactăm imediat.`;
-        bookingForm.reset();
-        setTimeout(() => { formStatus.style.display = 'none'; }, 5000);
-    });
-}
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-}
-function acceptCookies() {
-    // Salvează în memoria browserului că utilizatorul a acceptat
-    localStorage.setItem('lr_cookies_accepted', 'true');
-    
-    // Ascunde bannerul cu un efect vizual (opțional)
-    const banner = document.getElementById('cookie-banner');
-    if (banner) {
-        banner.style.display = 'none';
-    }
-}
-
-// Verificăm la încărcarea paginii dacă trebuie să afișăm bannerul
 window.addEventListener('load', function() {
-    const banner = document.getElementById('cookie-banner');
-    const isAccepted = localStorage.getItem('lr_cookies_accepted');
+    const form = document.getElementById('appointment-form');
+    const status = document.getElementById('form-status');
+    
+    if(form) {
+        form.addEventListener('submit', function(e) {
+            // 1. Oprim trimiterea automată și golirea datelor
+            e.preventDefault();
 
-    // Dacă NU a fost acceptat anterior și bannerul există în HTML, îl afișăm
-    if (!isAccepted && banner) {
-        banner.style.display = 'flex'; // Folosim 'flex' pentru alinierea elementelor din interior
+            // 2. Colectăm datele introduse de client
+            const nume = document.getElementById('name').value;
+            const tel = document.getElementById('phone').value;
+            const masina = document.getElementById('car-model').value;
+            const data = document.getElementById('booking-date').value;
+            const ora = document.getElementById('booking-time').value;
+
+            // 3. Validare Telefon
+            if (tel.replace(/\s+/g, '').length < 6) {
+                status.style.display = 'block';
+                status.style.color = '#ff4d4d';
+                status.innerText = "⚠️ Te rugăm să introduci un număr de telefon valid.";
+                return; // Ne oprim aici, nu ștergem datele
+            }
+
+            // 4. Dacă totul e OK, afișăm mesajul de succes
+            status.style.display = 'block';
+            status.style.color = '#00ff85';
+            status.innerText = `✅ Mulțumim, ${nume}! Se deschide WhatsApp pentru confirmare...`;
+
+            // 5. Construim mesajul și deschidem WhatsApp
+            const mesaj = `Salut! Sunt ${nume}. Doresc o programare pentru un Land Rover ${masina}. Data: ${data}, Ora: ${ora}. Tel: ${tel}`;
+            const url = `https://wa.me/37360400400?text=${encodeURIComponent(mesaj)}`;
+
+            setTimeout(() => {
+                window.open(url, '_blank');
+                // Opțional: poți activa linia de mai jos dacă vrei să golești formularul DOAR după ce s-a deschis WhatsApp-ul
+                // form.reset(); 
+            }, 1000);
+        });
     }
-});
-document.addEventListener('DOMContentLoaded', function() {
+
+    // Setare data minimă (azi)
     const dateInput = document.getElementById('booking-date');
     if(dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
+    }
+});
+
+// --- 7. COOKIE BANNER ---
+function acceptCookies() {
+    localStorage.setItem('lr_cookies_accepted', 'true');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.display = 'none';
+}
+
+window.addEventListener('load', function() {
+    const banner = document.getElementById('cookie-banner');
+    const isAccepted = localStorage.getItem('lr_cookies_accepted');
+    if (!isAccepted && banner) {
+        banner.style.display = 'flex';
     }
 });
