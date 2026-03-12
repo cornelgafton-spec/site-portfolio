@@ -128,3 +128,10 @@ window.addEventListener('load', function() {
         banner.style.display = 'flex'; // Folosim 'flex' pentru alinierea elementelor din interior
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('booking-date');
+    if(dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+});

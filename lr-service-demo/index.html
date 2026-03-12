@@ -285,6 +285,21 @@
             <input type="text" id="car-model" name="car" placeholder="Model Land Rover (ex: Vogue)" required>
             <input type="number" id="car-year" name="year" placeholder="An fabricație" min="1990" max="2026">
           </div>
+
+          <div class="form-row">
+            <input type="date" id="booking-date" name="booking_date" required style="flex: 1;">
+            <select id="booking-time" name="booking_time" required style="flex: 1;">
+                <option value="" disabled selected>Alege ora</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+            </select>
+          </div>
           <div class="form-group">
             <select id="service-type" name="service">
               <option value="" disabled selected>Tipul intervenției</option>

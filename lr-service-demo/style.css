@@ -783,6 +783,13 @@ footer {
   margin-bottom: 20px;
 }
 
+/* Adaugă asta sub, ca să arate bine pe mobil */
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr; /* Pe mobil, le punem unul sub altul */
+  }
+}
+
 .booking-form input, 
 .booking-form select, 
 .booking-form textarea {
