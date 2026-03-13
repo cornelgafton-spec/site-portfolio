@@ -53,17 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     });
 
-    // --- 3. MENIU MOBIL (Singura versiune necesară) ---
+    // --- 3. MENIU MOBIL ---
     const menuBtn = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('.hero-nav');
 
     if (menuBtn && navMenu) {
         menuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            menuBtn.classList.toggle('is-active'); // Activează animația pentru X
+            menuBtn.classList.toggle('is-active');
         });
 
-        // Închide meniul când dai click pe un link
         document.querySelectorAll('.hero-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 4. CONTROL HARTĂ (Previne scroll-ul nedorit) ---
+    // --- 4. CONTROL HARTĂ ---
     const mapWrapper = document.querySelector('.map-wrapper');
     const iframe = document.querySelector('.map-wrapper iframe');
     if(mapWrapper && iframe) {
@@ -91,40 +90,44 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', function() {
     const form = document.getElementById('appointment-form');
     const status = document.getElementById('form-status');
-    
+    const currentLang = document.documentElement.lang; 
+
     if(form) {
         form.addEventListener('submit', function(e) {
-            // 1. Oprim trimiterea automată și golirea datelor
             e.preventDefault();
 
-            // 2. Colectăm datele introduse de client
             const nume = document.getElementById('name').value;
             const tel = document.getElementById('phone').value;
             const masina = document.getElementById('car-model').value;
             const data = document.getElementById('booking-date').value;
             const ora = document.getElementById('booking-time').value;
 
-            // 3. Validare Telefon
             if (tel.replace(/\s+/g, '').length < 6) {
                 status.style.display = 'block';
                 status.style.color = '#ff4d4d';
-                status.innerText = "⚠️ Te rugăm să introduci un număr de telefon valid.";
-                return; // Ne oprim aici, nu ștergem datele
+                status.innerText = (currentLang === 'ru') 
+                    ? "⚠️ Пожалуйста, введите корректный номер телефона." 
+                    : "⚠️ Te rugăm să introduci un număr de telefon valid.";
+                return;
             }
 
-            // 4. Dacă totul e OK, afișăm mesajul de succes
             status.style.display = 'block';
             status.style.color = '#00ff85';
-            status.innerText = `✅ Mulțumim, ${nume}! Se deschide WhatsApp pentru confirmare...`;
+            status.innerText = (currentLang === 'ru')
+                ? `✅ Спасибо, ${nume}! Открываем WhatsApp...`
+                : `✅ Mulțumim, ${nume}! Se deschide WhatsApp...`;
 
-            // 5. Construim mesajul și deschidem WhatsApp
-            const mesaj = `Salut! Sunt ${nume}. Doresc o programare pentru un Land Rover ${masina}. Data: ${data}, Ora: ${ora}. Tel: ${tel}`;
+            let mesaj;
+            if(currentLang === 'ru') {
+                mesaj = `Здравствуйте! Я ${nume}. Хочу записаться на сервис для Land Rover ${masina}. Дата: ${data}, Время: ${ora}. Тел: ${tel}`;
+            } else {
+                mesaj = `Salut! Sunt ${nume}. Doresc o programare pentru un Land Rover ${masina}. Data: ${data}, Ora: ${ora}. Tel: ${tel}`;
+            }
+
             const url = `https://wa.me/37360400400?text=${encodeURIComponent(mesaj)}`;
 
             setTimeout(() => {
                 window.open(url, '_blank');
-                // Opțional: poți activa linia de mai jos dacă vrei să golești formularul DOAR după ce s-a deschis WhatsApp-ul
-                // form.reset(); 
             }, 1000);
         });
     }

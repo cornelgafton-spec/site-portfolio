@@ -1,78 +1,394 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LR-SERVICE | Специализированный сервис Land Rover Молдова</title>
-    <meta name="description"
-        content="Профессиональный ремонт Land Rover и Range Rover в Кишиневе. Современная диагностика и оригинальные запчасти.">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LR-SERVICE | Независимый специалист Land Rover Молдова</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=11.1">
 </head>
+
+<div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(17, 17, 17, 0.95); color: #fff; padding: 15px; border-radius: 8px; border: 1px solid #00ff85; z-index: 10000; display: none; align-items: center; justify-content: space-between; flex-wrap: wrap; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <p style="margin: 0; font-size: 14px; flex: 1; padding-right: 15px;">
+        Мы используем куки, чтобы обеспечить вам лучший опыт на сайте LR Service. 
+        <a href="confidentialitate.html" style="color: #00ff85; text-decoration: underline;">Узнать больше</a>.
+    </p>
+    <button onclick="acceptCookies()" style="background: #00ff85; color: #000; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">Принять</button>
+</div>
 
 <body>
 
-    <header>
-        <div class="container">
-            <div class="logo">LR-<span>SERVICE</span></div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav>
+  <header class="hero" id="home">
+      <div class="hero-logo-float">
+        <img src="images/logo.svg" alt="LR SERVICE LOGO">
+    </div>
+    <div class="hero-topbar">
+    </div>
+    <div class="hero-topbar">
+        <div class="hero-topbar-inner">
+            <div class="logo-spacer" style="width: 250px;"></div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        </div>
+            <nav class="hero-nav">
                 <ul>
-                    <li><a href="ru.html#acasa">Главная</a></li>
-                    <li><a href="ru.html#servicii">Услуги</a></li>
-                    <li><a href="ru.html#contact">Контакты</a></li>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="lang-switch">
-                <a href="index.html">RO</a>
-                <a href="ru.html" class="active">RU</a>
+
+           <div class="lang-switch">
+    <a href="index.html">RO</a>
+    <a href="ru.html" class="active">RU</a>
+</div>
+        </div>
+    </div>
+
+    <div class="hero-content">
+        <h1>НЕЗАВИСИМЫЕ СПЕЦИАЛИСТЫ</h1>
+        <h2>LAND ROVER</h2>
+        <p>Премиальное обслуживание и ремонт в Кишиневе.</p>
+        <a href="tel:+37360400400" class="btn-main">ПОЗВОНИТЬ СЕЙЧАС</a>
+    </div>
+</header>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-content">
+          <h2 class="section-title">О Long Range Service (LR-Service)</h2>
+
+          <p class="main-paragraph">
+            Основанный в <strong>2010</strong> году, наш технический центр зарекомендовал себя как эталон профессионализма в Кишиневе, работая исключительно с британскими автомобилями премиум-класса. Под названием <strong>Long Range Service</strong> мы ставим своей миссией подготовку каждого автомобиля к любым дистанциям, предлагая решения по обслуживанию, превосходящие обычные стандарты.
+          </p>
+
+          <div class="specialist-box">
+            <h3>Почему стоит выбрать независимого специалиста?</h3>
+            <p>В эпоху, когда модели Land Rover и Range Rover становятся всё сложнее технологически и электронно, их обслуживание требует хирургического подхода. Как независимый сервис-центр, мы предлагаем:</p>
+
+            <ul class="about-list">
+              <li><strong>Свобода и Прозрачность:</strong> Мы не ограничены жесткой политикой официальных дилеров, что позволяет нам предлагать индивидуальные решения и честные цены.</li>
+              <li><strong>Доказанный Опыт:</strong> Наша команда инженеров и техников имеет средний опыт работы более четырех лет, специализируясь строго на этой марке.</li>
+              <li><strong>Передовые Технологии:</strong> Мы используем специализированное диагностическое оборудование и ПО, способное работать с новейшими электронными системами управления.</li>
+              <li><strong>Сложный Ремонт:</strong> От тонких манипуляций с двигателем до восстановления автоматических трансмиссий, мы берем на себя ответственность за каждый процесс.</li>
+            </ul>
+          </div>
+
+          <div class="commitment-section">
+            <h3>Наше обещание</h3>
+            <p>Каждый автомобиль, поступающий в Long Range Service, проходит через эффективное планирование процесса ремонта, обеспечивая минимальное время выполнения без ущерба качеству. Постоянный рост числа лояльных клиентов подтверждает, что профессионализм и страсть к британской инженерии — это столпы, на которых мы построили этот бренд.</p>
+          </div>
+        </div>
+
+        <div class="about-visuals">
+          <div class="about-image-container">
+            <img src="images/despre-service.png" alt="Команда Сервиса" class="gallery-img">
+            <div class="experience-box">
+              <span>14+</span>
+              <p>Лет Опыта</p>
+            </div>
+            <img src="images/service.png" alt="Мастерская Land Rover" class="gallery-img">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">Профессиональные Услуги</h2>
+      <p class="section-subtitle">Специализируемся исключительно на автомобилях Land Rover и Range Rover</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Диагностика</h3>
+          <p>Быстро выявляем ошибки, используя специализированные тестеры Land Rover для максимальной точности.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Ремонт</h3>
+          <p>Сложные работы по двигателю, пневмоподвеске и трансмиссии по британским стандартам.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛢️</div>
+          <h3>Обслуживание</h3>
+          <p>Периодическое ТО с использованием оригинальных запчастей для сохранения гарантии и характеристик.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lounge" id="lounge">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="image-box">
+          <img src="images/zona-asteptare.png" alt="Зона отдыха LR-SERVICE" class="img-primary">
+        </div>
+
+        <div class="about-content">
+          <h2 class="section-title" style="text-align:left;">Ваш Комфорт</h2>
+          <h3>Зона Ожидания Премиум-класса</h3>
+
+          <p style="color:#555; font-size:16px; margin: 14px 0 20px;">
+            Мы заботимся не только о вашем автомобиле, но и о вашем времени. Мы обустроили современную зону отдыха.
+          </p>
+
+          <ul class="about-list">
+            <li>
+              <span class="lounge-icon">☕</span>
+              <div class="lounge-text">
+                <strong>Свежий кофе</strong>
+                Наслаждайтесь спешелти кофе, пока наша команда работает.
+              </div>
+            </li>
+            <li>
+              <span class="lounge-icon">🌐</span>
+              <div class="lounge-text">
+                <strong>Бесплатный Wi-Fi</strong>
+                Оставайтесь на связи или работайте с комфортом в нашем пространстве.
+              </div>
+            </li>
+            <li>
+              <span class="lounge-icon">🛋️</span>
+              <div class="lounge-text">
+                <strong>Современная атмосфера</strong>
+                Изысканный дизайн с прямым видом на мастерскую.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  <section class="gallery-section" id="gallery">
+  <div class="container">
+    <h2 class="section-title" style="text-align: center;">Наша Галерея</h2>
+    <p class="section-subtitle">Исследуйте вселенную LR Service: от технологий в мастерской до комфорта зоны ожидания.</p>
+    
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery('all', event)">Все</button>
+      <button class="filter-btn" onclick="filterGallery('exterior', event)">Экстерьер</button>
+      <button class="filter-btn" onclick="filterGallery('service', event)">Сервис</button>
+      <button class="filter-btn" onclick="filterGallery('lounge', event)">Lounge и Офис</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item exterior">
+        <img src="images/service-exterior.png" alt="LR Service Экстерьер">
+        <div class="gallery-overlay"><span>Экстерьер</span></div>
+      </div>
+      <div class="gallery-item exterior">
+        <img src="images/service-land-rover-exterior.png" alt="LR Service Фасад">
+        <div class="gallery-overlay"><span>Офис в Кишиневе</span></div>
+      </div>
+
+      <div class="gallery-item service">
+        <img src="images/service.png" alt="Мастерская">
+        <div class="gallery-overlay"><span>Профессиональная команда</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/reparatii-suspensie-land-range-rover.png" alt="Ремонт подвески">
+        <div class="gallery-overlay"><span>Механика</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/mentenanta-range-rover-service.png" alt="Чистая рабочая зона">
+        <div class="gallery-overlay"><span>Премиум стандарты</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/atelier-mecanica-premium.png" alt="Вид на мастерскую">
+        <div class="gallery-overlay"><span>Технологии</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/diagnoza-land-rover-specializata.png" alt="Диагностика">
+        <div class="gallery-overlay"><span>Диагностика</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/service-6.png" alt="Техническое вмешательство">
+        <div class="gallery-overlay"><span>Специалисты</span></div>
+      </div>
+      <div class="gallery-item service">
+        <img src="images/service-7.png" alt="Ремонт двигателя">
+        <div class="gallery-overlay"><span>Точность</span></div>
+      </div>
+
+      <div class="gallery-item lounge">
+        <img src="images/birou-administrativ-lr-service.png" alt="Консультации">
+        <div class="gallery-overlay"><span>Консультации</span></div>
+      </div>
+      <div class="gallery-item lounge">
+        <img src="images/zona-asteptare.png" alt="Lounge для клиентов">
+        <div class="gallery-overlay"><span>Комфорт</span></div>
+      </div>
+      <div class="gallery-item lounge">
+        <img src="images/lounge-clienti-service-auto.png" alt="Детали дизайна">
+        <div class="gallery-overlay"><span>Lounge</span></div>
+      </div>
+      <div class="gallery-item lounge">
+        <img src="images/zona-asteptare-confortabila.png" alt="Кофейная зона">
+        <div class="gallery-overlay"><span>Релакс</span></div>
+      </div>
+      <div class="gallery-item lounge">
+        <img src="images/receptie-moderna-lr-service.png" alt="Вид на ресепшн">
+        <div class="gallery-overlay"><span>Ресепшн</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" id="contact">
+  <div class="container">
+    <div class="booking-wrapper">
+      
+      <div class="booking-info">
+        <h2 class="section-title" style="text-align: left;">Быстрая Запись</h2>
+        <p>Заполните форму, и мы свяжемся с вами в кратчайшие сроки для подтверждения.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <span>📍</span>
+            <p>Сочитены, Яловены (см. карту ниже)</p>
+          </div>
+          <div class="contact-item">
+            <span>📞</span>
+            <p><a href="tel:+37360400400">+373 60 400 400</a></p>
+          </div>
+          <div class="contact-item">
+            <span>⏰</span>
+            <p>Пн - Пт: 09:00 - 18:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form-container">
+        <form id="appointment-form" class="booking-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Ваше Имя" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+          </div>
+          <div class="form-row">
+            <input type="text" id="car-model" name="car" placeholder="Модель (напр: Vogue)" required>
+            <input type="number" id="car-year" name="year" placeholder="Год выпуска" min="1990" max="2026">
+          </div>
+
+          <div class="form-row">
+            <input type="date" id="booking-date" name="booking_date" required style="flex: 1;">
+            <select id="booking-time" name="booking_time" required style="flex: 1;">
+                <option value="" disabled selected>Выберите время</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select id="service-type" name="service">
+              <option value="" disabled selected>Тип услуги</option>
+              <option value="diagnoza">Компьютерная диагностика</option>
+              <option value="revizie">Периодическое ТО (Масло/Фильтры)</option>
+              <option value="suspensie">Пневмоподвеска</option>
+              <option value="motor">Ремонт двигателя/трансмиссии</option>
+              <option value="alta">Другая проблема</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder="Кратко опишите проблему или желаемую услугу..." rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn-main" style="width: 100%; border: none;">ОТПРАВИТЬ ЗАЯВКУ</button>
+        </form>
+        <div id="form-status" style="margin-top: 15px; display: none; font-weight: bold;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact-info" class="contact-wrapper">
+    <div class="contact-grid">
+        <div class="map-box">
+            <div class="nav-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps">GOOGLE MAPS</a>
+                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze">WAZE</a>
+            </div>
+            <div class="iframe-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ro&z=16&output=embed" 
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
-    </header>
 
-    <section id="acasa" class="hero">
-        <div class="hero-content">
-            <h1>ПРОФЕССИОНАЛЬНЫЙ РЕМОНТ <br> LAND ROVER</h1>
-            <p>Передовая диагностика и обслуживание по стандартам производителя в Молдове.</p>
-            <a href="tel:+37300000000" class="btn-main">ЗАПИСАТЬСЯ НА СЕРВИС</a>
-        </div>
-    </section>
-
-    <section id="servicii" class="services">
-        <div class="container">
-            <h2 class="section-title">Наши Услуги</h2>
-            <div class="services-grid">
-                <div class="card">
-                    <h3>Диагностика</h3>
-                    <p>Быстро выявляем любую ошибку с помощью специализированных диагностических компьютеров.</p>
-                </div>
-                <div class="card">
-                    <h3>Подвеска</h3>
-                    <p>Ремонт и калибровка систем пневмоподвески для максимального комфорта.</p>
-                </div>
-                <div class="card">
-                    <h3>Двигатель и КПП</h3>
-                    <p>Сложные механические работы для всей линейки Land Rover / Range Rover.</p>
-                </div>
+        <div class="info-box">
+            <div class="info-content">
+                <h2>Контактная информация</h2>
+                <p class="company-title">SRL „SEROM AUTO GRUP”</p>
+                <ul class="contact-details">
+                    <li><strong>📍 Адрес:</strong> Муниципий Кишинэу, г. Дурлешты, улица Дечебал, 14</li>
+                    <li><strong>📞 Тел:</strong> <a href="tel:+373280048">+373 28-00-48</a></li>
+                    <li><strong>🏦 Банк:</strong> Moldova Agroindbank</li>
+                    <li><strong>💳 IBAN:</strong> <code>MD30AG000000022512741488</code></li>
+                    <li><strong>🆔 Фискальный код:</strong> 1010600024969</li>
+                    <li><strong>📑 Код НДС:</strong> 0506576</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer id="contact">
-        <div class="container">
-            <p>📍 Адрес: Кишинев, Молдова</p>
-            <p>📞 Телефон: <a href="tel:+37300000000" style="color:white; text-decoration:none;">+373 XX XX XX XX</a>
-            </p>
-            <p>© 2026 LR-Service Demo - Создано [Ваше Имя]</p>
-        </div>
-    </footer>
+<section class="brands-section">
+    <h3>Партнеры и надежные бренды</h3>
+    <div class="brands-grid">
+        <a href="https://www.castrol.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/castrol-logo.png" alt="Castrol"></a>
+        <a href="https://www.mann-filter.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/mann-filter-logo.png" alt="Mann-Filter"></a>
+        <a href="https://www.ate-brakes.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/ate-logo.png" alt="ATE"></a>
+        <a href="https://textar.com/ro/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/textar-logo.jpg" alt="Textar"></a>
+        <a href="https://trwaftermarket.us/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/trw-logo.png" alt="TRW"></a>
+        <a href="https://aftermarket.zf.com/en/aftermarket-portal/our-brands/lemfoerder/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/lemforder-logo.jpg" alt="Lemforder"></a>
+        <a href="https://www.britpart.com/" target="_blank" class="brand-item"><img src="images/britpart.jfif" alt="Britpart"></a>
+        <a href="https://www.dayco.com/" target="_blank" class="brand-item"><img src="images/dayco.jpg" alt="Dayco"></a>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+  <div class="floating-contact">
+    <a href="viber://chat?number=%2B37360400400" class="contact-btn viber">
+      <img src="images/viber.png" alt="Viber">
+    </a>
+    <a href="https://wa.me/37360400400" class="contact-btn whatsapp">
+      <img src="images/whatsapp.gif" alt="WhatsApp">
+    </a>
+  </div>
+
+  <footer>
+  <div class="container" style="text-align: center; padding: 20px 0;">
+    <p><strong>SRL „SEROM AUTO GRUP”</strong> | IDNO: 1010600024969</p>
+    <p style="margin-top: 10px;">
+      <a href="privacy-ru.html" style="color: #00ff85; text-decoration: none; font-size: 14px;">Политика конфиденциальности</a> | 
+      <a href="terms-ru.html" style="color: #00ff85; text-decoration: none; font-size: 14px; margin-left: 10px;">Термины и условия</a>
+    </p>
+    <p style="margin-top: 15px; font-size: 13px; color: #888;">
+      © <span id="year"></span> LR-SERVICE Кишинев. Все права защищены.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
-
 </html>
