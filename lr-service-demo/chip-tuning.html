@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chip Tuning Discovery 4 | LR-SERVICE Moldova</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --neon: #00ff85; --text: #1a1a1a; --border: #eeeeee; --bg-gray: #f8f9fa; }
+        body { background: #fff; color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; padding-bottom: 80px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Breadcrumbs */
+        .page-header { border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 40px; }
+        .breadcrumb { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .breadcrumb a { color: var(--neon); text-decoration: none; font-weight: 700; cursor: pointer; }
+        .breadcrumb span { margin: 0 10px; color: #ddd; }
+
+        /* Sections Toggle */
+        .content-section { display: none; animation: fadeIn 0.4s ease; }
+        .content-section.active { display: block; }
+
+        /* Grid Modele */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { border: 1px solid var(--border); border-radius: 15px; padding: 30px; text-align: center; transition: 0.3s; cursor: pointer; background: #fff; }
+        .card:hover { border-color: var(--neon); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; }
+        .card h3 { font-weight: 800; text-transform: uppercase; margin: 10px 0; }
+
+        /* Descriere din Excel */
+        .description-box { background: var(--bg-gray); padding: 35px; border-radius: 15px; border-left: 6px solid var(--neon); margin-bottom: 50px; line-height: 1.8; }
+        .description-box h2 { margin-top: 0; font-weight: 900; text-transform: uppercase; font-size: 22px; }
+        .description-box p { color: #444; font-size: 15px; margin-bottom: 20px; }
+        .advantages-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; list-style: none; padding: 0; }
+        .advantages-list li { font-weight: 600; font-size: 13px; color: #333; display: flex; align-items: center; gap: 10px; }
+        .advantages-list li i { color: var(--neon); }
+
+        /* Engine Tables */
+        .section-label { font-weight: 900; text-transform: uppercase; font-size: 12px; color: #bbb; margin: 50px 0 20px; letter-spacing: 2px; text-align: center; }
+        .engine-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 30px; }
+        .engine-header { background: #1a1a1a; color: #fff; padding: 18px 25px; font-weight: 800; font-size: 14px; text-transform: uppercase; display: flex; justify-content: space-between; }
+        
+        .service-row { display: flex; justify-content: space-between; align-items: center; padding: 22px 25px; border-bottom: 1px solid #f5f5f5; flex-wrap: wrap; gap: 15px; }
+        .service-row:last-child { border-bottom: none; }
+        .service-name { font-weight: 700; font-size: 16px; flex: 1; min-width: 250px; }
+        
+        .stats-row { display: flex; gap: 10px; margin-top: 10px; }
+        .stat-pill { font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 50px; display: flex; align-items: center; gap: 6px; }
+        .stat-pill.power { background: #e6fff3; color: #00a859; }
+        .stat-pill.torque { background: #fff4e6; color: #d97706; }
+        .stat-pill.time { background: #f0f7ff; color: #0070f3; }
+
+        .service-price { font-weight: 900; font-size: 20px; color: #000; text-align: right; min-width: 140px; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<header class="page-header">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Acasă</a> <span>/</span> 
+            <a onclick="resetToModels()">Modele</a> <span id="bread-sep" style="display:none;">/</span> 
+            <span id="current-page-crumb" style="color: #1a1a1a; font-weight: 800;"></span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div id="view-models" class="content-section active">
+        <h1 style="text-align:center; font-weight:900; text-transform:uppercase; font-size: 32px;">Chip Tuning <span>Land Rover</span></h1>
+        <div class="grid-layout">
+           <div class="card" onclick="window.location.href='tuning-discovery.html'">
+    <img src="images/lr-discovery-3-4-5.png" alt="Discovery">
+    <h3>Discovery</h3>
+    <p>Seriile 3, 4, 5 & Sport</p>
+</div>
+            </div>
+    </div>
+
+    <div id="view-generations-discovery" class="content-section">
+        <h1 style="text-align:center; font-weight:900;">Generații <span>Discovery</span></h1>
+        <div class="grid-layout">
+            <div class="card" onclick="showDetails('discovery4', 'Discovery 4')">
+                <img src="images/lr-dicovery-4.png" alt="Discovery 4">
+                <h3>Discovery 4</h3>
+                <p>2010 — 2016</p>
+            </div>
+            </div>
+    </div>
+
+    <div id="view-details-discovery4" class="content-section">
+        
+        <div class="description-box">
+            <h2>Optimizare Discovery 4 (2010-2016)</h2>
+            <p>Optimizați performanțele motorului prin resoftarea personalizată a unității de control (ECU). Beneficiați de o creștere de putere de 20-25% și un răspuns instantaneu al accelerației.</p>
+            <ul class="advantages-list">
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Dinamică sporită:</strong> Eliminarea lag-ului de turație.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Eficiență:</strong> Consum redus de combustibil.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Personalizare:</strong> Soft adaptat stării tehnice a mașinii.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Performanță:</strong> Optimizarea injecției și aprinderii.</li>
+                <li><i class="fa-solid fa-check-circle"></i> <strong>Siguranță:</strong> Procedură non-invazivă.</li>
+            </ul>
+        </div>
+
+        <div class="section-label">Motorizări Diesel</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>2.7 TDV6 190 CP / 460 Nm</span><span>Diesel</span></div>
+            <div class="service-row"><span>Dezactivarea EGR și DPF</span><div class="service-price">7.000 MDL</div></div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1 până la 220 CP / 530 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +30 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +70 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.5s</span>
+                    </div>
+                </div>
+                <div class="service-price">12.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1+ până la 235 CP / 550 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +45 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +90 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">14.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>3.0L TDV6 211 CP / 520 Nm</span><span>Diesel</span></div>
+            <div class="service-row"><span>Dezactivarea EGR și DPF</span><div class="service-price">10.000 MDL</div></div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning STANDART până la 249 CP</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +38 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +80 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">1.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1 până la 290 CP / 680 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +79 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +160 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -3.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">17.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>3.0L SDV6 249 CP / 600 Nm</span><span>Diesel</span></div>
+            <div class="service-row"><span>Dezactivarea EGR și DPF</span><div class="service-price">10.000 MDL</div></div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1 până la 290 CP / 680 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +41 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +80 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">17.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Motorizări Benzină</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>AJ-133 5.0 NA 375 CP / 510 Nm</span><span>Benzină</span></div>
+            <div class="service-row"><span>Dezactivare sisteme antipoluare (EURO2)</span><div class="service-price">6.000 MDL</div></div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1 până la 400 CP / 545 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +25 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +35 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">15.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>AJ-133 3.0 SC 340 CP / 450 Nm</span><span>Benzină</span></div>
+            <div class="service-row"><span>Dezactivare sisteme antipoluare (EURO2)</span><div class="service-price">6.000 MDL</div></div>
+            <div class="service-row">
+                <div>
+                    <span class="service-name">Chip tuning ST1 până la 400 CP / 500 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +60 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge-high"></i> +50 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">15.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Activări & Software Cutie</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Activări Opțiuni Ascunse</span><span>Software</span></div>
+            <div class="service-row"><span>Activare Double Locking (Superlock)</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span>Configurare Diferențial Spate RDCM</span><div class="service-price">5.000 MDL</div></div>
+            <div class="service-row"><span>Activare Meniu 4x4 / Monitor Off-Road</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span>Activare Video în mișcare (VIM) / Bluetooth</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span>Actualizare module auto (Software Update)</span><div class="service-price">de la 2.000 MDL</div></div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Chip Tuning Cutie de Viteze (TCU)</span><span>Transmisie</span></div>
+            <div class="service-row"><span>Chip Tuning Cutie ZF 6HP (Resoftare TCU)</span><div class="service-price">15.000 MDL</div></div>
+            <div class="service-row"><span>Chip Tuning Cutie ZF 8HP (Resoftare TCU)</span><div class="service-price">20.000 MDL</div></div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

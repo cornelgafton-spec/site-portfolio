@@ -1329,3 +1329,35 @@ footer {
     background: #f0f0f0;
     padding: 2px 5px;
     border-radius: 3px; }
+    /* Stil special pentru butonul Chip-Tuning din meniu */
+.nav-chip-tuning {
+    color: #00ff85 !important; /* Verdele tău neon */
+    font-weight: 800 !important;
+    border: 2px solid #00ff85 !important;
+    padding: 8px 18px !important;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    /* Efect de umbră/strălucire discretă */
+    box-shadow: 0 0 10px rgba(0, 255, 133, 0.2);
+}
+
+.nav-chip-tuning:hover {
+    background-color: #00ff85 !important;
+    color: #000 !important;
+    box-shadow: 0 0 20px rgba(0, 255, 133, 0.6);
+    transform: translateY(-2px); /* Se ridică puțin la hover */
+}
+
+/* Efect de animație subtilă (opțional - "pulsare") */
+@keyframes pulse-neon {
+    0% { box-shadow: 0 0 5px rgba(0, 255, 133, 0.4); }
+    50% { box-shadow: 0 0 15px rgba(0, 255, 133, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(0, 255, 133, 0.4); }
+}
+
+.nav-chip-tuning {
+    animation: pulse-neon 2s infinite;
+}

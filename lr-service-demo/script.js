@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// --- 6. FORMULAR PROGRAMARE ---
+// --- 6. FORMULAR PROGRAMARE (WHATSAPP) ---
 window.addEventListener('load', function() {
     const form = document.getElementById('appointment-form');
     const status = document.getElementById('form-status');
@@ -132,7 +132,6 @@ window.addEventListener('load', function() {
         });
     }
 
-    // Setare data minimă (azi)
     const dateInput = document.getElementById('booking-date');
     if(dateInput) {
         const today = new Date().toISOString().split('T')[0];
@@ -141,11 +140,11 @@ window.addEventListener('load', function() {
 });
 
 // --- 7. COOKIE BANNER ---
-function acceptCookies() {
+window.acceptCookies = function() {
     localStorage.setItem('lr_cookies_accepted', 'true');
     const banner = document.getElementById('cookie-banner');
     if (banner) banner.style.display = 'none';
-}
+};
 
 window.addEventListener('load', function() {
     const banner = document.getElementById('cookie-banner');
@@ -154,3 +153,45 @@ window.addEventListener('load', function() {
         banner.style.display = 'flex';
     }
 });
+
+// --- 8. NAVIGARE CHIP-TUNING (FUNCȚIILE NOI) ---
+window.hideAllChipTuningSections = function() {
+    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+    const sep = document.getElementById('bread-sep');
+    const crumb = document.getElementById('current-page-crumb');
+    if(sep) sep.style.display = 'none';
+    if(crumb) crumb.innerText = '';
+};
+
+window.resetToModels = function() {
+    hideAllChipTuningSections();
+    const viewModels = document.getElementById('view-models');
+    if (viewModels) viewModels.classList.add('active');
+    window.scrollTo(0,0);
+};
+
+window.showGenerations = function(model) {
+    hideAllChipTuningSections();
+    const view = document.getElementById('view-generations-' + model);
+    if(view) {
+        view.classList.add('active');
+        const sep = document.getElementById('bread-sep');
+        const crumb = document.getElementById('current-page-crumb');
+        if(sep) sep.style.display = 'inline';
+        if(crumb) crumb.innerText = model.toUpperCase();
+    }
+    window.scrollTo(0,0);
+};
+
+window.showDetails = function(id, name) {
+    hideAllChipTuningSections();
+    const view = document.getElementById('view-details-' + id);
+    if(view) {
+        view.classList.add('active');
+        const sep = document.getElementById('bread-sep');
+        const crumb = document.getElementById('current-page-crumb');
+        if(sep) sep.style.display = 'inline';
+        if(crumb) crumb.innerText = name;
+    }
+    window.scrollTo(0,0);
+};
