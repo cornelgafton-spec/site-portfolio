@@ -195,3 +195,29 @@ window.showDetails = function(id, name) {
     }
     window.scrollTo(0,0);
 };
+function showSection(id) {
+    // Ascunde toate secțiunile de conținut
+    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+    
+    // Afișează secțiunea selectată
+    const target = document.getElementById(id);
+    if (target) {
+        target.classList.add('active');
+    }
+    
+    // Duce scroll-ul sus de tot pentru a vedea începutul tabelului
+    window.scrollTo(0, 0);
+}
+
+function goBack() {
+    // Ascunde tot
+    document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+    
+    // Arată selectorul principal (meniul cu carduri)
+    const selector = document.getElementById('view-selector');
+    if (selector) {
+        selector.classList.add('active');
+    }
+    
+    window.scrollTo(0, 0);
+}
