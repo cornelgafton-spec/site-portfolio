@@ -221,3 +221,41 @@ function goBack() {
     
     window.scrollTo(0, 0);
 }
+function showSection(id) {
+    // 1. Ascundem tot ce are clasa content-section
+    document.querySelectorAll('.content-section').forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+    });
+
+    // 2. Arătăm secțiunea cu tabelul de motorizări (care conține și butonul "Înapoi")
+    const target = document.getElementById(id);
+    if (target) {
+        target.classList.add('active');
+        target.style.display = 'block';
+    }
+
+    window.scrollTo(0, 0);
+}
+
+function goBack() {
+    // 1. Ascundem tabelele de motorizări
+    document.querySelectorAll('.content-section').forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+    });
+
+    // 2. Arătăm elementele principale (Selectorul, Titlul și Info)
+    // Asigură-te că ai pus id="main-title" și id="info-section" în HTML
+    const mainElements = ['view-selector', 'main-title', 'info-section'];
+    
+    mainElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.add('active');
+            el.style.display = 'block';
+        }
+    });
+
+    window.scrollTo(0, 0);
+}

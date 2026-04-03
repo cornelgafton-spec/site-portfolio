@@ -1434,44 +1434,7 @@ footer {
 body {
     background-color: #f9fbfd; /* Un alb-gri curat care face cardurile să "sară" în ochi */
 }
-function showSection(id) {
-    // 1. Ascundem tot ce are clasa content-section
-    document.querySelectorAll('.content-section').forEach(s => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-    });
 
-    // 2. Arătăm secțiunea cu tabelul de motorizări (care conține și butonul "Înapoi")
-    const target = document.getElementById(id);
-    if (target) {
-        target.classList.add('active');
-        target.style.display = 'block';
-    }
-
-    window.scrollTo(0, 0);
-}
-
-function goBack() {
-    // 1. Ascundem tabelele de motorizări
-    document.querySelectorAll('.content-section').forEach(s => {
-        s.classList.remove('active');
-        s.style.display = 'none';
-    });
-
-    // 2. Arătăm elementele principale (Selectorul, Titlul și Info)
-    // Asigură-te că ai pus id="main-title" și id="info-section" în HTML
-    const mainElements = ['view-selector', 'main-title', 'info-section'];
-    
-    mainElements.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.classList.add('active');
-            el.style.display = 'block';
-        }
-    });
-
-    window.scrollTo(0, 0);
-}
 .back-btn {
     display: inline-block;
     margin: 50px 0;
@@ -1489,4 +1452,32 @@ function goBack() {
 .back-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+}
+/* --- Stil pentru ecrane mari (Desktop) --- */
+.fixed-logo img {
+    width: 220px;
+    transition: all 0.3s ease; /* Face trecerea lină */
+}
+
+/* --- Varianta A: Stil special pentru MOBIL --- */
+@media (max-width: 768px) {
+    .fixed-logo {
+        top: 10px !important;   /* Mai aproape de margine */
+        left: 10px !important;
+    }
+
+    .fixed-logo img {
+        width: 120px !important; /* Dimensiune redusă pentru mobil */
+    }
+
+    /* Reducem și spațiul de sus al paginii pe mobil ca să nu rămână gol */
+    body {
+        padding-top: 60px !important;
+    }
+    
+    /* Micșorăm puțin și titlul principal pe mobil să nu ocupe 3 rânduri */
+    h1 {
+        font-size: 22px !important;
+        margin-top: 20px !important;
+    }
 }
