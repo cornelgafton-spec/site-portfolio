@@ -48,7 +48,14 @@
     </style>
 </head>
 <body>
+<body style="padding-top: 50px;"> <!-- Am adăugat un mic spațiu sus -->
 
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+    <a href="index.html" style="display: block; text-decoration: none;">
+        <img src="images/logo.svg" alt="LR SERVICE LOGO" 
+             style="width: 220px; height: auto; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
+    </a>
+</div>
 <header class="page-header">
     <div class="container">
         <div class="breadcrumb">
@@ -78,7 +85,8 @@
 
     <div id="freelander-l314" class="content-section">
         <div class="description-box">
-            <h2>Particularitățile Optimizării Software: Freelander 1 (L314)</h2>
+            <img src="images/lr-freelander-2006-2010.png" alt="Freelander 2006-2010" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+             <h2>Particularitățile Optimizării Software: Freelander 1 (L314)</h2>
             <p>Chip-tuning-ul pentru prima generație Freelander este axat pe îmbunătățirea cuplului motor și eliminarea lag-ului specific motoarelor diesel Td4. Optimizarea software aduce un plus de siguranță în depășiri și o eficiență crescută a consumului.</p>
         </div>
         <div class="section-label">Motorizări Disponibile</div>
@@ -95,6 +103,7 @@
     <div id="freelander-l359-old" class="content-section">
         
         <div class="description-box">
+             <img src="images/lr-freelander-2006-2010.png" alt="Freelander 2006-2010" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Land Rover Freelander 2 (L359) 2006-2010</h2>
             <p>Chip-tuning-ul pentru Freelander 2 reprezintă o metodă sigură și eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale adaptate stării fiecărui motor, după o diagnoză electronică completă.</p>
             
@@ -171,6 +180,7 @@
     <div id="freelander-l359-new" class="content-section">
         
         <div class="description-box">
+            <img src="images/lr-freelander-2011-2015.png" alt="Freelander 2011-2015" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Land Rover Freelander 2 (L359) 2011-2015</h2>
             <p>Chip-tuning-ul pentru Freelander 2 Facelift reprezintă o metodă sigură și eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale adaptate stării fiecărui motor, după o diagnoză electronică completă.</p>
             
@@ -305,18 +315,20 @@
 
 </div>
 
-<script>
-    function showSection(id) {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        const target = document.getElementById(id);
-        if (target) target.classList.add('active');
-        window.scrollTo(0,0);
-    }
-    function goBack() {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('view-selector').classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
+<script src="script.js"></script>
+<!-- BUTOANE CONTACT ROTUNDE (CORECTARE FUNDAL PĂTRAT) -->
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    
+    <!-- Viber -->
+    <a href="viber://chat?number=%2B37360400400" style="display: block;">
+        <img src="images/viber.png" alt="Viber" style="width: 55px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+    </a>
+
+    <!-- WhatsApp (Forțat să fie rotund) -->
+    <a href="https://wa.me/37360400400" target="_blank" style="display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <img src="images/whatsapp.gif" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover;">
+    </a>
+
+</div>
 </body>
 </html>

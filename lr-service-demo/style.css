@@ -1361,3 +1361,132 @@ footer {
 .nav-chip-tuning {
     animation: pulse-neon 2s infinite;
 }
+/* ==========================================================================
+   CHIP TUNING MODELS - MODERN WOW LOOK
+   ========================================================================== */
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Umbră fină ca pe lrfresh.ru */
+    border: 1px solid rgba(0, 0, 0, 0.02); /* Bordură aproape invizibilă */
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Cardul se ridică */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Umbra devine mai adâncă */
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 25px;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.10); /* Mașina se apropie discret de utilizator */
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--dark);
+    text-transform: uppercase;
+}
+
+.card p {
+    color: var(--neon); /* Folosește culoarea ta verde neon pentru textul de jos */
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Efect de fundal subtil la hover */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,255,133,0.03) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+/* Fundalul paginii de modele */
+body {
+    background-color: #f9fbfd; /* Un alb-gri curat care face cardurile să "sară" în ochi */
+}
+function showSection(id) {
+    // 1. Ascundem tot ce are clasa content-section
+    document.querySelectorAll('.content-section').forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+    });
+
+    // 2. Arătăm secțiunea cu tabelul de motorizări (care conține și butonul "Înapoi")
+    const target = document.getElementById(id);
+    if (target) {
+        target.classList.add('active');
+        target.style.display = 'block';
+    }
+
+    window.scrollTo(0, 0);
+}
+
+function goBack() {
+    // 1. Ascundem tabelele de motorizări
+    document.querySelectorAll('.content-section').forEach(s => {
+        s.classList.remove('active');
+        s.style.display = 'none';
+    });
+
+    // 2. Arătăm elementele principale (Selectorul, Titlul și Info)
+    // Asigură-te că ai pus id="main-title" și id="info-section" în HTML
+    const mainElements = ['view-selector', 'main-title', 'info-section'];
+    
+    mainElements.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.classList.add('active');
+            el.style.display = 'block';
+        }
+    });
+
+    window.scrollTo(0, 0);
+}
+.back-btn {
+    display: inline-block;
+    margin: 50px 0;
+    padding: 15px 30px;
+    background: #1a1a1a; /* Fundal negru */
+    color: #00ff85; /* Text verde neon */
+    border: none;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 255, 133, 0.3);
+}

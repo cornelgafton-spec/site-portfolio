@@ -53,7 +53,14 @@
     </style>
 </head>
 <body>
+<body style="padding-top: 50px;"> <!-- Am adăugat un mic spațiu sus -->
 
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+    <a href="index.html" style="display: block; text-decoration: none;">
+        <img src="images/logo.svg" alt="LR SERVICE LOGO" 
+             style="width: 220px; height: auto; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
+    </a>
+</div>
 <header class="page-header">
     <div class="container">
         <div class="breadcrumb">
@@ -77,6 +84,7 @@
 
     <div id="rr-l322-old" class="content-section">
         <div class="description-box">
+            <img src="images/lr-range-2006-2009.png" alt="Range Rover L322 2006-2009" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover L322 (2006-2009)</h2>
             <p>Chip-tuning-ul pentru Range Rover L322 reprezintă soluția tehnică ideală pentru a debloca potențialul nativ al motorului prin optimizarea parametrilor unității de control (ECU). La <b>LR-SERVICE</b>, nu utilizăm fișiere „șablon”; fiecare recalibrare este executată individual, adaptată stării tehnice a motorului dumneavoastră.</p>
             <p><b>Efectele principale ale recalibrării software:</b><br>
@@ -193,6 +201,7 @@
 
     <div id="rr-l322-new" class="content-section">
         <div class="description-box">
+            <img src="images/lr-range-2010-2012.png" alt="Range Rover L322 2010-2012" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover L322 (2010-2012)</h2>
             <p>Chip-tuning-ul pentru Range Rover L322 Facelift reprezintă soluția optimă pentru a spori performanțele vehiculului prin recalibrarea avansată a unității de control a motorului (ECU). La <b>LR-SERVICE</b>, procesul este unul personalizat: nu folosim fișiere generice, ci adaptăm software-ul în funcție de starea tehnică a motorului și recomandările specialiștilor noștri după diagnoza inițială.</p>
             <p><b>Principalele beneficii ale recalibrării software:</b><br>
@@ -331,6 +340,7 @@
 
     <div id="rr-l405-old" class="content-section">
         <div class="description-box">
+            <img src="images/lr-range-2013-2017.png" alt="Range Rover L405 2013-2017" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover (L405) 2013-2017</h2>
             <p>Chip-tuning-ul pentru Range Rover (L405) 2013-2017 reprezintă o metodă sigură și eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale adaptate stării fiecărui motor, după o diagnoză electronică completă.</p>
             <p><b>Efectele principale ale recalibrării software:</b><br>
@@ -475,6 +485,7 @@
     <div id="rr-l405-new" class="content-section">
         
         <div class="description-box">
+            <img src="images/lr-range-2018-2022.png" alt="Range Rover L405 2018-2022" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover (L405) 2018-2022</h2>
             <p>Chip-tuning-ul pentru Range Rover (L405) 2018-2022 reprezintă o metodă sigură și eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale adaptate stării fiecărui motor, după o diagnoză electronică completă.</p>
             
@@ -634,6 +645,7 @@
     <div id="rr-l460" class="content-section">
         
         <div class="description-box">
+            <img src="images/lr-range-2023-+.png" alt="Range Rover L460 2023+" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover (L460) 2023+</h2>
             <p>Chip-tuning-ul pentru noul Range Rover (L460) reprezintă cea mai eficientă metodă de a spori performanțele motorizărilor de ultimă generație prin recalibrarea software-ului unității de control (ECU). La <b>LR-SERVICE</b>, utilizăm soluții software individuale, dezvoltate de ingineri calibratori profesioniști, adaptate specificului fiecărui motor după o diagnoză completă.</p>
             
@@ -741,17 +753,20 @@
 
 </div>
 
-<script>
-    function showSection(id) {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo(0,0);
-    }
-    function goBack() {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('view-selector').classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
+<script src="script.js"></script>
+<!-- BUTOANE CONTACT ROTUNDE (CORECTARE FUNDAL PĂTRAT) -->
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    
+    <!-- Viber -->
+    <a href="viber://chat?number=%2B37360400400" style="display: block;">
+        <img src="images/viber.png" alt="Viber" style="width: 55px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+    </a>
+
+    <!-- WhatsApp (Forțat să fie rotund) -->
+    <a href="https://wa.me/37360400400" target="_blank" style="display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <img src="images/whatsapp.gif" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover;">
+    </a>
+
+</div>
 </body>
 </html>

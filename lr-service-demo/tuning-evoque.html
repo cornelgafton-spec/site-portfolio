@@ -48,7 +48,14 @@
     </style>
 </head>
 <body>
+<body style="padding-top: 50px;"> <!-- Am adăugat un mic spațiu sus -->
 
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+    <a href="index.html" style="display: block; text-decoration: none;">
+        <img src="images/logo.svg" alt="LR SERVICE LOGO" 
+             style="width: 220px; height: auto; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
+    </a>
+</div>
 <header class="page-header">
     <div class="container">
         <div class="breadcrumb">
@@ -79,6 +86,7 @@
     <div id="evoque-l538" class="content-section">
         
         <div class="description-box">
+            <img src="images/lr-evoque-2013-2019.png" alt="Evoque 2013-2019" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover Evoque (L538) 2013-2019</h2>
             <p>Chip-tuning-ul pentru Range Rover Evoque (L538) este o metodă eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale, adaptate fiecărui motor în parte, după o diagnoză detaliată.</p>
             
@@ -220,6 +228,7 @@
     <div id="evoque-l551" class="content-section">
         
         <div class="description-box">
+            <img src="images/lr-evoque-2020-+.png" alt="Evoque 2020+" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
             <h2>Particularitățile Optimizării Software: Range Rover Evoque (L551) 2020+</h2>
             <p>Chip-tuning-ul pentru noul Range Rover Evoque (L551) reprezintă o metodă sigură și eficientă de a spori puterea autovehiculului prin optimizarea parametrilor unității de control a motorului (ECU). La <b>LR-SERVICE</b>, instalăm programe individuale, adaptate stării fiecărui motor, după o diagnoză electronică completă.</p>
             
@@ -357,18 +366,20 @@
 
 </div>
 
-<script>
-    function showSection(id) {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        const target = document.getElementById(id);
-        if (target) target.classList.add('active');
-        window.scrollTo(0,0);
-    }
-    function goBack() {
-        document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-        document.getElementById('view-selector').classList.add('active');
-        window.scrollTo(0,0);
-    }
-</script>
+<script src="script.js"></script>
+<!-- BUTOANE CONTACT ROTUNDE (CORECTARE FUNDAL PĂTRAT) -->
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    
+    <!-- Viber -->
+    <a href="viber://chat?number=%2B37360400400" style="display: block;">
+        <img src="images/viber.png" alt="Viber" style="width: 55px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+    </a>
+
+    <!-- WhatsApp (Forțat să fie rotund) -->
+    <a href="https://wa.me/37360400400" target="_blank" style="display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <img src="images/whatsapp.gif" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover;">
+    </a>
+
+</div>
 </body>
 </html>
