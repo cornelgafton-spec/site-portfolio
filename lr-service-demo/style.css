@@ -1458,24 +1458,31 @@ body {
     width: 220px;
     transition: all 0.3s ease; /* Face trecerea lină */
 }
-
-
-/* --- MICȘORARE LOGO DOAR PE MOBIL --- */
 @media (max-width: 768px) {
-    /* 1. Selectăm div-ul care conține logo-ul folosind clasa logo-mobil */
+    /* 1. Micșorăm logo-ul și îl poziționăm discret în colț */
     .logo-mobil {
-        top: 10px !important;   /* Îl urcăm mai sus pe ecran */
-        left: 10px !important;  /* Îl lipim mai mult de stânga */
+        top: 10px !important;
+        left: 15px !important;
     }
 
-    /* 2. Selectăm imaginea din interiorul div-ului și o forțăm să fie mică */
     .logo-mobil img {
-        width: 100px !important; /* De la 220px la 100px - mult mai discret */
+        width: 80px !important; /* L-am făcut și mai mic (80px) pentru a elibera spațiul */
         height: auto !important;
     }
 
-    /* 3. Ajustăm body-ul să nu lase gaură mare sus pe mobil */
+    /* 2. Împingem conținutul mai jos ca să nu fie acoperit de header-ul fix */
     body {
-        padding-top: 50px !important;
+        padding-top: 100px !important; 
+    }
+
+    /* 3. Ajustăm header-ul alb (bara de meniu) să nu fie prea înalt pe mobil */
+    .page-header {
+        padding: 10px 0 !important;
+    }
+
+    /* 4. Micșorăm titlul principal care acum stă sub logo */
+    h1 {
+        font-size: 24px !important;
+        margin-top: 20px !important;
     }
 }
