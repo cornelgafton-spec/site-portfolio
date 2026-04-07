@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chip Tuning Jaguar XE | LR-SERVICE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --neon: #00ff85; --text: #1a1a1a; --border: #eeeeee; --bg-gray: #f8f9fa; }
+        body { background: #fff; color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; padding-bottom: 80px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .page-header { border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 40px; }
+        .breadcrumb { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .breadcrumb a { color: var(--neon); text-decoration: none; font-weight: 700; cursor: pointer; }
+        .breadcrumb span { margin: 0 10px; color: #ddd; }
+
+        .content-section { display: none; animation: fadeIn 0.4s ease; }
+        .content-section.active { display: block; }
+
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; transition: 0.3s; cursor: pointer; background: #fff; }
+        .card:hover { border-color: var(--neon); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; max-height: 100px; object-fit: contain; }
+
+        .description-box { background: var(--bg-gray); padding: 40px; border-radius: 15px; border-left: 8px solid var(--neon); margin-bottom: 50px; font-size: 15px; color: #333; text-align: left; }
+        .description-box h2 { margin-top: 0; font-weight: 900; text-transform: uppercase; font-size: 24px; color: #000; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+
+        .section-label { font-weight: 900; text-transform: uppercase; font-size: 12px; color: #bbb; margin: 50px 0 20px; letter-spacing: 2px; text-align: center; }
+        .engine-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 35px; }
+        .engine-header { background: #1a1a1a; color: #fff; padding: 18px 25px; font-weight: 800; font-size: 14px; text-transform: uppercase; display: flex; justify-content: space-between; }
+        
+        .service-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; border-bottom: 1px solid #f1f1f1; flex-wrap: wrap; gap: 15px; }
+        .service-row:last-child { border-bottom: none; }
+        .service-name { font-weight: 700; font-size: 15px; color: #000; }
+        
+        .stats-row { display: flex; gap: 8px; margin-top: 5px; }
+        .stat-pill { font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 50px; display: inline-flex; align-items: center; gap: 5px; }
+        .stat-pill.power { background: #e6fff3; color: #00a859; }
+        .stat-pill.torque { background: #fff4e6; color: #d97706; }
+        .stat-pill.time { background: #f0f7ff; color: #0070f3; }
+
+        .service-price { font-weight: 900; font-size: 18px; color: #000; min-width: 130px; text-align: right; }
+        .back-btn { display: inline-block; margin: 40px 0; padding: 12px 25px; border: 2px solid #000; border-radius: 5px; text-decoration: none; color: #000; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+<body style="padding-top: 50px;"> <!-- Am adăugat un mic spațiu sus -->
+
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+    <a href="chip-tuning.html" style="display: block; text-decoration: none;">
+        <img src="images/logo.svg" alt="LR SERVICE" style="width: 140px; height: auto; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
+    </a>
+</div>
+<header class="page-header">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Acasă</a> <span>/</span> <a href="chip-tuning.html">Modele</a> <span>/</span> <span style="font-weight: 800;">Jaguar XE</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div id="view-selector" class="content-section active">
+        <h1 style="text-align:center; font-weight:900; text-transform:uppercase; margin-bottom:40px;">Gama <span>Jaguar XE</span></h1>
+        <div class="grid-layout">
+            <div class="card" onclick="showSection('xe-x760-old')">
+                <img src="images/lr-jaguar-xe-2015-2017.png">
+                <h3>Jaguar XE (x760)</h3>
+                <p>2015 — 2017</p>
+            </div>
+            <div class="card" onclick="showSection('xe-x760-new')">
+                <img src="images/lr-jaguar-xe-2018-+.png">
+                <h3>Jaguar XE (x760)</h3>
+                <p>2018 — Prezent</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="xe-x760-old" class="content-section">
+        <div class="description-box">
+            <img src="images/lr-jaguar-xe-2015-2017.png" alt="Jaguar XE 2015-2017" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Particularitățile Optimizării Software: JAGUAR XE (x760) 2015-2017</h2>
+            <p>Chip-tuning-ul pentru JAGUAR XE (x760) reprezintă o metodă simplă de a spori puterea autovehiculului prin optimizarea programului de management al motorului (ECU).</p>
+            
+            <p><b>Efectele principale ale recalibrării software:</b><br>
+            • <b>Eficiență:</b> Scăderea consumului de combustibil concomitent cu creșterea dinamicii de accelerare.<br>
+            • <b>Liniaritate:</b> Eliminarea „pauzelor” și a întârzierilor la anumite turații.<br>
+            • <b>Sincronizare:</b> Modificarea regimurilor standard între motor și transmisie.<br>
+            • <b>Dinamism:</b> Creșterea puterii unității de propulsie cu 20-25%.<br>
+            • <b>Viteză:</b> Eliminarea limitărilor de viteză maximă.</p>
+            
+            <p>La <b>LR-SERVICE</b>, programele sunt instalate individual pentru fiecare motor, ținând cont de starea generală a acestuia și de recomandările specialistului în diagnoză. Procedura este sigură și nu reduce resursa motorului.</p>
+        </div>
+
+        <div class="section-label">Motorizări Diesel</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Motor diesel D180 2.0L 180 CP / 430 Nm</span><span>Diesel</span></div>
+            <div class="service-row"><span class="service-name">Dezactivarea EGR & DPF & SCR & FLAPS</span><div class="service-price">3.700 MDL</div></div>
+            <div class="service-row"><span class="service-name">Dezactivarea sistemului Start & Stop</span><div class="service-price">3.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Chip tuning ST1 până la 200 CP și 480 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +20 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Motorizări Benzină</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Motor pe benzină  2.0 Si4   200 CP/ 320 Nm</span><span>Benzină</span></div>
+            <div class="service-row"><span class="service-name">Anulare Sisteme Poluare (EURO2)</span><div class="service-price">3.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Chip tuning ST1 până la 240 CP și 410 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +40 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +90 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">5.800 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Software & Activări</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Configurări Software & Opțiuni</span><span>Sisteme</span></div>
+            <div class="service-row"><span class="service-name">Programator săptămânal Webasto pentru încălzire auxiliară</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare Închidere Dublă (Superlock)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare InControl Apps, CarPlay și Android Auto</span><div class="service-price">2.800 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare Video în Mers (Video in Motion - VIM)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare pachet Drive Assistance (AEB, AHB, LDW/LKA/TSR)</span><div class="service-price">5.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Sistem monitorizare oboseală șofer (DDM)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Update module auto</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Instalare cameră stereo pentru pachetul Drive Assistance</span><div class="service-price">10.000 MDL</div></div>
+        </div>
+
+        <a onclick="goBack()" class="back-btn">← Înapoi la generații</a>
+    </div>
+
+    <div id="xe-x760-new" class="content-section">
+        <div class="description-box">
+            <img src="images/lr-jaguar-xe-2018-+.png" alt="Jaguar XE 2018+" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Particularitățile Optimizării Software: JAGUAR XE (x760) 2018+</h2>
+            <p>Pentru versiunile JAGUAR XE fabricate după 2018, chip-tuning-ul permite deblocarea potențialului ascuns al noilor motorizări Ingenium, oferind o dinamică superioară și un răspuns instantaneu.</p>
+            
+            <p><b>Beneficii principale:</b><br>
+            • <b>Performanță:</b> Creșterea puterii motorului cu până la 25%.<br>
+            • <b>Economie:</b> Optimizarea consumului în regim de croazieră.<br>
+            • <b>Confort:</b> Eliminarea lag-ului turbinei și a întârzierilor software.<br>
+            • <b>Siguranță:</b> Menținerea tuturor parametrilor de protecție ai motorului activi.</p>
+        </div>
+
+        <div class="section-label">Motorizări Diesel</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Motor diesel D180 2.0L 180 CP / 430 Nm</span><span>Diesel</span></div>
+            <div class="service-row"><span class="service-name">Dezactivarea EGR & DPF & SCR & FLAPS</span><div class="service-price">3.700 MDL</div></div>
+            <div class="service-row"><span class="service-name">Dezactivarea sistemului Start & Stop</span><div class="service-price">3.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Chip tuning ST1 până la 200 CP și 480 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +20 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Motorizări Benzină</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Motor pe benzină 2.0 Si4 200 CP / 320 Nm</span><span>Benzină</span></div>
+            <div class="service-row"><span class="service-name">Anulare Sisteme Poluare (EURO2)</span><div class="service-price">3.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Chip tuning ST1 până la 240 CP și 410 Nm</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +40 CP</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +90 Nm</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0s</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Software & Activări</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Configurări Software & Opțiuni</span><span>Sisteme</span></div>
+            <div class="service-row"><span class="service-name">Programator săptămânal Webasto pentru încălzire auxiliară</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare Închidere Dublă (Superlock)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare InControl Apps, CarPlay și Android Auto</span><div class="service-price">2.800 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare Video în Mers (Video in Motion - VIM)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Activare pachet Drive Assistance (AEB, AHB, LDW/LKA/TSR) </span><div class="service-price">6.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Sistem de monitorizare a oboselii șoferului (DDM)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Update total module auto (Full)</span><div class="service-price">1.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Instalare cameră stereo pentru pachetul Drive Assistance</span><div class="service-price">12.300 MDL</div></div>
+        </div>
+
+        <a onclick="goBack()" class="back-btn">← Înapoi la generații</a>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<!-- BUTOANE CONTACT ROTUNDE (CORECTARE FUNDAL PĂTRAT) -->
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    
+    <!-- Viber -->
+    <a href="viber://chat?number=%2B37360400400" style="display: block;">
+        <img src="images/viber.png" alt="Viber" style="width: 55px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+    </a>
+
+    <!-- WhatsApp (Forțat să fie rotund) -->
+    <a href="https://wa.me/37360400400" target="_blank" style="display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <img src="images/whatsapp.gif" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover;">
+    </a>
+
+</div>
+</body>
+</html>
