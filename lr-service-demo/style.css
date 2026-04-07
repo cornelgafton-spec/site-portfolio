@@ -1459,30 +1459,29 @@ body {
     transition: all 0.3s ease; /* Face trecerea lină */
 }
 @media (max-width: 768px) {
-    /* 1. Micșorăm logo-ul și îl poziționăm discret în colț */
-    .logo-mobil {
-        top: 10px !important;
-        left: 15px !important;
-    }
-
-    .logo-mobil img {
-        width: 80px !important; /* L-am făcut și mai mic (80px) pentru a elibera spațiul */
+    /* Forțăm containerul logo-ului să fie mic și sus */
+    div.logo-mobil {
+        top: 5px !important;    /* Aproape lipit de marginea de sus */
+        left: 10px !important;   /* Lipit de stânga */
+        width: 70px !important;  /* Lățime foarte mică pentru container */
         height: auto !important;
     }
 
-    /* 2. Împingem conținutul mai jos ca să nu fie acoperit de header-ul fix */
+    /* Forțăm imaginea din interior să respecte lățimea de 70px */
+    div.logo-mobil a img {
+        width: 70px !important;  /* Aici e cheia! */
+        max-width: 70px !important;
+        height: auto !important;
+    }
+
+    /* Mărim spațiul de sus al paginii ca să nu se suprapună nimic */
     body {
-        padding-top: 100px !important; 
+        padding-top: 90px !important; 
     }
 
-    /* 3. Ajustăm header-ul alb (bara de meniu) să nu fie prea înalt pe mobil */
-    .page-header {
-        padding: 10px 0 !important;
-    }
-
-    /* 4. Micșorăm titlul principal care acum stă sub logo */
-    h1 {
-        font-size: 24px !important;
-        margin-top: 20px !important;
+    /* Micșorăm titlul să nu se bată cu logo-ul */
+    #main-title h1 {
+        font-size: 20px !important;
+        margin-top: 10px !important;
     }
 }
