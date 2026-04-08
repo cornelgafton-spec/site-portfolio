@@ -1485,3 +1485,78 @@ body {
         margin-top: 10px !important;
     }
 }
+.hero-topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Forțăm meniul (cele 3 linii) să fie primul vizual în stânga */
+    #mobile-menu {
+        order: -1; 
+    }
+
+    /* Ascundem spacer-ul pe mobil ca să nu ocupe loc degeaba */
+    .logo-spacer {
+        display: none;
+    }
+
+    /* Butoanele de limbă rămân la final (dreapta) */
+    .lang-switch {
+        order: 2;
+    }
+.tuning-header-new {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-left {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.home-link { color: #888; text-decoration: none; }
+.sep { margin: 0 5px; color: #ccc; }
+.current { color: #000; }
+
+.logo-main { height: 40px; width: auto; }
+
+.exit-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    gap: 8px;
+}
+
+.exit-icon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.exit-button:hover .exit-icon {
+    background: #000;
+    color: #00ff85;
+}
