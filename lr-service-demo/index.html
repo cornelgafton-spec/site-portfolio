@@ -40,13 +40,24 @@
         </div>
             <nav class="hero-nav">
     <ul>
-        <li><a href="#home">Acasă</a></li>
-        <li><a href="#about">Despre noi</a></li>
-        <li><a href="#services">Servicii</a></li>
-        <li><a href="chip-tuning.html" class="nav-chip-tuning">CHIP TUNING</a></li>
-        <li><a href="#gallery">Galerie</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <li><a href="#home">Acasă</a></li>
+    <li><a href="#about">Despre noi</a></li>
+    <li><a href="#services">Servicii</a></li>
+    
+    <!-- Am corectat link-ul de Chip Tuning aici -->
+    <li>
+        <a href="chip-tuning.html" 
+       class="nav-chip-tuning" 
+       style="color: #00ff85 !important; border: 1px solid #00ff85; padding: 5px 15px; border-radius: 20px; font-weight: 800; transition: all 0.3s ease; display: inline-block; text-decoration: none !important; box-shadow: none !important;"
+       onmouseover="this.style.backgroundColor='#00ff85'; this.style.color='#000000'; this.style.textDecoration='none';" 
+       onmouseout="this.style.backgroundColor='transparent'; this.style.color='#00ff85';">
+        CHIP TUNING
+    </a>
+    </li>
+
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
 </nav>
 
            <div class="lang-switch">
@@ -257,15 +268,13 @@
 <section class="booking-section" id="contact">
   <div class="container">
     <div class="booking-wrapper">
-      
       <div class="booking-info">
         <h2 class="section-title" style="text-align: left;">Programare Rapidă</h2>
         <p>Completează formularul și te contactăm în cel mai scurt timp pentru confirmare.</p>
-        
         <div class="contact-details">
           <div class="contact-item">
             <span>📍</span>
-            <p>Sociteni,Ialoveni (Vedeți harta mai jos)</p>
+            <p>Sociteni, Ialoveni (Vedeți harta mai jos)</p>
           </div>
           <div class="contact-item">
             <span>📞</span>
@@ -290,7 +299,6 @@
             <input type="text" id="car-model" name="car" placeholder="Model Land Rover (ex: Vogue)" required>
             <input type="number" id="car-year" name="year" placeholder="An fabricație" min="1990" max="2026">
           </div>
-
           <div class="form-row">
             <input type="date" id="booking-date" name="booking_date" required style="flex: 1;">
             <select id="booking-time" name="booking_time" required style="flex: 1;">
@@ -322,98 +330,95 @@
         </form>
         <div id="form-status" style="margin-top: 15px; display: none; font-weight: bold;"></div>
       </div>
-
     </div>
   </div>
 </section>
-<section id="contact" class="contact-wrapper">
-    <div class="contact-grid">
-        
-        <div class="map-box">
-            <div class="nav-links">
-                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps">GOOGLE MAPS</a>
-                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze">WAZE</a>
+
+<!-- SECTION 2: HARTA (Am scos boxa de info juridic ca să nu zăpăcim Google-ul) -->
+<section id="map-section" style="padding: 40px 0; background: #f9f9f9;">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px; font-weight: 900; text-transform: uppercase;">Locația Service-ului (Sociteni)</h2>
+        <div class="map-box" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <div class="nav-links" style="display: flex; gap: 10px; padding: 10px; background: #fff; justify-content: center;">
+                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps" style="padding: 10px 20px; background: #4285F4; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold;">DESCHIDE ÎN GOOGLE MAPS</a>
+                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze" style="padding: 10px 20px; background: #33CCFF; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold;">NAVIGHEAZĂ CU WAZE</a>
             </div>
             <div class="iframe-container">
                 <iframe 
-                    src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ro&z=16&output=embed" 
+                    src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ro&z=15&output=embed" 
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
         </div>
-
-        <div class="info-box">
-            <div class="info-content">
-                <h2>Informații Contact</h2>
-                <p class="company-title">SRL „SEROM AUTO GRUP”</p>
-                
-                <ul class="contact-details">
-                    <li><strong>📍 Adresa:</strong> mun. Chişinău, Durleşti, str. Decebal, 14</li>
-                    <li><strong>📞 Tel:</strong> <a href="tel:+373280048">+373 28-00-48</a></li>
-                    <li><strong>🏦 Banca:</strong> Moldova Agroindbank</li>
-                    <li><strong>💳 IBAN:</strong> <code>MD30AG000000022512741488</code></li>
-                    <li><strong>🆔 Cod fiscal:</strong> 1010600024969</li>
-                    <li><strong>📑 Cod TVA:</strong> 0506576</li>
-                </ul>
-            </div>
-        </div>
-        
     </div>
 </section>
+
+<!-- SECTION 3: BRANDS (Rămâne neschimbat) -->
 <section class="brands-section">
     <h3>Parteneri și Branduri de Încredere</h3>
     <div class="brands-grid">
-        <a href="https://www.castrol.com/" target="_blank" class="brand-item">
-    <img src="https://logonoid.com/images/thumbs/castrol-logo.png" alt="Castrol Logo">
-</a>
-        <a href="https://www.mann-filter.com/" target="_blank" class="brand-item">
-            <img src="https://logonoid.com/images/thumbs/mann-filter-logo.png" alt="Mann-Filter Logo">
-        </a>
-        <a href="https://www.ate-brakes.com/" target="_blank" class="brand-item">
-            <img src="https://logonoid.com/images/thumbs/ate-logo.png" alt="ATE Logo">
-        </a>
-        <a href="https://textar.com/ro/" target="_blank" class="brand-item">
-            <img src="https://logonoid.com/images/thumbs/textar-logo.jpg" alt="Textar Logo">
-        </a>
-        <a href="https://trwaftermarket.us/" target="_blank" class="brand-item">
-            <img src="https://logonoid.com/images/thumbs/trw-logo.png" alt="TRW Logo">
-        </a>
-        <a href="https://aftermarket.zf.com/en/aftermarket-portal/our-brands/lemfoerder/" target="_blank" class="brand-item">
-            <img src="https://logonoid.com/images/thumbs/lemforder-logo.jpg" alt="Lemforder Logo">
-        </a>
-        <a href="https://www.britpart.com/" target="_blank" class="brand-item">
-            <img src="images/britpart.jfif" alt="Britpart Logo">
-        </a>
-        <a href="https://www.dayco.com/" target="_blank" class="brand-item">
-            <img src="images/dayco.jpg" alt="Dayco Logo">
-        </a>
+        <a href="https://www.castrol.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/castrol-logo.png" alt="Castrol Logo"></a>
+        <a href="https://www.mann-filter.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/mann-filter-logo.png" alt="Mann-Filter Logo"></a>
+        <a href="https://www.ate-brakes.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/ate-logo.png" alt="ATE Logo"></a>
+        <a href="https://textar.com/ro/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/textar-logo.jpg" alt="Textar Logo"></a>
+        <a href="https://trwaftermarket.us/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/trw-logo.png" alt="TRW Logo"></a>
+        <a href="https://aftermarket.zf.com/en/aftermarket-portal/our-brands/lemfoerder/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/lemforder-logo.jpg" alt="Lemforder Logo"></a>
+        <a href="https://www.britpart.com/" target="_blank" class="brand-item"><img src="images/britpart.jfif" alt="Britpart Logo"></a>
+        <a href="https://www.dayco.com/" target="_blank" class="brand-item"><img src="images/dayco.jpg" alt="Dayco Logo"></a>
     </div>
 </section>
-  <!-- FLOATING CONTACT -->
-  <div class="floating-contact">
-    <a href="viber://chat?number=%2B37360400400" class="contact-btn viber">
-      <img src="images/viber.png" alt="Viber">
-    </a>
-    <a href="https://wa.me/37360400400" class="contact-btn whatsapp">
-      <img src="images/whatsapp.gif" alt="WhatsApp">
-    </a>
-  </div>
 
-  <footer>
-  <div class="container" style="text-align: center; padding: 20px 0;">
-    <p><strong>SRL „SEROM AUTO GRUP”</strong> | IDNO: 1010600024969</p>
-    
-    <p style="margin-top: 10px;">
-      <a href="confidentialitate.html" style="color: #00ff85; text-decoration: none; font-size: 14px;">Politica de Confidențialitate</a> | 
-      <a href="termeni.html" style="color: #00ff85; text-decoration: none; font-size: 14px; margin-left: 10px;">Termeni și Condiții</a>
-    </p>
+<!-- FLOATING CONTACT (Rămâne neschimbat) -->
+<div class="floating-contact">
+    <a href="viber://chat?number=%2B37360400400" class="contact-btn viber"><img src="images/viber.png" alt="Viber"></a>
+    <a href="https://wa.me/37360400400" class="contact-btn whatsapp"><img src="images/whatsapp.gif" alt="WhatsApp"></a>
+</div>
 
-    <p style="margin-top: 15px; font-size: 13px; color: #888;">
-      &copy; <span id="year"></span> LR-SERVICE Chișinău. Toate drepturile rezervate.
-    </p>
+<!-- FOOTER: Aici am adunat toate datele juridice și conturile -->
+<footer style="background: #111; color: #ccc; padding: 40px 0; border-top: 1px solid #222;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin-bottom: 30px;">
+        
+        <!-- Info Locație Fizică (Pentru clienți) -->
+        <div>
+            <h4 style="color: #fff; border-bottom: 2px solid #00ff85; display: inline-block; padding-bottom: 5px;">LR-SERVICE CHIȘINĂU</h4>
+            <p style="margin-top: 15px;">📍 Sociteni, Ialoveni (Traseul Chișinău-Hîncești)</p>
+            <p>📞 <a href="tel:+37360400400" style="color: #00ff85; text-decoration: none; font-weight: bold;">+373 60 400 400</a></p>
+            <p>⏰ Luni-Vineri: 09:00 - 18:00</p>
+        </div>
+
+        <!-- Info Juridice (Pentru bănci/Google) -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">DATE COMPANIE</h4>
+            <p><strong>SRL „SEROM AUTO GRUP”</strong></p>
+            <p>IDNO / Cod Fiscal: 1010600024969</p>
+            <p>Adresa juridică: mun. Chişinău, Durleşti, str. Decebal, 14</p>
+            <p>Cod TVA: 0506576</p>
+        </div>
+
+        <!-- Info Bancare -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">CONT BANCAR</h4>
+            <p>Banca: Moldova Agroindbank</p>
+            <p>IBAN: <code>MD30AG000000022512741488</code></p>
+        </div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 20px;">
+
+    <div style="text-align: center;">
+        <p>
+          <a href="confidentialitate.html" style="color: #666; text-decoration: none; font-size: 13px;">Politica de Confidențialitate</a> | 
+          <a href="termeni.html" style="color: #666; text-decoration: none; font-size: 13px; margin-left: 10px;">Termeni și Condiții</a>
+        </p>
+        <p style="margin-top: 15px; font-size: 12px; color: #555;">
+          &copy; <span id="year"></span> LR-SERVICE Chișinău. Toate drepturile rezervate.
+        </p>
+    </div>
   </div>
 </footer>
- <script src="script.js"></script>
+
+<script src="script.js"></script>
 
 </body>
 </html>

@@ -67,19 +67,38 @@
 
     <div id="view-selector" class="content-section active">
         <h1 style="text-align:center; font-weight:900; text-transform:uppercase; margin-bottom:40px;">Gama <span>Land Rover Freelander</span></h1>
-        <div class="grid-layout">
+        <div class="grid-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box;">
            
-            <div class="card" onclick="showSection('freelander-l359-old')">
-                <img src="images/lr-freelander-2006-2010.png">
-                <h3>Freelander 2 (L359)</h3>
-                <p>2006 — 2010</p>
-            </div>
-            <div class="card" onclick="showSection('freelander-l359-new')">
-                <img src="images/lr-freelander-2011-2015.png">
-                <h3>Freelander 2 (L359)</h3>
-                <p>2011 — 2015</p>
-            </div>
+            <div onclick="showSection('freelander-l359-old')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-freelander-2006-2010.png" alt="Freelander 2 (L359)" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Freelander 2 (L359)</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2006 – 2010</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
         </div>
+    </div>
+
+            <div onclick="showSection('freelander-l359-new')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-freelander-2011-2015.png" alt="Freelander 2 (L359)" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Freelander 2 (L359)</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2011 – 2015</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+       </div>
+    </div>
     </div>
 
     <div id="freelander-l314" class="content-section">
@@ -313,7 +332,27 @@
     </div>
 
 </div>
-
+<section class="info-section" style="margin-top: 80px; padding: 60px; background: white; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.03);">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-weight: 900; text-transform: uppercase; color: var(--dark); font-size: 28px; margin-bottom: 20px;">
+            Ce este <span style="color: var(--neon);">Chip Tuning-ul?</span>
+        </h2>
+        <p style="line-height: 1.8; color: #555; font-size: 16px;">
+            Chip tuning-ul reprezintă optimizarea software-ului unității de control a motorului (ECU) pentru a debloca potențialul ascuns al vehiculului tău. Producătorii limitează adesea puterea motoarelor din motive de marketing sau pentru a respecta diverse norme globale, însă noi ajustăm acești parametri pentru o experiență de condus superioară.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+            <div style="border-left: 4px solid var(--neon); padding-left: 20px;">
+                <h4 style="margin: 0; text-transform: uppercase; font-weight: 800;">Putere & Cuplu</h4>
+                <p style="font-size: 14px; color: #777;">Creștere de până la 30% a puterii motorului pentru depășiri mai sigure și un răspuns instantaneu al accelerației.</p>
+            </div>
+            <div style="border-left: 4px solid var(--neon); padding-left: 20px;">
+                <h4 style="margin: 0; text-transform: uppercase; font-weight: 800;">Eficiență Consum</h4>
+                <p style="font-size: 14px; color: #777;">Prin optimizarea cuplului la turații joase, motorul lucrează mai relaxat, scăzând consumul de carburant în regim de croazieră.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <script src="script.js"></script>
 <!-- BUTOANE CONTACT ROTUNDE (CORECTARE FUNDAL PĂTRAT) -->
 <div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
@@ -329,5 +368,163 @@
     </a>
 
 </div>
+<style>
+    /* 1. Secțiunea Programare (Fundal Deschis) */
+    .booking-section { background: #fdfdfd; color: #1a1a1a; padding: 70px 0; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid #eee; }
+    .booking-wrapper { display: flex; flex-wrap: wrap; gap: 50px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;}
+    
+    .booking-info, .booking-form-container { flex: 1; min-width: 320px; }
+    
+    .booking-info h2 { color: #1a1a1a; text-transform: uppercase; font-weight: 900; font-size: 32px; margin-bottom: 25px; letter-spacing: 1px; }
+    .booking-info p { color: #555; line-height: 1.7; margin-bottom: 35px; font-size: 15px; }
+    .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; }
+    .contact-item span { font-size: 20px; opacity: 0.8; }
+    .contact-item p { margin: 0; color: #333; }
+    .contact-item a { color: #00bf63; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* 2. Formularul (Stil Prima Pagină) */
+    .booking-form { display: flex; flex-direction: column; gap: 18px; background: #fff; padding: 35px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+    .booking-form input, .booking-form select, .booking-form textarea { 
+        width: 100%; padding: 14px 18px; background: #f9f9f9; border: 1px solid #ddd; color: #333; border-radius: 6px; font-family: inherit; font-size: 14px; box-sizing: border-box; transition: 0.3s;
+    }
+    .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: #00ff85; background: #fff; outline: none; box-shadow: 0 0 10px rgba(0,255,133,0.1); }
+    .form-row { display: flex; gap: 12px; }
+    
+    .btn-submit { 
+        background: #00ff85; color: #000; padding: 16px; border: none; border-radius: 6px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; font-size: 13px; letter-spacing: 1px; margin-top: 10px;
+    }
+    .btn-submit:hover { background: #00cc6a; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,204,106,0.2); }
+
+    /* 3. Harta */
+    .map-section { background: #fdfdfd; padding: 50px 0 70px 0; border-bottom: 1px solid #eee; }
+    .map-box { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
+    .nav-links { display: flex; justify-content: center; gap: 15px; padding: 15px; background: #f9f9f9; border-bottom: 1px solid #eee; }
+    .map-btn { padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+    .g-maps { background: #4285F4; color: #fff; }
+    .w-waze { background: #33CCFF; color: #fff; }
+    .map-btn:hover { opacity: 0.9; transform: scale(1.03); }
+
+    /* 4. Branduri (Stil din poze: Mici, Gri -> Color, Zoom) */
+    .brands-section { background: #fff; padding: 60px 0; }
+    .brands-section h3 { text-align: center; color: #777; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; font-family: 'Montserrat', sans-serif;}
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    .brand-item { display: flex; justify-content: center; align-items: center; text-decoration: none; height: 60px; }
+    .brand-item img { max-width: 100px; max-height: 50px; width: auto; height: auto; transition: all 0.4s ease; filter: grayscale(1); opacity: 0.6; }
+    
+    /* Efectul de Zoom și Color la Hover */
+    .brand-item:hover img { filter: grayscale(0); opacity: 1; transform: scale(1.15); }
+
+    /* 5. Footer (Stil din poze: Negru, 3 coloane) */
+    footer { background: #000; color: #777; padding: 60px 20px; font-family: 'Montserrat', sans-serif; border-top: 1px solid #222; }
+    footer h4 { color: #999; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; font-weight: 800; margin-bottom: 20px; }
+    footer p { margin: 0 0 10px 0; font-size: 13px; line-height: 1.6; }
+    footer code { background: #1a1a1a; padding: 3px 6px; border-radius: 3px; color: #aaa; }
+    footer .legal-links { text-align: center; margin-top: 50px; border-top: 1px solid #1a1a1a; padding-top: 25px; font-size: 12px; }
+    footer .legal-links a { color: #555; text-decoration: none; margin: 0 8px; transition: 0.3s; }
+    footer .legal-links a:hover { color: #00bf63; }
+</style>
+
+<section class="booking-section" id="contact">
+    <div class="booking-wrapper">
+        <div class="booking-info">
+            <h2>Programare Rapidă</h2>
+            <p>Completează formularul și te contactăm în cel mai scurt timp pentru confirmare.</p>
+            <div class="contact-item"><span>📍</span><p>Sociteni, Ialoveni (Vedeți harta mai jos)</p></div>
+            <div class="contact-item"><span>📞</span><p><a href="tel:+37360400400">+373 60 400 400</a></p></div>
+            <div class="contact-item"><span>⏰</span><p>Luni - Vineri: 09:00 - 18:00</p></div>
+        </div>
+
+        <div class="booking-form-container">
+            <form class="booking-form" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="Numele tău" required>
+                <input type="tel" placeholder="Număr de Telefon" required>
+                <div class="form-row">
+                    <input type="text" placeholder="Model Land Rover" required>
+                    <input type="number" placeholder="An" min="1990" max="2027">
+                </div>
+                <div class="form-row">
+                    <input type="date" required>
+                    <select required>
+                        <option value="" disabled selected>Alege ora</option>
+                        <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+                    </select>
+                </div>
+                <textarea placeholder="Mesajul tău..." rows="3"></textarea>
+                <button type="submit" class="btn-submit">Trimite Programarea</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="map-box">
+            <div class="nav-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps">GOOGLE MAPS</a>
+                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze">WAZE</a>
+            </div>
+            <iframe src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ro&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="brands-section">
+    <h3>Parteneri și Branduri de Încredere</h3>
+    <div class="brands-grid">
+        <a href="https://www.castrol.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/castrol-logo.png" alt="Castrol Logo"></a>
+        <a href="https://www.mann-filter.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/mann-filter-logo.png" alt="Mann-Filter Logo"></a>
+        <a href="https://www.ate-brakes.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/ate-logo.png" alt="ATE Logo"></a>
+        <a href="https://textar.com/ro/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/textar-logo.jpg" alt="Textar Logo"></a>
+        <a href="https://trwaftermarket.us/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/trw-logo.png" alt="TRW Logo"></a>
+        <a href="https://aftermarket.zf.com/en/aftermarket-portal/our-brands/lemfoerder/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/lemforder-logo.jpg" alt="Lemforder Logo"></a>
+        <a href="https://www.britpart.com/" target="_blank" class="brand-item"><img src="images/britpart.jfif" alt="Britpart Logo"></a>
+        <a href="https://www.dayco.com/" target="_blank" class="brand-item"><img src="images/dayco.jpg" alt="Dayco Logo"></a>
+    </div>
+</section>
+
+<footer style="background: #111; color: #ccc; padding: 40px 0; border-top: 1px solid #222;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin-bottom: 30px;">
+        
+        <!-- Info Locație Fizică (Pentru clienți) -->
+        <div>
+            <h4 style="color: #fff; border-bottom: 2px solid #00ff85; display: inline-block; padding-bottom: 5px;">LR-SERVICE CHIȘINĂU</h4>
+            <p style="margin-top: 15px;">📍 Sociteni, Ialoveni (Traseul Chișinău-Hîncești)</p>
+            <p>📞 <a href="tel:+37360400400" style="color: #00ff85; text-decoration: none; font-weight: bold;">+373 60 400 400</a></p>
+            <p>⏰ Luni-Vineri: 09:00 - 18:00</p>
+        </div>
+
+        <!-- Info Juridice (Pentru bănci/Google) -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">DATE COMPANIE</h4>
+            <p><strong>SRL „SEROM AUTO GRUP”</strong></p>
+            <p>IDNO / Cod Fiscal: 1010600024969</p>
+            <p>Adresa juridică: mun. Chişinău, Durleşti, str. Decebal, 14</p>
+            <p>Cod TVA: 0506576</p>
+        </div>
+
+        <!-- Info Bancare -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">CONT BANCAR</h4>
+            <p>Banca: Moldova Agroindbank</p>
+            <p>IBAN: <code>MD30AG000000022512741488</code></p>
+        </div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 20px;">
+
+    <div style="text-align: center;">
+        <p>
+          <a href="confidentialitate.html" style="color: #00ff85; text-decoration: none; font-size: 13px;">Politica de Confidențialitate</a> | 
+          <a href="termeni.html" style="color: #00ff85; text-decoration: none; font-size: 13px; margin-left: 10px;">Termeni și Condiții</a>
+        </p>
+        <p style="margin-top: 15px; font-size: 12px; color: #555;">
+          &copy; <span id="year"></span> LR-SERVICE Chișinău. Toate drepturile rezervate.
+        </p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

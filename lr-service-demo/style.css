@@ -1560,3 +1560,26 @@ body {
     background: #000;
     color: #00ff85;
 }
+/* Efect de pulsare pentru butonul de Chip Tuning */
+a[href="chip-tuning.html"] {
+    box-shadow: 0 0 5px rgba(0, 255, 133, 0.2);
+    display: inline-block;
+}
+
+a[href="chip-tuning.html"]:hover {
+    background-color: #00ff85;
+    color: #000 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 133, 0.6);
+    transform: translateY(-2px);
+}
+/* Elimină linia de sub butonul de Chip Tuning la hover */
+ul li a.nav-chip-tuning::after, 
+ul li a.nav-chip-tuning::before {
+    display: none !important;
+    content: none !important;
+}
+
+ul li a.nav-chip-tuning:hover {
+    text-decoration: none !important;
+    border-bottom: 1px solid #00ff85 !important; /* Asta păstrează chenarul tău, nu linia de dedesubt */
+}
