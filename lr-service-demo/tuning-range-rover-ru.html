@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Чип-тюнинг Range Rover | LR-SERVICE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --neon: #00ff85; --text: #1a1a1a; --border: #eeeeee; --bg-gray: #f8f9fa; }
+        body { background: #fff; color: var(--text); font-family: 'Montserrat', sans-serif; margin: 0; padding-bottom: 80px; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .page-header { border-bottom: 1px solid var(--border); padding: 20px 0; margin-bottom: 40px; }
+        .breadcrumb { font-size: 13px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .breadcrumb a { color: var(--neon); text-decoration: none; font-weight: 700; cursor: pointer; }
+        .breadcrumb span { margin: 0 10px; color: #ddd; }
+
+        .content-section { display: none; animation: fadeIn 0.4s ease; }
+        .content-section.active { display: block; }
+
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card { border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; transition: 0.3s; cursor: pointer; background: #fff; }
+        .card:hover { border-color: var(--neon); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; max-height: 100px; object-fit: contain; }
+
+        .description-box { background: var(--bg-gray); padding: 40px; border-radius: 15px; border-left: 8px solid var(--neon); margin-bottom: 50px; font-size: 15px; color: #333; text-align: left; }
+        .description-box h2 { margin-top: 0; font-weight: 900; text-transform: uppercase; font-size: 24px; color: #000; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+
+        .section-label { font-weight: 900; text-transform: uppercase; font-size: 12px; color: #bbb; margin: 50px 0 20px; letter-spacing: 2px; text-align: center; }
+        .engine-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #fff; margin-bottom: 35px; }
+        .engine-header { background: #1a1a1a; color: #fff; padding: 18px 25px; font-weight: 800; font-size: 14px; text-transform: uppercase; display: flex; justify-content: space-between; }
+        
+        .service-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 25px; border-bottom: 1px solid #f1f1f1; flex-wrap: wrap; gap: 15px; }
+        .service-row:last-child { border-bottom: none; }
+        .service-name { font-weight: 700; font-size: 15px; color: #000; }
+        
+        .stats-row { display: flex; gap: 8px; margin-top: 5px; }
+        .stat-pill { font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 50px; display: inline-flex; align-items: center; gap: 5px; }
+        .stat-pill.power { background: #e6fff3; color: #00a859; }
+        .stat-pill.torque { background: #fff4e6; color: #d97706; }
+        .stat-pill.time { background: #f0f7ff; color: #0070f3; }
+
+        .service-price { font-weight: 900; font-size: 18px; color: #000; min-width: 130px; text-align: right; }
+        .back-btn { display: inline-block; margin: 40px 0; padding: 12px 25px; border: 2px solid #000; border-radius: 5px; text-decoration: none; color: #000; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body style="padding-top: 50px;">
+
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 9999;">
+    <a href="chip-tuning-ru.html" style="display: block; text-decoration: none;">
+        <img src="images/logo.svg" alt="LR SERVICE" style="width: 140px; height: auto; filter: drop-shadow(0 0 15px rgba(255,255,255,0.8));">
+    </a>
+</div>
+<header class="page-header">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="ru.html">Главная</a> <span>/</span> <a href="chip-tuning-ru.html">Модели</a> <span>/</span> <span style="font-weight: 800;">Range Rover</span>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div id="view-selector" class="content-section active">
+        <h1 style="text-align:center; font-weight:900; text-transform:uppercase; margin-bottom:40px;">Гамма <span>Range Rover</span></h1>
+        <div class="grid-layout" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto; box-sizing: border-box;">
+            <div onclick="showSection('rr-l322-old')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-range-2006-2009.png" alt="Range Rover L322" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Range Rover L322</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2006 – 2009</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+    </div>
+
+            <div onclick="showSection('rr-l322-new')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-range-2010-2012.png" alt="Range Rover L322" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Range Rover L322</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2010 – 2012</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+    </div>
+
+            <div onclick="showSection('rr-l405-old')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-range-2013-2017.png" alt="Range Rover L405" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Range Rover L405</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2013 – 2017</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+    </div>
+
+            <div onclick="showSection('rr-l405-new')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-range-2018-2022.png" alt="Range Rover L405" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Range Rover L405</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2018 – 2022</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+    </div>
+
+            <div onclick="showSection('rr-l460')" 
+         style="cursor: pointer; position: relative; border-radius: 12px; overflow: hidden; border: 3px solid transparent; transition: all 0.4s ease; background-color: #000; height: 210px;"
+         onmouseover="this.style.borderColor='#00ff85'; this.style.transform='translateY(-5px)'; this.querySelector('img').style.transform='scale(1.1)';" 
+         onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'; this.querySelector('img').style.transform='scale(1)';"
+    >
+        <img src="images/lr-range-2023-+.png" alt="Range Rover L460" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; opacity: 0.8; display: block;">
+        
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 12px 15px; background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 70%, transparent 100%); display: flex; align-items: baseline; justify-content: flex-start; gap: 10px; box-sizing: border-box; line-height: normal;">
+            <h3 style="color: #fff; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 900; margin: 0; text-transform: uppercase;">Range Rover L460</h3>
+            <p style="color: #00ff85; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; margin: 0;">2023 – наст. время</p>
+            <span style="color: #00ff85; margin-left: auto; font-weight: bold;">→</span>
+        </div>
+       </div>
+     </div>
+    </div>
+
+    <div id="rr-l322-old" class="content-section">
+        <div class="description-box">
+            <img src="images/lr-range-2006-2009.png" alt="Range Rover L322 2006-2009" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Особенности программной оптимизации: Range Rover L322 (2006-2009)</h2>
+            <p>Чип-тюнинг для Range Rover L322 является идеальным техническим решением для раскрытия нативного потенциала двигателя путем оптимизации параметров блока управления (ECU). В <b>LR-SERVICE</b> мы не используем «шаблонные» файлы; каждая перекалибровка выполняется индивидуально, адаптируясь к техническому состоянию вашего двигателя.</p>
+            <p><b>Основные эффекты программной настройки:</b><br>
+            • <b>Динамика:</b> Безопасное увеличение мощности и крутящего момента на <b>20-25%</b>.<br>
+            • <b>Эффективность:</b> Снижение расхода топлива одновременно с улучшением динамики ускорения.<br>
+            • <b>Линейность:</b> Устранение «провалов» (турбо-лага) и заминок на определенных оборотах.<br>
+            • <b>Синхронизация:</b> Оптимизация режимов работы между двигателем и трансмиссией.<br>
+            • <b>Производительность:</b> Снятие электронных ограничений максимальной скорости.</p>
+            <p>Процесс направлен на тонкую настройку углов опережения, времени впрыска и фаз газораспределения, при этом всё выполняется в полной безопасности. Каждое вмешательство предваряется детальной диагностикой и завершается компьютерной валидацией параметров после установки.</p>
+        </div>
+        <div class="section-label">Дизельные двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель 3.6 TDV8 272 л.с. / 640 Нм</span><span>Дизель</span></div>
+            <div class="service-row">
+                <span class="service-name">Отключение EGR и DPF</span>
+                <div class="service-price">3.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 310 л.с. и 740 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +38 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +100 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.5с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 330 л.с. и 760 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +58 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +120 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.1с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">Бензиновые двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-8 4.4L 299 л.с. / 425 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение EGR</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение муфт VVTi</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 320 л.с. и 455 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +21 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +30 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">4.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 335 л.с. и 470 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +36 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +45 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.1с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.200 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель 4.2 SC 390 л.с. / 550 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 410 л.с. и 570 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +20 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +20 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.5с</span>
+                    </div>
+                </div>
+                <div class="service-price">4.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 420 л.с. и 590 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +30 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +40 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.2с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST2 до 450 л.с. и 650 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +60 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +100 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">ПО & Трансмиссия</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>ПО коробки передач и активация опций</span><span>Программное обеспечение</span></div>
+            <div class="service-row"><span class="service-name">Чип-тюнинг / Перепрошивка АКПП ZF 6HP</span><div class="service-price">6.000 MDL</div></div>
+        </div>
+        <a onclick="goBack()" class="back-btn">← Назад к поколениям</a>
+    </div>
+
+    <div id="rr-l322-new" class="content-section">
+        <div class="description-box">
+            <img src="images/lr-range-2010-2012.png" alt="Range Rover L322 2010-2012" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Особенности программной оптимизации: Range Rover L322 (2010-2012)</h2>
+            <p>Чип-тюнинг для Range Rover L322 Facelift представляет собой оптимальное решение для повышения производительности автомобиля путем продвинутой калибровки блока управления двигателем (ECU). В <b>LR-SERVICE</b> процесс индивидуализирован: мы не используем общие файлы, а адаптируем ПО в зависимости от технического состояния двигателя и рекомендаций наших специалистов после начальной диагностики.</p>
+            <p><b>Основные преимущества программной настройки:</b><br>
+            • <b>Эффективность:</b> Снижение расхода топлива одновременно с улучшением динамики при ускорении.<br>
+            • <b>Рафинированность:</b> Устранение «провалов» и задержек в подаче мощности на определенных оборотах.<br>
+            • <b>Синхронизация:</b> Оптимизация режимов работы двигателя и трансмиссии.<br>
+            • <b>Мощность:</b> Увеличение параметров двигателя на <b>20-25%</b>.<br>
+            • <b>Свобода:</b> Снятие электронных ограничений максимальной скорости.</p>
+            <p>Вмешательство предполагает изменение параметров зажигания, времени впрыска и фаз газораспределения, при этом всё выполняется в полной безопасности для ресурса двигателя. После установки автомобиль проходит строгую компьютерную проверку для обеспечения безупречной работы.</p>
+        </div>
+        <div class="section-label">Дизельные двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель 3.6 TDV8 272 л.с. / 640 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR и DPF</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 310 л.с. и 740 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +38 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +100 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.5с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 330 л.с. и 760 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +58 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +120 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.1с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель 4.4 TDV8 313 л.с. / 700 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">3.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 353 л.с. и 800 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +40 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +100 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 390 л.с. и 840 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +77 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">Бензиновые двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-8 4.4L, 299 л.с./ 425 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 400 л.с. и 545 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +25 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +35 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-133 5.0 SC   510 л.с./ 625 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 560 л.с. и 680 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +50 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +55 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.7с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 580 л.с. и 710 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +70 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +85 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.2с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST2 до 610 л.с. и 800 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +100 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +175 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">7.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">ПО & Трансмиссия</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>ПО коробки передач и активация опций</span><span>Программное обеспечение</span></div>
+            <div class="service-row"><span>Активация двойного запирания (Superlock)</span><div class="service-price">2.000 MDL</div></div>
+            <div class="service-row"><span>Отключение блокировки заднего дифференциала (Модуль RDCM)</span><div class="service-price">2.300 MDL</div></div>
+            <div class="service-row"><span>Установка русского языка в меню / навигацию (MY 2009-2012)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span>Отключение датчиков давления в шинах (TPMS)</span><div class="service-price">2.300 MDL</div></div>
+            <div class="service-row"><span>Активация цифрового спидометра</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span>Активация дневных ходовых огней (Daytime Running Lights)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row"><span>Обновление модулей автомобиля</span><div class="service-price">1.500 MDL</div></div>
+            <div class="service-row"><span>Установка адаптивного круиз-контроля (ACC)</span><div class="service-price">16.000 MDL</div></div>
+            <div class="service-row"><span>Активация / Установка ассистента дальнего света (AHB)</span><div class="service-price">6.500 MDL</div></div>
+            <div class="service-row"><span>Активация систем помощи водителю (Drive Assistance)</span><div class="service-price">5.800 MDL</div></div>
+            <div class="service-row"><span>Индивидуальная настройка салонного освещения</span><div class="service-price">8.500 MDL</div></div>
+            <div class="service-row"><span>Чип-тюнинг / Перепрошивка АКПП ZF 6HP</span><div class="service-price">5.500 MDL</div></div>
+            <div class="service-row"><span>Чип-тюнинг / Перепрошивка АКПП ZF 8HP</span><div class="service-price">6.500 MDL</div></div>
+        </div>
+        <a onclick="goBack()" class="back-btn">← Назад к поколениям</a>
+    </div>
+
+    <div id="rr-l405-old" class="content-section">
+        <div class="description-box">
+            <img src="images/lr-range-2013-2017.png" alt="Range Rover L405 2013-2017" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Особенности программной оптимизации: Range Rover (L405) 2013-2017</h2>
+            <p>Чип-тюнинг для Range Rover (L405) 2013-2017 представляет собой безопасный и эффективный метод повышения мощности автомобиля путем оптимизации параметров блока управления двигателем (ECU). В <b>LR-SERVICE</b> мы устанавливаем индивидуальные программы, адаптированные к состоянию каждого двигателя, после полной электронной диагностики.</p>
+            <p><b>Основные эффекты программной настройки:</b><br>
+            • <b>Динамика:</b> Увеличение мощности двигателя на 20-25%.<br>
+            • <b>Эффективность:</b> Снижение расхода одновременно с ростом динамики разгона.<br>
+            • <b>Линейность:</b> Устранение «провалов» и программных задержек (lag) на определенных оборотах.<br>
+            • <b>Синхронизация:</b> Оптимизация режимов работы между двигателем и трансмиссией.<br>
+            • <b>Скорость:</b> Снятие электронных ограничений максимальной скорости.</p>
+        </div>
+        <div class="section-label">Дизельные двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель SDV6 3.0L 249 л.с. / 600 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 292 л.с. и 690 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +41 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +90 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 330 л.с. и 740 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +81 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.800 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель SDV6 3.0L 306 л.с. / 600 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 340 л.с. и 740 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +34 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель 4.4 SDV8 339 л.с. / 700 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 400 л.с. и 840 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +61 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">Бензиновые двигатели</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-133 3.0 SC, 340 л.с./ 450 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">2.500 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 400 л.с. и 500 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +60 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-133 5.0 SC, 510 л.с./ 625 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 555 л.с. и 680 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +45 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +55 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.7с</span>
+                    </div>
+                </div>
+                <div class="service-price">5.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 590 л.с. и 720 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +80 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +95 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST2 до 610 л.с. и 800 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +100 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +175 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">7.500 MDL</div>
+            </div>
+        </div>
+        <div class="section-label">ПО & Активации</div>
+        <div class="engine-box">
+            <div class="engine-header"><span>Программные конфигурации и апгрейды</span><span>Системы</span></div>
+            <div class="service-row"><span>Активация двойного запирания (Superlock)</span><div class="service-price">1.000 MDL</div></div>
+            <div class="service-row"><span>Активация видео в движении (Video in Motion - VIM)</span><div class="service-price">2.300 MDL</div></div>
+            <div class="service-row"><span>inControl Apps & CarPlay (с 2017MY)</span><div class="service-price">2.300 MDL</div></div>
+            <div class="service-row"><span>Персонализация графики приборной панели</span><div class="service-price">2.000 MDL</div></div>
+            <div class="service-row"><span>Активация режима вождения „Dynamic”</span><div class="service-price">2.300 MDL</div></div>
+            <div class="service-row"><span>Активация пакета Drive Assistance (AEB, AHB, LDW/LKA/TSR)</span><div class="service-price">5.500 MDL</div></div>
+            <div class="service-row"><span>Обновление модулей автомобиля</span><div class="service-price">от 1.000 MDL</div></div>
+            <div class="service-row"><span>Установка адаптивного круиз-контроля (ACC)</span><div class="service-price">20.000 MDL</div></div>
+            <div class="service-row"><span>Установка зеркала заднего вида для пакета Drive Assistance</span><div class="service-price">29.000 MDL</div></div>
+            <div class="service-row"><span>Индивидуальная настройка салонного освещения</span><div class="service-price">6.500 MDL</div></div>
+            <div class="service-row"><span>Установка системы мультимедиа Android 10"</span><div class="service-price">23.000 MDL</div></div>
+            <div class="service-row"><span>Чип-тюнинг / Перепрошивка АКПП ZF 8HP</span><div class="service-price">6.000 MDL</div></div>
+        </div>
+        <a onclick="goBack()" class="back-btn">← Назад к поколениям</a>
+    </div>
+
+    <div id="rr-l405-new" class="content-section">
+        
+        <div class="description-box">
+            <img src="images/lr-range-2018-2022.png" alt="Range Rover L405 2018-2022" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Особенности программной оптимизации: Range Rover (L405) 2018-2022</h2>
+            <p>Чип-тюнинг для Range Rover (L405) рестайлинг представляет собой безопасный и эффективный метод повышения мощности автомобиля путем оптимизации параметров блока управления двигателем (ECU). В <b>LR-SERVICE</b> мы устанавливаем индивидуальные программы, адаптированные к состоянию каждого двигателя, после полной электронной диагностики.</p>
+            
+            <p><b>Основные эффекты программной перенастройки:</b><br>
+            • <b>Динамика:</b> Увеличение производительности двигателя на 20-25%.<br>
+            • <b>Эффективность:</b> Снижение расхода топлива одновременно с ростом динамики разгона.<br>
+            • <b>Линейность:</b> Устранение «провалов» и программных задержек на определенных оборотах.<br>
+            • <b>Синхронизация:</b> Оптимизация режимов работы между двигателем и трансмиссией.<br>
+            • <b>Скорость:</b> Снятие электронных ограничений максимальной скорости.</p>
+        </div>
+
+        <div class="section-label">Дизельные двигатели</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель SDV6 3.0L 249 л.с. / 600 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">5.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 310 л.с. и 720 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +61 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +120 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.5с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.800 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель SDV6 3.0L 306 л.с. / 600 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">4.500 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 340 л.с. и 740 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +34 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">7.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель 4.4 SDV8 339 л.с. / 700 Нм</span><span>Дизель</span></div>
+            <div class="service-row"><span class="service-name">Отключение EGR & DPF & SCR</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row"><span class="service-name">Отключение системы Start & Stop</span><div class="service-price">3.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 400 л.с. и 840 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +61 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +140 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.8с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Бензиновые двигатели</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель AJ-133 3.0 SC, 340 л.с./ 450 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 400 л.с. и 500 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +60 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">8.500 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель  AJ-133 5.0 SC, 510 л.с./ 625 Нм</span><span>Бензин</span></div>
+            <div class="service-row"><span class="service-name">Аннулирование систем экологии (EURO2)</span><div class="service-price">4.000 MDL</div></div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1 до 555 л.с. и 680 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +45 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +55 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -0.7с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг ST1+ до 590 л.с. и 720 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +80 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +95 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">7.000 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Бензиновый двигатель  AJ-133 5.0 SC, 510 л.с./ 625 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +100 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +175 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -2.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">10.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">ПО & Активации</div>
+
+        <div class="engine-box">
+    <div class="engine-header"><span>Программные конфигурации и апгрейды</span><span>Системы</span></div>
+    <div class="service-row">
+        <span class="service-name">Чип-тюнинг / Перепрошивка АКПП ZF 8HP</span>
+        <div class="service-price">7.500 MDL</div>
+    </div>
+</div>
+        <a onclick="goBack()" class="back-btn">← Назад к поколениям</a>
+    </div>
+
+    <div id="rr-l460" class="content-section">
+        
+        <div class="description-box">
+            <img src="images/lr-range-2023-+.png" alt="Range Rover L460 2023+" style="width: 100%; max-height: 250px; object-fit: contain; margin-bottom: 20px;">
+            <h2>Особенности программной оптимизации: Range Rover (L460) 2023+</h2>
+            <p>Чип-тюнинг для нового Range Rover (L460) представляет собой наиболее эффективный метод повышения производительности двигателей последнего поколения путем перекалибровки ПО блока управления (ECU). В <b>LR-SERVICE</b> мы используем индивидуальные программные решения, разработанные профессиональными инженерами-калибровщиками, адаптированные к специфике каждого двигателя после полной диагностики.</p>
+            
+            <p><b>Основные эффекты оптимизации:</b><br>
+            • <b>Производительность:</b> Увеличение мощности и крутящего момента до 20-25%.<br>
+            • <b>Эффективность:</b> Оптимизация расхода топлива одновременно с улучшением отклика педали акселератора.<br>
+            • <b>Рафинированность:</b> Устранение программных задержек (lag) и повышение плавности переключения передач.<br>
+            • <b>Универсальность:</b> Настройка параметров впрыска, зажигания и ГРМ без ущерба для ресурса двигателя.<br>
+            • <b>Динамика:</b> Снятие электронных ограничений максимальной скорости.</p>
+            
+            <p>Процедура является неинвазивной и безопасной, сопровождается тщательным тестированием всех систем после установки для обеспечения максимальной надежности.</p>
+        </div>
+
+        <div class="section-label">Дизельные двигатели</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Дизельный двигатель i6 3.0L D250/300/350</span><span>Дизель</span></div>
+            <div class="service-row">
+                <span class="service-name">Отключение системы Start & Stop</span>
+                <div class="service-price">4.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг до 300 л.с. и 650 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +50 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">6.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг до 350 л.с. и 700 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +50/100 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50/100 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">8.800 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">Бензиновые двигатели</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель i6 3.0L P360/400</span><span>Бензин</span></div>
+            <div class="service-row">
+                <span class="service-name">Отключение системы Start & Stop</span>
+                <div class="service-price">4.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Чип-тюнинг до 400 л.с. и 500 Нм</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> +50 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> +50 Нм</span>
+                        <span class="stat-pill time"><i class="fa-solid fa-stopwatch"></i> -1.0с</span>
+                    </div>
+                </div>
+                <div class="service-price">8.800 MDL</div>
+            </div>
+        </div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>Бензиновый двигатель V8 4.4L P530 530 л.с.</span><span>Бензин</span></div>
+            <div class="service-row">
+                <span class="service-name">Отключение системы Start & Stop</span>
+                <div class="service-price">4.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <span class="service-name">Отключение сажевых фильтров (OPF Delete)</span>
+                <div class="service-price">10.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <div class="service-info">
+                    <span class="service-name">Увеличение мощности с 530 л.с. до 615 л.с.</span>
+                    <div class="stats-row">
+                        <span class="stat-pill power"><i class="fa-solid fa-bolt"></i> 0 л.с.</span>
+                        <span class="stat-pill torque"><i class="fa-solid fa-gauge"></i> 0 Нм</span>
+                    </div>
+                </div>
+                <div class="service-price">15.000 MDL</div>
+            </div>
+        </div>
+
+        <div class="section-label">ПО & Активации</div>
+
+        <div class="engine-box">
+            <div class="engine-header"><span>ПО коробки передач и активация опций</span><span>Системы</span></div>
+            <div class="service-row">
+                <span class="service-name">Установка датчиков давления в шинах (TPMS)</span>
+                <div class="service-price">8.500 MDL</div>
+            </div>
+            <div class="service-row">
+                <span class="service-name">Разблокировка контроллера пусковой батареи 12V (BMU Reset)</span>
+                <div class="service-price">8.500 MDL</div>
+            </div>
+           </div>
+
+        <a onclick="goBack()" class="back-btn">← Назад к поколениям</a>
+    </div>
+
+</div>
+<section class="info-section" style="margin-top: 80px; padding: 60px; background: white; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.03);">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-weight: 900; text-transform: uppercase; color: var(--dark); font-size: 28px; margin-bottom: 20px;">
+            Что такое <span style="color: var(--neon);">Чип-тюнинг?</span>
+        </h2>
+        <p style="line-height: 1.8; color: #555; font-size: 16px;">
+            Чип-тюнинг — это оптимизация программного обеспечения блока управления двигателем (ECU) для раскрытия скрытого потенциала вашего автомобиля. Производители часто ограничивают мощность двигателей из маркетинговых соображений или для соответствия различным глобальным нормам, но мы корректируем эти параметры для обеспечения превосходного опыта вождения.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+            <div style="border-left: 4px solid var(--neon); padding-left: 20px;">
+                <h4 style="margin: 0; text-transform: uppercase; font-weight: 800;">Мощность и Крутящий момент</h4>
+                <p style="font-size: 14px; color: #777;">Увеличение мощности двигателя до 30% для более безопасных обгонов и мгновенного отклика педали газа.</p>
+            </div>
+            <div style="border-left: 4px solid var(--neon); padding-left: 20px;">
+                <h4 style="margin: 0; text-transform: uppercase; font-weight: 800;">Эффективный расход</h4>
+                <p style="font-size: 14px; color: #777;">За счет оптимизации крутящего момента на низких оборотах двигатель работает спокойнее, снижая расход топлива в крейсерском режиме.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
+<div style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9999;">
+    
+    <a href="viber://chat?number=%2B37360400400" style="display: block;">
+        <img src="images/viber.png" alt="Viber" style="width: 55px; height: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+    </a>
+
+    <a href="https://wa.me/37360400400" target="_blank" style="display: block; width: 55px; height: 55px; border-radius: 50%; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        <img src="images/whatsapp.gif" alt="WhatsApp" style="width: 100%; height: 100%; object-fit: cover;">
+    </a>
+
+</div>
+<style>
+    .booking-section { background: #fdfdfd; color: #1a1a1a; padding: 70px 0; font-family: 'Montserrat', sans-serif; border-bottom: 1px solid #eee; }
+    .booking-wrapper { display: flex; flex-wrap: wrap; gap: 50px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; box-sizing: border-box;}
+    
+    .booking-info, .booking-form-container { flex: 1; min-width: 320px; }
+    
+    .booking-info h2 { color: #1a1a1a; text-transform: uppercase; font-weight: 900; font-size: 32px; margin-bottom: 25px; letter-spacing: 1px; }
+    .booking-info p { color: #555; line-height: 1.7; margin-bottom: 35px; font-size: 15px; }
+    .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; }
+    .contact-item span { font-size: 20px; opacity: 0.8; }
+    .contact-item p { margin: 0; color: #333; }
+    .contact-item a { color: #00bf63; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    .booking-form { display: flex; flex-direction: column; gap: 18px; background: #fff; padding: 35px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+    .booking-form input, .booking-form select, .booking-form textarea { 
+        width: 100%; padding: 14px 18px; background: #f9f9f9; border: 1px solid #ddd; color: #333; border-radius: 6px; font-family: inherit; font-size: 14px; box-sizing: border-box; transition: 0.3s;
+    }
+    .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: #00ff85; background: #fff; outline: none; box-shadow: 0 0 10px rgba(0,255,133,0.1); }
+    .form-row { display: flex; gap: 12px; }
+    
+    .btn-submit { 
+        background: #00ff85; color: #000; padding: 16px; border: none; border-radius: 6px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; font-size: 13px; letter-spacing: 1px; margin-top: 10px;
+    }
+    .btn-submit:hover { background: #00cc6a; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,204,106,0.2); }
+
+    .map-section { background: #fdfdfd; padding: 50px 0 70px 0; border-bottom: 1px solid #eee; }
+    .map-box { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
+    .nav-links { display: flex; justify-content: center; gap: 15px; padding: 15px; background: #f9f9f9; border-bottom: 1px solid #eee; }
+    .map-btn { padding: 12px 25px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s; }
+    .g-maps { background: #4285F4; color: #fff; }
+    .w-waze { background: #33CCFF; color: #fff; }
+    .map-btn:hover { opacity: 0.9; transform: scale(1.03); }
+
+    .brands-section { background: #fff; padding: 60px 0; }
+    .brands-section h3 { text-align: center; color: #777; font-weight: 700; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 40px; font-family: 'Montserrat', sans-serif;}
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 40px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    
+    .brand-item { display: flex; justify-content: center; align-items: center; text-decoration: none; height: 60px; }
+    .brand-item img { max-width: 100px; max-height: 50px; width: auto; height: auto; transition: all 0.4s ease; filter: grayscale(1); opacity: 0.6; }
+    
+    .brand-item:hover img { filter: grayscale(0); opacity: 1; transform: scale(1.15); }
+
+    footer { background: #000; color: #777; padding: 60px 20px; font-family: 'Montserrat', sans-serif; border-top: 1px solid #222; }
+    footer h4 { color: #999; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; font-weight: 800; margin-bottom: 20px; }
+    footer p { margin: 0 0 10px 0; font-size: 13px; line-height: 1.6; }
+    footer code { background: #1a1a1a; padding: 3px 6px; border-radius: 3px; color: #aaa; }
+    footer .legal-links { text-align: center; margin-top: 50px; border-top: 1px solid #1a1a1a; padding-top: 25px; font-size: 12px; }
+    footer .legal-links a { color: #555; text-decoration: none; margin: 0 8px; transition: 0.3s; }
+    footer .legal-links a:hover { color: #00bf63; }
+</style>
+
+<section class="booking-section" id="contact">
+    <div class="booking-wrapper">
+        <div class="booking-info">
+            <h2>Быстрая запись</h2>
+            <p>Заполните форму, и мы свяжемся с вами в кратчайшие сроки для подтверждения.</p>
+            <div class="contact-item"><span>📍</span><p>Сочитень, Яловень (Смотрите карту ниже)</p></div>
+            <div class="contact-item"><span>📞</span><p><a href="tel:+37360400400">+373 60 400 400</a></p></div>
+            <div class="contact-item"><span>⏰</span><p>Понедельник - Пятница: 09:00 - 18:00</p></div>
+        </div>
+
+        <div class="booking-form-container">
+            <form class="booking-form" onsubmit="event.preventDefault();">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Номер телефона" required>
+                <div class="form-row">
+                    <input type="text" placeholder="Модель Land Rover" required>
+                    <input type="number" placeholder="Год" min="1990" max="2027">
+                </div>
+                <div class="form-row">
+                    <input type="date" required>
+                    <select required>
+                        <option value="" disabled selected>Выберите время</option>
+                        <option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option>
+                    </select>
+                </div>
+                <textarea placeholder="Ваше сообщение..." rows="3"></textarea>
+                <button type="submit" class="btn-submit">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div class="map-box">
+            <div class="nav-links">
+                <a href="https://www.google.com/maps/search/?api=1&query=46.950405,28.718895" target="_blank" class="map-btn g-maps">GOOGLE MAPS</a>
+                <a href="https://waze.com/ul?ll=46.950405,28.718895&navigate=yes" target="_blank" class="map-btn w-waze">WAZE</a>
+            </div>
+            <iframe src="https://maps.google.com/maps?q=46.950405,28.718895&hl=ru&z=15&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<section class="brands-section">
+    <h3>Партнеры и Надежные Бренды</h3>
+    <div class="brands-grid">
+        <a href="https://www.castrol.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/castrol-logo.png" alt="Castrol Logo"></a>
+        <a href="https://www.mann-filter.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/mann-filter-logo.png" alt="Mann-Filter Logo"></a>
+        <a href="https://www.ate-brakes.com/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/ate-logo.png" alt="ATE Logo"></a>
+        <a href="https://textar.com/ro/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/textar-logo.jpg" alt="Textar Logo"></a>
+        <a href="https://trwaftermarket.us/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/trw-logo.png" alt="TRW Logo"></a>
+        <a href="https://aftermarket.zf.com/en/aftermarket-portal/our-brands/lemfoerder/" target="_blank" class="brand-item"><img src="https://logonoid.com/images/thumbs/lemforder-logo.jpg" alt="Lemforder Logo"></a>
+        <a href="https://www.britpart.com/" target="_blank" class="brand-item"><img src="images/britpart.jfif" alt="Britpart Logo"></a>
+        <a href="https://www.dayco.com/" target="_blank" class="brand-item"><img src="images/dayco.jpg" alt="Dayco Logo"></a>
+    </div>
+</section>
+
+<footer style="background: #111; color: #ccc; padding: 40px 0; border-top: 1px solid #222;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: left; margin-bottom: 30px;">
+        
+        <!-- Info Locație Fizică (Pentru clienți) -->
+        <div>
+            <h4 style="color: #fff; border-bottom: 2px solid #00ff85; display: inline-block; padding-bottom: 5px;">LR-SERVICE КИШИНЕВ</h4>
+            <p style="margin-top: 15px;">📍 Сочитень, Яловень (Трасса Кишинев-Хынчешты)</p>
+            <p>📞 <a href="tel:+37360400400" style="color: #00ff85; text-decoration: none; font-weight: bold;">+373 60 400 400</a></p>
+            <p>⏰ Понедельник-Пятница: 09:00 - 18:00</p>
+        </div>
+
+        <!-- Info Juridice (Pentru bănci/Google) -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">ДАННЫЕ КОМПАНИИ</h4>
+            <p><strong>SRL „SEROM AUTO GRUP”</strong></p>
+            <p>IDNO / Cod Fiscal: 1010600024969</p>
+            <p>Adresa juridică: mun. Chişinău, Durleşti, str. Decebal, 14</p>
+            <p>Cod TVA: 0506576</p>
+        </div>
+
+        <!-- Info Bancare -->
+        <div style="font-size: 13px;">
+            <h4 style="color: #888;">БАНКОВСКИЙ СЧЕТ</h4>
+            <p>Banca: Moldova Agroindbank</p>
+            <p>IBAN: <code>MD30AG000000022512741488</code></p>
+        </div>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 20px;">
+
+    <div style="text-align: center;">
+        <p>
+          <a href="confidentialitate.html" style="color: #00ff85; text-decoration: none; font-size: 13px;">Политика Конфиденциальности</a> | 
+          <a href="termeni.html" style="color: #00ff85; text-decoration: none; font-size: 13px; margin-left: 10px;">Термины и Условия</a>
+        </p>
+        <p style="margin-top: 15px; font-size: 12px; color: #555;">
+          &copy; <span id="year"></span> LR-SERVICE Chișinău. Все права защищены.
+        </p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
